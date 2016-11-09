@@ -9,7 +9,7 @@
  *
  * ---------------------------
  * Menu
- * Pause-Menu
+ * 
  * Handle / Manage CSS or HTML variables from JavaScript (Fullscreen,...)
  * ---------------------------
  *
@@ -28,18 +28,10 @@
  * https://www.browserstack.com/
  */
 var i = 0;
-
-var pause = false;
-var dead = false;
-
 var d = new Date();
-	
-var seconds;
-var scnd;
 
 var debug = true;
 
-// randomizer
 function random(min, max) {
     return Math.round(min + (Math.random() * (max - min)));
 }
@@ -51,7 +43,7 @@ function randomChoice(array) {
 
 //initialize Sketch Framework
 var InfinityRun = Sketch.create({
-    fullscreen: false,
+    fullscreen: true,
     width: 640,
     height: 360,
     container: document.getElementById('container')
@@ -137,12 +129,8 @@ Player.prototype.update = function() {
     // Gravity 
     this.velocityY += 1;
     this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
-
     if (this.y > InfinityRun.height || this.x + this.width < 0) {
-        pause = true;
-		dead = true;
-		if (!pause) {
-		this.x = 150;
+        this.x = 150;
         this.y = 50;
         this.velocityX = 0;
         this.velocityY = 0;
@@ -152,8 +140,6 @@ Player.prototype.update = function() {
         InfinityRun.scoreColor = '#181818';
         InfinityRun.platformManager.maxDistanceBetween = 350;
         InfinityRun.platformManager.updateWhenLose();
-		
-		}
     }
 
     if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
@@ -194,7 +180,7 @@ function PlatformManager() {
 
 	
 	//first 3 Platforms execept the Starter Platform
-    this.first = new Platform({
+    /*this.first = new Platform({
         x: 300,
         y: InfinityRun.width / 2,
         width: 400,
@@ -211,6 +197,26 @@ function PlatformManager() {
         y: random(this.second.y - 128, InfinityRun.height - 80),
         width: 400,
         height: 70
+    })*/
+	
+	//flat
+	this.first = new Platform({
+        x: 300,
+        y: 500,
+        width: 1000,
+        height: 70
+    })
+    this.second = new Platform({
+        x: (this.first.x + this.first.width),
+        y: 500,
+        width: 1000,
+        height: 70
+    })
+    this.third = new Platform({
+        x: (this.second.x + this.second.width),
+        y: 500,
+        width: 1000,
+        height: 70
     })
 
     this.first.height = this.first.y + InfinityRun.height;
@@ -225,7 +231,7 @@ function PlatformManager() {
     this.platforms = [this.first, this.second, this.third];
 }
 
-PlatformManager.prototype.update = function() {
+/*PlatformManager.prototype.update = function() {
 
     this.first.x -= 3 + InfinityRun.acceleration;
     if (this.first.x + this.first.width < 0) {
@@ -254,19 +260,50 @@ PlatformManager.prototype.update = function() {
         this.third.color = randomChoice(this.colors);
     }
 
+};*/
+
+PlatformManager.prototype.update = function() {
+
+    this.first.x -= 3 + InfinityRun.acceleration;
+    if (this.first.x + this.first.width < 0) {
+        this.first.width = 1000;
+        this.first.x = (this.third.x + this.third.width);
+        //this.first.y = random(this.third.y - 32, InfinityRun.height - 80);
+		this.first.y = 500;
+        this.first.height = this.first.y + InfinityRun.height + 10;
+        this.first.color = randomChoice(this.colors);
+    }
+
+    this.second.x -= 3 + InfinityRun.acceleration;
+    if (this.second.x + this.second.width < 0) {
+        this.second.width = 1000;
+        this.second.x = (this.first.x + this.first.width);
+        //this.second.y = random(this.first.y - 32, InfinityRun.height - 80);
+		this.second.y = 600;
+        this.second.height = this.second.y + InfinityRun.height + 10;
+        this.second.color = randomChoice(this.colors);
+    }
+
+    this.third.x -= 3 + InfinityRun.acceleration;
+    if (this.third.x + this.third.width < 0) {
+        this.third.width = 1000;
+        this.third.x = (this.second.x + this.second.width);
+        //this.third.y = random(this.second.y - 32, InfinityRun.height - 80);
+		this.third.y = 500;
+        this.third.height = this.third.y + InfinityRun.height + 10;
+        this.third.color = randomChoice(this.colors);
+    }
+
 };
-
-
-
 // reset / new Game: set Starting Platform Parameters
 PlatformManager.prototype.updateWhenLose = function() {
 
     this.first.x = 300;
     this.first.color = randomChoice(this.colors);
-    this.first.y = InfinityRun.width / random(2, 3);
-    this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
-    this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
-	pause = true;
+    this.first.y = 500;
+    this.second.x = (this.first.x + this.first.width);
+    this.third.x = (this.second.x + this.second.width);
+
 };
 
 // --------- Particle System --------- (Sketch Docs)
@@ -293,8 +330,10 @@ Particle.prototype.draw = function() {
 
 /************************************************/
 
+// Initialize default values
 InfinityRun.setup = function() {
 
+	this.distance = 0;
     this.jumpCount = 0;
     this.acceleration = 0;
     this.accelerationTweening = 0;
@@ -318,48 +357,28 @@ InfinityRun.setup = function() {
 };
 
 InfinityRun.update = function() {
-	
-	
-	seconds = d.getSeconds();
-	
-	/*if (scnd < seconds+2) {
-			pause = true;
-	}*/
-	
-	/*if (this.InfinityRun.keydown.ESCAPE && pause == false) {
-		pause = true;
-	} else {
-		pause = false;
-	}*/
-	
-	document.onkeydown = function(event) {
-		if (event.keyCode == 8 && pause == false) {
-			pause = true;
-		} else {
-		pause = false;
-		}
-	}
-	if (!pause) {
+
     this.player.update();
 
     switch (this.jumpCount) {
         case 10:
             this.accelerationTweening = 1;
             this.platformManager.maxDistanceBetween = 430;
-            //this.scoreColor = '#076C00';
+            this.scoreColor = '#076C00';
             break;
         case 25:
             this.accelerationTweening = 2;
             this.platformManager.maxDistanceBetween = 530;
-            //this.scoreColor = '#0300A9';
+            this.scoreColor = '#0300A9';
             break;
         case 40:
             this.accelerationTweening = 3;
             this.platformManager.maxDistanceBetween = 580;
-            //this.scoreColor = '#9F8F00';
+            this.scoreColor = '#9F8F00';
             break;
     }
 
+	//increase acceleration by accelerationTweening
     this.acceleration += (this.accelerationTweening - this.acceleration) * 0.01;
 
 
@@ -430,9 +449,6 @@ InfinityRun.update = function() {
     for (i = 0; i < this.particles.length; i++) {
         this.particles[i].update();
     };
-	} else if (pause && dead) {
-		this.player.update();
-	}
 
 };
 
@@ -459,9 +475,9 @@ InfinityRun.draw = function() {
         this.fillStyle = this.scoreColor;
         //this.font = (12 + (this.acceleration * 3))+'pt Arial';
         this.fillText('JUMPS: ' + this.jumpCount, this.width - 150, 50);
-		//todo distance = velocity * time (date: passed time between frames)
-        this.fillText('DISTANCE: ' + scnd/* -TODO- */, this.width - 150, 65);
 		
+		//todo distance = velocity * time (date: passed time between frames)
+        this.fillText('DISTANCE: ' +0 /* -TODO- */, this.width - 150, 65);
     }
 
 };
