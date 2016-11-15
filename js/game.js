@@ -9,7 +9,7 @@
  *
  * ---------------------------
  * Menu
- * Pause-Menu
+ * Menu draw in Input & draw prototypes
  * Handle / Manage CSS or HTML variables from JavaScript (Fullscreen,...)
  * ---------------------------
  *
@@ -29,13 +29,9 @@
  */
 var i = 0;
 
-var pause = false;
-var dead = false;
-
-var d = new Date();
-	
-var seconds;
-var scnd;
+var State = { Menu:0, Started:1, Paused:2, Over:3 };
+var GameState = State.Menu;
+var MainMenu;
 
 var debug = true;
 
@@ -51,7 +47,7 @@ function randomChoice(array) {
 
 //initialize Sketch Framework
 var InfinityRun = Sketch.create({
-    fullscreen: false,
+    fullscreen: true,
     width: 640,
     height: 360,
     container: document.getElementById('container')
@@ -139,10 +135,7 @@ Player.prototype.update = function() {
     this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
 
     if (this.y > InfinityRun.height || this.x + this.width < 0) {
-        pause = true;
-		dead = true;
-		if (!pause) {
-		this.x = 150;
+        this.x = 150;
         this.y = 50;
         this.velocityX = 0;
         this.velocityY = 0;
@@ -152,8 +145,6 @@ Player.prototype.update = function() {
         InfinityRun.scoreColor = '#181818';
         InfinityRun.platformManager.maxDistanceBetween = 350;
         InfinityRun.platformManager.updateWhenLose();
-		
-		}
     }
 
     if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
@@ -266,7 +257,7 @@ PlatformManager.prototype.updateWhenLose = function() {
     this.first.y = InfinityRun.width / random(2, 3);
     this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
     this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
-	pause = true;
+
 };
 
 // --------- Particle System --------- (Sketch Docs)
@@ -317,29 +308,22 @@ InfinityRun.setup = function() {
 
 };
 
+
+
 InfinityRun.update = function() {
-	
-	
-	seconds = d.getSeconds();
-	
-	/*if (scnd < seconds+2) {
-			pause = true;
+
+	/*switch(GameState){
+		case State.Menu:
+			//InfinityRun.stop();
+			break;
+		case State.Started:
+			break;
+		case State.Paused:
+			break;
+		case State.Over:
+			break;
 	}*/
-	
-	/*if (this.InfinityRun.keydown.ESCAPE && pause == false) {
-		pause = true;
-	} else {
-		pause = false;
-	}*/
-	
-	document.onkeydown = function(event) {
-		if (event.keyCode == 8 && pause == false) {
-			pause = true;
-		} else {
-		pause = false;
-		}
-	}
-	if (!pause) {
+	if (GameState == State.Started) {
     this.player.update();
 
     switch (this.jumpCount) {
@@ -413,10 +397,15 @@ InfinityRun.update = function() {
                 if (this.dragging || this.keys.SPACE || this.keys.UP || this.keys.W) {
                     this.player.velocityY = this.player.jumpSize;
                     this.jumpCount++;
+					
                     if (this.jumpCount > this.jumpCountRecord) {
                         this.jumpCountRecord = this.jumpCount;
                     }
                 }
+				/*if (keydown.keys.ESCAPE) {
+					//toggle;
+					InfinityRun.stop;
+				}*/
 
             }
 
@@ -430,15 +419,44 @@ InfinityRun.update = function() {
     for (i = 0; i < this.particles.length; i++) {
         this.particles[i].update();
     };
-	} else if (pause && dead) {
-		this.player.update();
-	}
+}
 
 };
+
+var selectedItem = 0;
+
+InfinityRun.keydown = function() {
+    if (InfinityRun.keys.ESCAPE && GameState==State.Started) {
+		InfinityRun.clear();
+		GameState = State.Menu;
+	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu) {
+		GameState = State.Started;
+		//InfinityRun.start();
+	}
+	if (InfinityRun.keys.UP) {
+		//var prevSelected = this.selectedItem;
+		selectedItem = (selectedItem + items.length - 1) % items.length;
+	}
+	if (InfinityRun.keys.DOWN) {
+		selectedItem = (selectedItem + 1) % items.length;
+	}
+	
+	if(InfinityRun.keys.ENTER) {
+		callback(selectedItem);
+	}
+	
+}
+
+Menu = function() {
+
+	//this.backgroundCallback = null;
+}
+
 
 //--------- Draw ---------
 
 InfinityRun.draw = function() {
+	if(GameState == State.Started) {
     this.player.draw();
 
     for (i = 0; i < this.platformManager.platforms.length; i++) {
@@ -449,19 +467,66 @@ InfinityRun.draw = function() {
     for (i = 0; i < this.particles.length; i++) {
         this.particles[i].draw();
     };
+	
+	//Draw menu --TODO prototype
+	} else if (GameState == State.Menu) {
+	
+	this.title = "InfinityRun";
+	items = ["Play", "Settings", "Highscore"];
+	
+	callback = function(numItem) { if (numItem == 0) GameState=State.Started };
+	this.height = InfinityRun.height;
+	this.width = InfinityRun.width;
+	this.size = 120;	
+	
+	var lingrad = this.createLinearGradient(0,0,0,this.height);
+	lingrad.addColorStop(0, '#000');
+	lingrad.addColorStop(1, '#023');
+	this.fillStyle = lingrad;
+	this.fillRect(0,0,this.width, this.height)
+	
+	this.textAlign = "center";
+	this.fillStyle = "White";
+	
+	var height = 150;
+	
+	if (this.title) {
+		this.font = Math.floor(this.size*1.3).toString() + "px Times New Roman";
+		this.fillText(this.title, this.width/2, height);
+		height+= height;
+	}
+	
+	for (var i = 0; i < items.length; ++i)
+	{
+		var size = Math.floor(this.size*0.8);
+		if (i == selectedItem)
+		{
+			//var v = Math.floor(127*Math.sin(GameLoopManager.lastTime*0.04) + 127);
+			//this.fillStyle = "rgba(255,255,"+v.toString()+",255)";
+			this.fillStyle = "#A9F5F2";
+			size = this.size+5;
+		}
+		this.font = size.toString() + "px Times New Roman";
+		height += this.size;
+		this.fillText(items[i], InfinityRun.width/2, height);
+		this.fillStyle = "White";
+	}
+	
+	}
+	
 
+	
     //Debug
-
     if (debug) {
         this.font = '12pt Arial';
         this.fillStyle = '#181818';
-        this.fillText('RECORD: ' + this.jumpCountRecord, this.width - 150, 33);
+        this.fillText('Record: ' + this.jumpCountRecord, this.width - 150, 33);
         this.fillStyle = this.scoreColor;
         //this.font = (12 + (this.acceleration * 3))+'pt Arial';
-        this.fillText('JUMPS: ' + this.jumpCount, this.width - 150, 50);
+        this.fillText('Jumps: ' + this.jumpCount, this.width - 150, 50);
 		//todo distance = velocity * time (date: passed time between frames)
-        this.fillText('DISTANCE: ' + scnd/* -TODO- */, this.width - 150, 65);
-		
+        this.fillText('Distance: ' + 0/* -TODO- */, this.width - 150, 65);
+		this.fillText('GameState: ' + GameState, this.width - 150, 80);
     }
 
 };
