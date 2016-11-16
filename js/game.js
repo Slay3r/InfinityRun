@@ -323,9 +323,19 @@ InfinityRun.update = function() {
 		case State.Over:
 			break;
 	}*/
+	
 	if (GameState == State.Started) {
     this.player.update();
-
+	
+	//endless increasing difficulty
+	
+	/*
+    this.accelerationTweening = 0.2 * this.jumpCount;
+	if (this.jumpCount>5) {
+	this.platformManager.maxDistanceBetween = 300 + 2* this.jumpCount;
+	}	
+	*/
+	
     switch (this.jumpCount) {
         case 10:
             this.accelerationTweening = 1;
@@ -343,7 +353,7 @@ InfinityRun.update = function() {
             //this.scoreColor = '#9F8F00';
             break;
     }
-
+	
     this.acceleration += (this.accelerationTweening - this.acceleration) * 0.01;
 
 
