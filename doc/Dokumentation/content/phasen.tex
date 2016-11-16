@@ -1,5 +1,106 @@
 \chapter{Phasen}
-\section{Anforderungen}
+\section{Entwurf und Anforderungen}
+\subsection{Funktionale Anforderungen}
+\begin{itemize}
+	\item Das System muss fähig sein zufällig eine Spielwelt mit Hindernissen zu generieren welche jedoch so platziert werden müssen dass sie immer überwindbar sind.
+	\item Das System muss fähig sein das generierte Spielfeld durch das Bild nach links zu verschieben.
+	\item Bei drücken der Leertaste muss das System die Spielfigur hüpfen lassen.
+	\item Das System muss fähig sein einen Highscore in Abhängigkeit zur Spieldauer zu generieren. Der Highscore soll proportional zum Levelfortschritt berechnet werden und dauerhaft angezeigt werden. Hierbei soll der aktuelle Score und der Highscore der Spielesession getrennt angezeigt werden. Dieser wird nur solange gespeichert, bis das Spiel beendet wird.
+	\item Das System muss fähig sein während des Spielens eine Hintergrundmusik abzuspielen, welche sich ständig wiederholt.
+	\item Das System muss fähig sein beim Springen der Spielfigur, beim Aufkommen der Spielfigur und beim kollidieren der Spielfigur Effektsounds   wiederzugeben.
+	\item Das System muss die Möglichkeit bieten bei Tastendruck das Spiel zu pausieren und wieder zu starten.
+	\item Das System muss fähig sein eine Kollision der Spielfigur mit einem Hindernis zu erkennen, nach erkennen soll ein „Crash“ Sound abgespielt werden und sich die Spielfigur verändern.
+	\item Das System muss fähig sein kontinuierlich die Schwierigkeit zu erhöhen. Die Schwierigkeit soll dadurch erhöht werden, dass das Spielfeld anfangs langsam nach links wandert und dies kontinuierlich immer schneller wird.
+	\item Bei Beendigung des Spiels muss das System fähig sein das Spiel neu zu starten. 
+	\item Das System muss auf einem Gerät mit Tastatur im Browser Chrome ablaufen.
+\end{itemize}
+\subsection{Nicht funktionale Anforderungen}
+\begin{itemize}
+	\item Das Spiel sollte intuitiv Bedienbar sein.
+	\item Die Perfomarnce des Spiels sollte so gut sein, dass keine Frame Einbrüche vorkommen.
+	\item Auch auf den weiterverbreiteten Browsern sollte das Spiel spielbar sein.
+\end{itemize}
+\subsection{Projektplan}
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		\toprule
+		\textbf{Datum}& \textbf{Aufgabe}\\
+		\midrule
+		19.10.2016 & Einführung in jeweilige Projekte der Gruppen 	\\ 
+		21.10.2016 & Einführung in jeweilige Projekte der Gruppen	\\
+		26.10.2016 & Anforderungen	\\ 
+		02.11.2016 & Fertigstellung Präsentation, Ergebnispräsentation der Anforderungen \\
+		04.11.2016 & Abgabe der Anforderungsspezifikation via Felix \\
+		\bottomrule
+	\end{tabular}
+	\caption{Phase 1: Entwurf und Anforderungen}
+\end{table}
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		\toprule
+		\textbf{Datum}& \textbf{Aufgabe}\\
+		\midrule
+		09.11.2016 & Basis Implementierung 	\\ 
+		16.11.2016 & Basis Implementierung + Level Design	\\
+		23.11.2016 & Zwischenpräsentation der Implementierung	\\ 
+		25.11.2016 & Abgabe: Zwischenstand der Implementation via Felix\\
+		30.11.2016 & Level Design Verbesserungen \\
+		07.12.2016 & Stabilität \& Bug fixing \\
+		14.12.2016 & Ergebnispräsentation der Implementierung \\
+		16.12.2016 & Abgabe Implementierungsergebnisses via Felix (Code Freeze) \\
+		\bottomrule
+	\end{tabular}
+	\caption{Phase 2: Implementierung}
+\end{table}
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		\toprule
+		\textbf{Datum}& \textbf{Aufgabe}\\
+		\midrule
+		21.12.2016 & Test und Resultate Dokumentieren 	\\ 
+		11.01.2017 & Ergebnispräsentation	\\
+		13.01.2017 & Abgabe der Ergebnisse der Testphase	\\ 
+		\bottomrule
+	\end{tabular}
+	\caption{Phase 3: Test}
+\end{table}
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		\toprule
+		\textbf{Datum}& \textbf{Aufgabe}\\
+		\midrule
+		18.01.2017 & Dokumentation 	\\ 
+		25.01.2017 & Ergebnispräsentation Dokumentation	\\
+		27.01.2017 & Projektvorstellung auf der Projektmesse	\\ 
+		\bottomrule
+	\end{tabular}
+	\caption{Phase 4: Dokumentation und Präsentation}
+\end{table}
+\newpage
+\subsection{Releaseplan}
+\begin{longtable}{l|l|p{10cm}}
+	\toprule
+	\textbf{Version} & \textbf{Datum} & \textbf{Inhalt}\\
+	\midrule
+	1.0.0 & 09.11.16 & Spiel ist startfähig mit passendem Hintergrund und Spielfigur\\ 
+	1.1.0 & 16.11.16 & Automatischer Bildlauf und springen ist möglich\\
+	1.2.0 & 30.11.16 & Beinhaltet: Zufallsgenerierte Objekte(Hindernisse) mit unendlichem Level\\ 
+	1.3.0 & 07.12.16 & Highscore, Hintergrundlied, Sound beim Springen\\
+	1.4.0 & 14.12.16 & Zeitbasierte Geschwindigkeit (Bildlauf)\\
+	1.5.0 & 21.12.16 & Erfolgreicher Test mit behobenen Fehlern\\
+	\bottomrule
+ 	\caption{Releaseplan}
+\end{longtable}
+Beim Releaseplan haben wir uns auf eine Versionierung des Programms mit aufsteigenden Nummern geeinigt. Die Erste Nummer steht hierbei für die Grundlegende Programmversion. Die Zweite für wichtige Updates und die Dritte für Bugfixes zwischendurch. Zu jeweiligen Version haben wir ein Fertigstellungsdatum festgelegt und den dann erforderlichen Inhalt festgelegt.
+\newpage
 \section{Implementation}
+\subsection{Code}
+\subsubsection{game.js}
+\lstinputlisting{../../js/game.js}
+\subsubsection{game.css}
+\lstinputlisting{../../css/game.css}
+\subsubsection{index.html}
+\lstinputlisting{../../index.html}
+\subsection{title}
 \section{Test}
 \section{Dokumentation \& Pr\"asentation}
