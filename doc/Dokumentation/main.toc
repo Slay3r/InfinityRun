@@ -23,9 +23,9 @@
 \contentsline {subsection}{\numberline {2.2.1}Bibliothek}{8}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Code}{8}{subsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.2.1}Framework initialisieren}{8}{subsubsection.2.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2.2}Spieler initialisieren}{8}{subsubsection.2.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.2}Spieler initialisieren}{9}{subsubsection.2.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.2.3}Erstellen der Spielebene}{9}{subsubsection.2.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.2.4}Update der Plattformen}{10}{subsubsection.2.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.2.4}Update der Plattformen}{11}{subsubsection.2.2.2.4}
 \contentsline {subsubsection}{\numberline {2.2.2.5}Update der Plattformen}{12}{subsubsection.2.2.2.5}
 \contentsline {section}{\numberline {2.3}Test}{13}{section.2.3}
 \contentsline {section}{\numberline {2.4}Dokumentation \& Pr\"asentation}{13}{section.2.4}

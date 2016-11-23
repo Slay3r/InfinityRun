@@ -96,6 +96,31 @@ Beim Releaseplan haben wir uns auf eine Versionierung des Programms mit aufsteig
 \section{Implementation}
 \subsection{Bibliothek}
 Bei der Erstellung des Spiels greifen wir auf eine JavaScript Bibliothek Namens ``Sketch.js'' zurück.
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+function start() 
+{
+	context.now = +new Date();
+    context.running = true;
+}
+        
+function stop() 
+{
+	context.running = false;
+}
+        
+function toggle() 
+{       
+	( context.running ? stop : start )();
+}
+        
+function clear() 
+{        
+	if ( is2D )
+        context.clearRect( 0, 0, context.width, context.height );
+}
+\end{lstlisting}
+Quelle: \cite{sketch}
 \subsection{Code}
 \subsubsection{Framework initialisieren}
 \lstset{language=java}
