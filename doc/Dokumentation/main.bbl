@@ -15,6 +15,11 @@
 \textsc{Google}:
 \newblock \emph{Google Chrome} \url{https://www.google.com/chrome/}
 
+\bibitem[Gru]{changelog}
+\textsc{Gruppe4}:
+\newblock \emph{Changelog}
+  \url{https://github.com/Slay3r/InfinityRun/commits/master}
+
 \bibitem[Ho]{notepad}
 \textsc{Ho}, Don:
 \newblock \emph{Notepad++} \url{https://notepad-plus-plus.org/}

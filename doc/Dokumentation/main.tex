@@ -75,8 +75,21 @@
 \appendix
 % Hier können Anhaenge angefuegt werden
 \chapter{Anhang}
-%\section{Github Changelog}
-%\lstinputlisting{../../CHANGELOG.md}
+\section{Github Changelog}
+Der Changelog wird aus unseren Github Commits per Befehl exportiert. Derzeit ist die Quelle nicht einsehbar, da das Repository auf dem wir arbeiten auf ``Private'' gesetzt ist. Zur endgültigen Abgabe wird dieses natürlich Veröffentlicht.
+\lstset{language=bash}
+\begin{lstlisting}[frame=single]
+$ git log > CHANGELOG.md
+\end{lstlisting}
+Quelle: \cite{changelog}
+\\\\
+\textbf{Changelog: }
+\lstset{
+	literate={ö}{{\"o}}1
+	{ä}{{\"a}}1
+	{ü}{{\"u}}1
+}
+\lstinputlisting{../../CHANGELOG.md}
 \section{game.js}
 \lstinputlisting{../../js/game.js}
 \section{game.css}

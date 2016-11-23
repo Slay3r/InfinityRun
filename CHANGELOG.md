@@ -1,3 +1,47 @@
+commit 1392138abdf3404d8c7815a59455d922811c37b5
+Author: Florian Durli <florian.durli@yahoo.de>
+Date:   Wed Nov 23 22:44:10 2016 +0100
+
+    Jojos Description in LaTeX
+
+commit 25ff037d002168fa55525271059ad9add29ed616
+Author: butjo <johannes.but@gmail.com>
+Date:   Wed Nov 23 21:59:41 2016 +0100
+
+    Beschreibung der Codeteile in der phasen.tex von Johannes
+
+commit 1b2348c013bfe18d574bc041d7dbc6049b64f7d8
+Author: Florian Durli <florian.durli@yahoo.de>
+Date:   Wed Nov 23 17:06:56 2016 +0100
+
+    Changelog Additionally
+
+commit cf467dcb47436f7b9637544e603115d548931192
+Author: Florian Durli <florian.durli@yahoo.de>
+Date:   Wed Nov 23 17:05:30 2016 +0100
+
+    Changelog Additionally
+
+commit 6db1ad68850073222e10bfa65d1dbb9029a2466c
+Merge: 69dd747 b924713
+Author: butjo <johannes.but@gmail.com>
+Date:   Wed Nov 23 10:48:34 2016 +0100
+
+    Merge branch 'master' of https://github.com/Slay3r/InfinityRun
+
+commit b924713e96128d8baee3806dcda4f73e858f83fb
+Author: Slay3r <florian.durli@yahoo.de>
+Date:   Wed Nov 23 10:41:49 2016 +0100
+
+    Generated Changelog
+
+commit 69dd7479384cc9c649a4e239feeb802842c077cb
+Merge: 743c95a 203ae2e
+Author: butjo <johannes.but@gmail.com>
+Date:   Wed Nov 23 10:31:50 2016 +0100
+
+    Merge branch 'master' of https://github.com/Slay3r/InfinityRun
+
 commit 203ae2e60637b23024065ab718fee024912acafb
 Author: Slay3r <florian.durli@yahoo.de>
 Date:   Wed Nov 23 09:53:47 2016 +0100
@@ -27,6 +71,31 @@ Author: Florian Durli <florian.durli@yahoo.de>
 Date:   Tue Nov 22 20:41:15 2016 +0100
 
     Add Changelog
+
+commit 743c95acc76492ba7513f12d5661fc1cbc25d4bd
+Author: butjo <johannes.but@gmail.com>
+Date:   Wed Nov 16 14:51:03 2016 +0100
+
+    Formatierte sketch.min.js
+    
+    Ich hab ein paar Zeilen umbrüche und leerzeichen eingefügt so ,dass der
+    Code lesbar wird, ist noch nicht perfekt jedoch mal ein Anfang
+
+commit d64d2548992071cd7c270bdd10260866e7c7f895
+Author: butjo <johannes.but@gmail.com>
+Date:   Wed Nov 16 13:46:27 2016 +0100
+
+    Endlose Schwierigkeitserhöhung
+    
+    Vorschlag zum ersetzten der switch Anweisung ist allerdings noch
+    ziehmlich unbalanced vllt ist die switch Anweisung die bessere
+    Alternative
+
+commit 3707b94db557746f67bc9a5304f15585ef4ed844
+Author: butjo <johannes.but@gmail.com>
+Date:   Wed Nov 16 13:43:56 2016 +0100
+
+    Präsentation Zwischenstand
 
 commit f23c9beb29c6d1aaa4dadc726f92e56358e39db5
 Author: Slay3r <florian.durli@yahoo.de>

@@ -37,6 +37,7 @@
 \contentsline {chapter}{\nonumberline Literaturverzeichnis}{21}{chapter*.14}
 \contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{23}{chapter*.15}
 \contentsline {chapter}{\numberline {A}Anhang}{25}{appendix.A}
-\contentsline {section}{\numberline {A.1}game.js}{25}{section.A.1}
-\contentsline {section}{\numberline {A.2}game.css}{38}{section.A.2}
-\contentsline {section}{\numberline {A.3}index.html}{39}{section.A.3}
+\contentsline {section}{\numberline {A.1}Github Changelog}{25}{section.A.1}
+\contentsline {section}{\numberline {A.2}game.js}{29}{section.A.2}
+\contentsline {section}{\numberline {A.3}game.css}{42}{section.A.3}
+\contentsline {section}{\numberline {A.4}index.html}{43}{section.A.4}
