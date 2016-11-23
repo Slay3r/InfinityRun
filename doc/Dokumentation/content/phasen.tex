@@ -94,8 +94,30 @@
 Beim Releaseplan haben wir uns auf eine Versionierung des Programms mit aufsteigenden Nummern geeinigt. Die Erste Nummer steht hierbei für die Grundlegende Programmversion. Die Zweite für wichtige Updates und die Dritte für Bugfixes zwischendurch. Zu jeweiligen Version haben wir ein Fertigstellungsdatum festgelegt und den dann erforderlichen Inhalt festgelegt.
 \newpage
 \section{Implementation}
+\subsection{Erfüllte Anforderungen}
+\begin{itemize}
+	\item Das System muss fähig sein zufällig eine Spielwelt mit Hindernissen zu generieren welche jedoch so platziert werden müssen dass sie immer überwindbar sind.
+	\item Das System muss fähig sein das generierte Spielfeld durch das Bild nach links zu verschieben.
+	\item Bei drücken der Leertaste muss das System die Spielfigur hüpfen lassen.
+	\item Das System muss die Möglichkeit bieten bei Tastendruck das Spiel zu pausieren und wieder zu starten.
+	\item Das System muss fähig sein kontinuierlich die Schwierigkeit zu erhöhen. Die Schwierigkeit soll dadurch erhöht werden, dass das Spielfeld anfangs langsam nach links wandert und dies kontinuierlich immer schneller wird.
+	\item Bei Beendigung des Spiels muss das System fähig sein das Spiel neu zu starten. 
+	\item Das System muss auf einem Gerät mit Tastatur im Browser Chrome ablaufen.
+\end{itemize}
+
+\subsection{Nicht erfüllte Anforderungen}
+\begin{itemize}
+	\item Das System muss fähig sein eine Kollision der Spielfigur mit einem Hindernis zu erkennen, nach erkennen soll ein „Crash“ Sound abgespielt werden und sich die Spielfigur verändern.
+	\item Das System muss fähig sein einen Highscore in Abhängigkeit zur Spieldauer zu generieren. Der Highscore soll proportional zum Levelfortschritt berechnet werden und dauerhaft angezeigt werden. Hierbei soll der aktuelle Score und der Highscore der Spielesession getrennt angezeigt werden. Dieser wird nur solange gespeichert, bis das Spiel beendet wird.
+	\item Das System muss fähig sein während des Spielens eine Hintergrundmusik abzuspielen, welche sich ständig wiederholt.
+	\item Das System muss fähig sein beim Springen der Spielfigur, beim Aufkommen der Spielfigur und beim kollidieren der Spielfigur Effektsounds   wiederzugeben.
+\end{itemize}
+
 \subsection{Bibliothek}
 Bei der Erstellung des Spiels greifen wir auf eine JavaScript Bibliothek Namens ``Sketch.js'' zurück.
+Das Sketch.js Framework ermöglicht es uns den Code vereinfacht und lesbarer zu schreiben. 
+Beispiel wie Sketch.js funktioniert:
+
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 function start() 
