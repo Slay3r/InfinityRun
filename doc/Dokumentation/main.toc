@@ -27,11 +27,11 @@
 \contentsline {subsection}{\numberline {2.2.5}Code}{10}{subsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.5.1}Framework initialisieren}{10}{subsubsection.2.2.5.1}
 \contentsline {subsubsection}{\numberline {2.2.5.2}Spieler initialisieren}{11}{subsubsection.2.2.5.2}
-\contentsline {subsubsection}{\numberline {2.2.5.3}Erstellen der Spielebene}{11}{subsubsection.2.2.5.3}
+\contentsline {subsubsection}{\numberline {2.2.5.3}Erstellen der Spielebene}{12}{subsubsection.2.2.5.3}
 \contentsline {subsubsection}{\numberline {2.2.5.4}Update der Plattformen}{13}{subsubsection.2.2.5.4}
-\contentsline {subsubsection}{\numberline {2.2.5.5}Update der Plattformen}{14}{subsubsection.2.2.5.5}
-\contentsline {section}{\numberline {2.3}Test}{15}{section.2.3}
-\contentsline {section}{\numberline {2.4}Dokumentation \& Pr\"asentation}{15}{section.2.4}
+\contentsline {subsubsection}{\numberline {2.2.5.5}Update der Plattformen}{15}{subsubsection.2.2.5.5}
+\contentsline {section}{\numberline {2.3}Test}{16}{section.2.3}
+\contentsline {section}{\numberline {2.4}Dokumentation \& Pr\"asentation}{16}{section.2.4}
 \contentsline {chapter}{\numberline {3}Ausblick}{17}{chapter.3}
 \contentsline {chapter}{\numberline {4}Fazit}{19}{chapter.4}
 \contentsline {chapter}{\nonumberline Literaturverzeichnis}{21}{chapter*.14}
