@@ -94,13 +94,151 @@
 Beim Releaseplan haben wir uns auf eine Versionierung des Programms mit aufsteigenden Nummern geeinigt. Die Erste Nummer steht hierbei für die Grundlegende Programmversion. Die Zweite für wichtige Updates und die Dritte für Bugfixes zwischendurch. Zu jeweiligen Version haben wir ein Fertigstellungsdatum festgelegt und den dann erforderlichen Inhalt festgelegt.
 \newpage
 \section{Implementation}
+\subsection{Bibliothek}
+Bei der Erstellung des Spiels greifen wir auf eine JavaScript Bibliothek Namens ``Sketch.js'' zurück.
 \subsection{Code}
-\subsubsection{game.js}
-\lstinputlisting{../../js/game.js}
-\subsubsection{game.css}
-\lstinputlisting{../../css/game.css}
-\subsubsection{index.html}
-\lstinputlisting{../../index.html}
-\subsection{title}
+\subsubsection{Framework initialisieren}
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+var InfinityRun = Sketch.create({
+fullscreen: true,
+width: 640,
+height: 360,
+container: document.getElementById('container')
+});
+\end{lstlisting}
+\subsubsection{Spieler initialisieren}
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+Player.prototype.update = function() {
+// Gravity 
+this.velocityY += 1;
+this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
+
+if (this.y > InfinityRun.height || this.x + this.width < 0) 
+{
+	this.x = 150;
+	this.y = 50;
+	this.velocityX = 0;
+	this.velocityY = 0;
+	InfinityRun.jumpCount = 0;
+	InfinityRun.acceleration = 0;
+	InfinityRun.accelerationTweening = 0;
+	InfinityRun.scoreColor = '#181818';
+	InfinityRun.platformManager.maxDistanceBetween = 350;
+	InfinityRun.platformManager.updateWhenLose();
+}
+
+if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) 
+{
+	this.velocityY += -0.75;
+}
+};
+\end{lstlisting}
+\subsubsection{Erstellen der Spielebene}
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+Player.prototype.update = function() {
+function PlatformManager() 
+{
+
+	this.maxDistanceBetween = 300;
+
+	this.colors = ['#2ca8c2', '#98cb4a', '#f76d3c', '#f15f74', '#5481e6'];
+
+//first 3 Platforms execept the Starter Platform
+	this.first = new Platform({
+	x: 300,
+	y: InfinityRun.width / 2,
+	width: 400,
+	height: 70
+})
+
+this.second = new Platform
+({
+	x: (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween),
+	y: random(this.first.y - 128, InfinityRun.height - 80),
+	width: 400,
+	height: 70
+})
+
+this.third = new Platform
+({
+	x: (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween),
+	y: random(this.second.y - 128, InfinityRun.height - 80),
+	width: 400,
+	height: 70
+})
+	this.first.height = this.first.y + InfinityRun.height;
+	this.second.height = this.second.y + InfinityRun.height;
+	this.third.height = this.third.y + InfinityRun.height;
+	this.first.color = randomChoice(this.colors);
+	this.second.color = randomChoice(this.colors);
+	this.third.color = randomChoice(this.colors);
+	this.colliding = false;
+	this.platforms = [this.first, this.second, this.third];
+}
+\end{lstlisting}
+\subsubsection{Update der Plattformen}
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+PlatformManager.prototype.update = function() 
+{
+	this.first.x -= 3 + InfinityRun.acceleration;
+	if (this.first.x + this.first.width < 0) 
+	{
+		this.first.width = random(450, InfinityRun.width + 200);
+		this.first.x = (this.third.x + this.third.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+		this.first.y = random(this.third.y - 32, InfinityRun.height - 80);
+		this.first.height = this.first.y + InfinityRun.height + 10;
+		this.first.color = randomChoice(this.colors);
+	}
+
+	this.second.x -= 3 + InfinityRun.acceleration;
+	if (this.second.x + this.second.width < 0) 
+	{
+		this.second.width = random(450, InfinityRun.width + 200);
+		this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+		this.second.y = random(this.first.y - 32, InfinityRun.height - 80);
+		this.second.height = this.second.y + InfinityRun.height + 10;
+		this.second.color = randomChoice(this.colors);
+	}
+
+	this.third.x -= 3 + InfinityRun.acceleration;
+	if (this.third.x + this.third.width < 0) 
+	{
+		this.third.width = random(450, InfinityRun.width + 200);
+		this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+		this.third.y = random(this.second.y - 32, InfinityRun.height - 80);
+		this.third.height = this.third.y + InfinityRun.height + 10;
+		this.third.color = randomChoice(this.colors);
+	}
+};
+\end{lstlisting}
+\subsubsection{Update der Plattformen}
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+    for (i = 0; i < this.platformManager.platforms.length; i++) 
+    {
+		if (this.player.intersects(this.platformManager.platforms[i])) 
+		{
+			this.collidedPlatform = this.platformManager.platforms[i];
+			if (this.player.y < this.platformManager.platforms[i].y) 
+			{
+				this.player.y = this.platformManager.platforms[i].y;
+				// Gravity after Collision with Platform
+				this.player.velocityY = 0;
+			}
+
+			this.player.x = this.player.previousX;
+			this.player.y = this.player.previousY;
+			
+			this.particles[(this.particlesIndex++) % this.particlesMax] = new Particle({
+			x: this.player.x,
+			y: this.player.y + this.player.height,
+			color: this.collidedPlatform.color
+});
+\end{lstlisting}
 \section{Test}
 \section{Dokumentation \& Pr\"asentation}
+
