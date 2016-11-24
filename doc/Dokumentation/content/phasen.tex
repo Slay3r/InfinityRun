@@ -114,11 +114,11 @@ Beim Releaseplan haben wir uns auf eine Versionierung des Programms mit aufsteig
 \end{itemize}
 \newpage
 \subsection{Das Spiel}
-Hier werden zwei Screenshots des derzeitigen Spiels dargestellt. In der Abbildung \ref{pic:start} zu sehen ist der Start Bildschirm des Spiels. Hier gibt es verschiedene Auswahl Möglichkeiten. In der Abbildung \ref{pic:spiel} zu sehen ist der derzeitige Stand des Spiels.
+Hier werden zwei Screenshots des derzeitigen Spiels dargestellt. In der Abbildung \ref{pic:start} zu sehen, ist der Startbildschirm des Spiels. Hier gibt es verschiedene Auswahlmöglichkeiten. In der Abbildung \ref{pic:spiel} zu sehen ist der derzeitige Stand des Spiels.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[scale=0.22]{content/pictures/start.png}
-	\caption{Start Bildschirm}
+	\caption{Startbildschirm}
 	\label{pic:start}
 \end{figure}
 \begin{figure}[htb]
@@ -129,8 +129,8 @@ Hier werden zwei Screenshots des derzeitigen Spiels dargestellt. In der Abbildun
 \end{figure}
 \newpage
 \subsection{Bibliothek}
-Bei der Erstellung des Spiels greifen wir auf eine JavaScript Bibliothek Namens ``Sketch.js'' zurück.
-Das Sketch.js Framework ermöglicht es uns den Code vereinfacht und lesbarer zu schreiben. 
+Bei der Erstellung des Spiels greifen wir auf eine JavaScript Bibliothek namens ``Sketch.js'' zurück.
+Das Sketch.js Framework ermöglicht es uns, den Code vereinfacht und lesbarer zu schreiben. 
 Beispiel wie Sketch.js funktioniert:
 
 \lstset{language=java}
@@ -245,7 +245,7 @@ this.third = new Platform
 }
 \end{lstlisting}
 \subsubsection{Update der Plattformen}
-Die Plattformupdatefunktion aktualisiert die 3 Plattformen. Sie hat zwei Aufgaben. Als erstes wird die Plattform immer, in Abhängigkeit zur Spielbeschleunigung, nach um drei nach links verschoben. Danach wird abgefragt, ob die Plattform schon ganz links aus dem Bild heraus gewandert ist und falls ja, sämtliche werte so zufällig neu gesetzt, dass sie wieder von rechts ins Bild laufen kann. Dies wird für alle 3 Plattformen gleich durchgeführt.
+Die Plattformupdatefunktion aktualisiert die 3 Plattformen. Sie hat zwei Aufgaben. Als erstes wird die Plattform immer, in Abhängigkeit zur Spielbeschleunigung, nach um drei nach links verschoben. Danach wird abgefragt, ob die Plattform schon ganz links aus dem Bild heraus gewandert ist und falls ja, sämtliche Werte so zufällig neu gesetzt, dass sie wieder von rechts ins Bild laufen kann. Dies wird für alle 3 Plattformen gleich durchgeführt.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 PlatformManager.prototype.update = function() 
