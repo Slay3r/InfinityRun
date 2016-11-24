@@ -160,6 +160,7 @@ function clear()
 Quelle: \cite{sketch}
 \subsection{Code}
 \subsubsection{Framework initialisieren}
+Hier in dieser Funktion wird praktisch mithilfe der \"ubergebenen Werten des Sketch Frameworks ein Canvaselement erstellt.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 var InfinityRun = Sketch.create({
@@ -281,6 +282,7 @@ PlatformManager.prototype.update = function()
 };
 \end{lstlisting}
 \subsubsection{Update der Plattformen}
+Hier in dieser Funktion geht man anhand der for-Schleife als Erstes alle drei Plattformen durch. Anschließend fragt man mit der "if" "if(this.player.intersects..) " Funktion ab, ob der Spieler diese Plattformen ber\"uhrt. Falls der Spieler eine Plattform ber\"uhrt, in diesem Fall " this.collidedPlatform.... " als Beispiel die zweite Plattform im Spiel ber\"uhrt, so wird der "collidedPlatform" der Wert 2 zugewiesen. Außerdem wird zus\"atzlich noch die Y-Koordinate des Spielers auf die der Plattform gesetzt, was hier die Funktion " this.player.y < this.platformManager...." ist. Zus\"atzlich wird wenn die Y-Koordinate des Spielers und die Y-Koordinate der Plattform \"ubereinstimmen, die "velocityY" auf 0 gesetzt, was zur Folge hat, dass der Spieler nicht mehr f\"allt. Anschließend sollen die Partikel des Spielers die Farbe der Plattormen annehmen.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
     for (i = 0; i < this.platformManager.platforms.length; i++) 
