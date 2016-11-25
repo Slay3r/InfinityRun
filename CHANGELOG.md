@@ -1,3 +1,45 @@
+commit bc8d933c84db6f7bade854cd934f90b6a7210422
+Author: Florian Durli <florian.durli@yahoo.de>
+Date:   Fri Nov 25 01:41:18 2016 +0100
+
+    Code Cleanup für Doku
+
+commit b6d7a09bffa264c17f946a239dc68985afd8abbb
+Author: butjo <johannes.but@gmail.com>
+Date:   Thu Nov 24 20:23:14 2016 +0100
+
+    Rechtschreibkorrekturen
+
+commit 1faa558912b5a532b24a6321b9180bf96e007560
+Author: r4qtor <r4qtor@gmail.com>
+Date:   Thu Nov 24 16:05:55 2016 +0100
+
+    Delete phasen.tex root/
+
+commit 51f4a79c75174201e7e5f7c21effa6e3a69c1c91
+Author: r4qtor <r4qtor@gmail.com>
+Date:   Thu Nov 24 16:04:43 2016 +0100
+
+    updated phasen.tex
+
+commit 62af4b8f05b6edc6898e442ee13149b52fce26ba
+Author: Krusher999 <Koray_94@web.de>
+Date:   Thu Nov 24 15:44:08 2016 +0100
+
+    Letzten Codes geschrieben
+
+commit 93b8965d4806b26195afe99fd3c492e7f0b8ab59
+Author: Florian Durli <florian.durli@yahoo.de>
+Date:   Wed Nov 23 23:39:25 2016 +0100
+
+    fix
+
+commit 9027301a693e3ee32ee139c1eb0efda77d1a528d
+Author: Florian Durli <florian.durli@yahoo.de>
+Date:   Wed Nov 23 23:02:01 2016 +0100
+
+    Changelog finale Lösung
+
 commit 1392138abdf3404d8c7815a59455d922811c37b5
 Author: Florian Durli <florian.durli@yahoo.de>
 Date:   Wed Nov 23 22:44:10 2016 +0100
