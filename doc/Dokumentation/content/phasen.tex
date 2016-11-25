@@ -160,7 +160,7 @@ function clear()
 Quelle: \cite{sketch}
 \subsection{Code}
 \subsubsection{Framework initialisieren}
-Hier in dieser Funktion wird praktisch mithilfe der \"ubergebenen Werten des Sketch Frameworks ein Canvaselement erstellt.
+Hier in dieser Funktion wird ein Canvas-Element erstellt, dies geschieht mithilfe des Sketch-Frameworks. Dabei werden Eigenschaften wie die H\"ohe und Breite der Zeichenfl\"ache \"ubergeben.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 var InfinityRun = Sketch.create({
@@ -171,7 +171,7 @@ container: document.getElementById('container')
 });
 \end{lstlisting}
 \subsubsection{Spieler initialisieren}
-In der Playerupdatefunktion wird der Player also unsere Spielfigur aktualisiert. Damit die Schwerkraft gegeben ist wird zuerst die Y-Geschwindigkeit um eins erhöht. Hierbei ist zu beachten dass die Y- Koordinatenachse nach unten zeigt.Danach wird die Position des Spielers neu festgesetzt. Für den Fall dass der Spieler verliert, welches mittels if-Entscheidung überprüft wird, werden dann anschließend sämtliche Spielwerte auf ihren Ausgangswert zurückgesetzt. Als letztes wird überprüft ob der Spieler eine Taste gedrückt um zu Springen. Falls ja und er sich nicht schon in der Luft befindet wird die Y-Geschwindigkeit in die negative Richtung erhöht und die Spielfigur springt.
+In der Player-Update-Funktion wird der Player also unsere Spielfigur aktualisiert. Damit die Schwerkraft gegeben ist wird zuerst die Y-Geschwindigkeit um eins erhöht. Hierbei ist zu beachten dass die Y- Koordinatenachse nach unten zeigt.Danach wird die Position des Spielers neu festgesetzt. Für den Fall dass der Spieler verliert, welches mittels if-Entscheidung überprüft wird, werden dann anschließend sämtliche Spielwerte auf ihren Ausgangswert zurückgesetzt. Als letztes wird überprüft ob der Spieler eine Taste gedrückt um zu Springen. Falls ja und er sich nicht schon in der Luft befindet wird die Y-Geschwindigkeit in die negative Richtung erhöht und die Spielfigur springt.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 Player.prototype.update = function() {
@@ -200,7 +200,7 @@ if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || Infi
 };
 \end{lstlisting}
 \subsubsection{Erstellen der Spielebene}
-In unserem Plattformmanager werden die Plattformen initialisiert. Hierbei wird ein Wert ``maxDistanceBetween'' festgelegt. Ebenso werden mögliche Farben für die Plattformen gespeichert. Anschließend werden den ersten 3 Plattformen ihre Werte zugeordnet. Die Erste Plattform hat hierbei feste Werte damit der Spieler nicht sterben kann, am Anfang des Spiels. Die beiden nächsten Plattformen werden dann mit zufälligen Werten erstellt. Zum Schluss bekommt jede Plattform noch eine Höhe und Farbe zugeordnet.
+In unserem Plattform-Manager werden die Plattformen initialisiert. Hierbei wird ein Wert ''maxDistanceBetween'' festgelegt. Ebenso werden mögliche Farben für die Plattformen gespeichert. Anschließend werden den ersten 3 Plattformen ihre Werte zugeordnet. Die Erste Plattform hat hierbei feste Werte damit der Spieler nicht sterben kann, am Anfang des Spiels. Die beiden nächsten Plattformen werden dann mit zufälligen Werten erstellt. Zum Schluss bekommt jede Plattform noch eine Höhe und Farbe zugeordnet.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 Player.prototype.update = function() {
@@ -245,7 +245,7 @@ this.third = new Platform
 }
 \end{lstlisting}
 \subsubsection{Update der Plattformen}
-Die Plattformupdatefunktion aktualisiert die 3 Plattformen. Sie hat zwei Aufgaben. Als erstes wird die Plattform immer, in Abhängigkeit zur Spielbeschleunigung, nach um drei nach links verschoben. Danach wird abgefragt, ob die Plattform schon ganz links aus dem Bild heraus gewandert ist und falls ja, sämtliche Werte so zufällig neu gesetzt, dass sie wieder von rechts ins Bild laufen kann. Dies wird für alle 3 Plattformen gleich durchgeführt.
+Die Plattform-Update-Funktion aktualisiert die 3 Plattformen. Sie hat zwei Aufgaben. Als erstes wird die Plattform immer, in Abhängigkeit zur Spielbeschleunigung, nach um drei nach links verschoben. Danach wird abgefragt, ob die Plattform schon ganz links aus dem Bild heraus gewandert ist und falls ja werden sämtliche Werte so zufällig neu gesetzt, dass sie wieder von rechts ins Bild laufen kann. Dies wird für alle 3 Plattformen gleich durchgeführt.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 PlatformManager.prototype.update = function() 
@@ -282,7 +282,7 @@ PlatformManager.prototype.update = function()
 };
 \end{lstlisting}
 \subsubsection{Update der Plattformen}
-Hier in dieser Funktion geht man anhand der for-Schleife als Erstes alle drei Plattformen durch. Anschließend fragt man mit der "if" "if(this.player.intersects..) " Funktion ab, ob der Spieler diese Plattformen ber\"uhrt. Falls der Spieler eine Plattform ber\"uhrt, in diesem Fall " this.collidedPlatform.... " als Beispiel die zweite Plattform im Spiel ber\"uhrt, so wird der "collidedPlatform" der Wert 2 zugewiesen. Außerdem wird zus\"atzlich noch die Y-Koordinate des Spielers auf die der Plattform gesetzt, was hier die Funktion " this.player.y < this.platformManager...." ist. Zus\"atzlich wird wenn die Y-Koordinate des Spielers und die Y-Koordinate der Plattform \"ubereinstimmen, die "velocityY" auf 0 gesetzt, was zur Folge hat, dass der Spieler nicht mehr f\"allt. Anschließend sollen die Partikel des Spielers die Farbe der Plattormen annehmen.
+In folgender Funktion werden mithilfe einer for-Schleife zuerst alle drei Plattformen abgefragt, ob diese, anhand von: "if(this.player.intersects..) " den Spieler ber\"uhren. Falls der Spieler eine Plattform ber\"uhrt, in diesem Fall " this.collidedPlatform.... " als Beispiel die zweite Plattform im Spiel ber\"uhrt, so wird der Variable "collidedPlatform" ein Objekt der zweiten Plattform zugewiesen. Außerdem wird zus\"atzlich noch die Y-Koordinate des Spielers auf die der Plattform gesetzt, was hier die Funktion " this.player.y < this.platformManager...." ist. Zus\"atzlich wird wenn die Y-Koordinate des Spielers und die Y-Koordinate der Plattform \"ubereinstimmen, die "velocityY" auf 0 gesetzt, was zur Folge hat, dass der Spieler nicht mehr f\"allt. Anschließend sollen die Partikel des Spielers die Farbe der Plattormen annehmen.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
     for (i = 0; i < this.platformManager.platforms.length; i++) 
