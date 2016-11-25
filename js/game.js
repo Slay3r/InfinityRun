@@ -310,32 +310,9 @@ InfinityRun.setup = function() {
 
 
 
-InfinityRun.update = function() {
-
-	/*switch(GameState){
-		case State.Menu:
-			//InfinityRun.stop();
-			break;
-		case State.Started:
-			break;
-		case State.Paused:
-			break;
-		case State.Over:
-			break;
-	}*/
-	
+InfinityRun.update = function() {	
 	if (GameState == State.Started) {
-    this.player.update();
-	
-	//endless increasing difficulty
-	
-	/*
-    this.accelerationTweening = 0.2 * this.jumpCount;
-	if (this.jumpCount>5) {
-	this.platformManager.maxDistanceBetween = 300 + 2* this.jumpCount;
-	}	
-	*/
-	
+    this.player.update();	
     switch (this.jumpCount) {
         case 10:
             this.accelerationTweening = 1;
@@ -392,14 +369,6 @@ InfinityRun.update = function() {
                 // bounce player / push him away (effect)
                 this.player.velocityY = -10 + -(this.acceleration * 4);
                 this.player.velocityX = -20 + -(this.acceleration * 4);
-                // this.jumpCount = 0;
-                // this.acceleration = 0;
-                // this.accelerationTweening = 0;
-                // this.scoreColor = '#181818';
-                // this.platformManager.maxDistanceBetween = 350;
-                // this.platformManager.updateWhenLose();
-
-
             } else {
 
                 // --------- Controller ---------
@@ -412,13 +381,7 @@ InfinityRun.update = function() {
                         this.jumpCountRecord = this.jumpCount;
                     }
                 }
-				/*if (keydown.keys.ESCAPE) {
-					//toggle;
-					InfinityRun.stop;
-				}*/
-
             }
-
         }
     };
 
@@ -441,10 +404,8 @@ InfinityRun.keydown = function() {
 		GameState = State.Menu;
 	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu) {
 		GameState = State.Started;
-		//InfinityRun.start();
 	}
 	if (InfinityRun.keys.UP) {
-		//var prevSelected = this.selectedItem;
 		selectedItem = (selectedItem + items.length - 1) % items.length;
 	}
 	if (InfinityRun.keys.DOWN) {
@@ -511,8 +472,6 @@ InfinityRun.draw = function() {
 		var size = Math.floor(this.size*0.8);
 		if (i == selectedItem)
 		{
-			//var v = Math.floor(127*Math.sin(GameLoopManager.lastTime*0.04) + 127);
-			//this.fillStyle = "rgba(255,255,"+v.toString()+",255)";
 			this.fillStyle = "#A9F5F2";
 			size = this.size+5;
 		}
@@ -532,11 +491,9 @@ InfinityRun.draw = function() {
         this.fillStyle = '#181818';
         this.fillText('Record: ' + this.jumpCountRecord, this.width - 150, 33);
         this.fillStyle = this.scoreColor;
-        //this.font = (12 + (this.acceleration * 3))+'pt Arial';
         this.fillText('Jumps: ' + this.jumpCount, this.width - 150, 50);
-		//todo distance = velocity * time (date: passed time between frames)
         this.fillText('Distance: ' + 0/* -TODO- */, this.width - 150, 65);
-		this.fillText('GameState: ' + GameState, this.width - 150, 80);
+	this.fillText('GameState: ' + GameState, this.width - 150, 80);
     }
 
 };
