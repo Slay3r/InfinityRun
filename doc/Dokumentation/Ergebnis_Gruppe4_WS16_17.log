@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  30 NOV 2016 10:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  30 NOV 2016 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1149,35 +1149,35 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  (./content/einleitung.tex
 chapter 1.
-<content/pictures/Florian.png, id=265, 185.94469pt x 209.28188pt>
+<content/pictures/Florian.png, id=267, 185.94469pt x 209.28188pt>
 File: content/pictures/Florian.png Graphic file (type png)
 
 <use content/pictures/Florian.png>
 Package pdftex.def Info: content/pictures/Florian.png used on input line 7.
 (pdftex.def)             Requested size: 92.9721pt x 104.64067pt.
 
-<content/pictures/Jannik.png, id=267, 160.34906pt x 212.29312pt>
+<content/pictures/Jannik.png, id=269, 160.34906pt x 212.29312pt>
 File: content/pictures/Jannik.png Graphic file (type png)
 
 <use content/pictures/Jannik.png>
 Package pdftex.def Info: content/pictures/Jannik.png used on input line 13.
 (pdftex.def)             Requested size: 89.79485pt x 118.88333pt.
 
-<content/pictures/Johannes.png, id=268, 103.88812pt x 135.50626pt>
+<content/pictures/Johannes.png, id=270, 103.88812pt x 135.50626pt>
 File: content/pictures/Johannes.png Graphic file (type png)
 
 <use content/pictures/Johannes.png>
 Package pdftex.def Info: content/pictures/Johannes.png used on input line 19.
 (pdftex.def)             Requested size: 90.38193pt x 117.88947pt.
 
-<content/pictures/Marco.png, id=269, 1505.625pt x 1927.2pt>
+<content/pictures/Marco.png, id=271, 1505.625pt x 1927.2pt>
 File: content/pictures/Marco.png Graphic file (type png)
 
 <use content/pictures/Marco.png>
 Package pdftex.def Info: content/pictures/Marco.png used on input line 25.
 (pdftex.def)             Requested size: 87.324pt x 111.77473pt.
 
-<content/pictures/Koray.png, id=270, 99.61215pt x 128.03835pt>
+<content/pictures/Koray.png, id=272, 99.61215pt x 128.03835pt>
 File: content/pictures/Koray.png Graphic file (type png)
 
 <use content/pictures/Koray.png>
@@ -1200,7 +1200,7 @@ has been already used, duplicate ignored
                    \relax 
 l.60 \newpage
               [2]
-<content/pictures/entwurfsskizze.png, id=280, 1720.4275pt x 986.68625pt>
+<content/pictures/entwurfsskizze.png, id=282, 1720.4275pt x 986.68625pt>
 File: content/pictures/entwurfsskizze.png Graphic file (type png)
 
 <use content/pictures/entwurfsskizze.png>
@@ -1232,7 +1232,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) detected at line 93
  []
 
-[7] [8] <content/pictures/start.png, id=323, 1926.19624pt x 963.6pt>
+[7] [8] <content/pictures/start.png, id=325, 1926.19624pt x 963.6pt>
 File: content/pictures/start.png Graphic file (type png)
 
 <use content/pictures/start.png>
@@ -1243,7 +1243,7 @@ Overfull \hbox (11.1995pt too wide) in paragraph at lines 120--121
  [][] 
  []
 
-<content/pictures/spiel.png, id=324, 1926.19624pt x 967.615pt>
+<content/pictures/spiel.png, id=326, 1926.19624pt x 967.615pt>
 File: content/pictures/spiel.png Graphic file (type png)
 
 <use content/pictures/spiel.png>
@@ -1268,7 +1268,17 @@ File: uark.fd 2001/04/27 v1.00 Font definitions for the ark10 font
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
-[15]) [16] [17]
+[15]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 330.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Overfull \hbox (38.25606pt too wide) in paragraph at lines 326--341
+ [][] 
+ []
+
+[16]) [17]
 \openout2 = `content/ausblick.aux'.
 
  (./content/ausblick.tex [18
@@ -1298,11 +1308,8 @@ chapter without number
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <12> not available
 (Font)              Font shape `T1/cmr/m/sc' tried instead on input line 11.
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 12.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Underfull \hbox (badness 5667) in paragraph at lines 19--22
+
+Underfull \hbox (badness 5667) in paragraph at lines 23--26
 []\T1/cmr/m/sc/12 Gruppe4\T1/cmss/m/n/12 :  \T1/cmss/m/it/12 Chan-ge-log []$\T1
 /cmtt/m/n/12 https : / / github . com / Slay3r / InfinityRun /
  []
@@ -1419,7 +1426,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
 Package rerunfilecheck Info: File `Ergebnis_Gruppe4_WS16_17.out' has not change
 d.
-(rerunfilecheck)             Checksum: 42C2537832B0CEAE5D3524F6EF4151C3;2585.
+(rerunfilecheck)             Checksum: EF6510E670FAF6E45006BB616F44E864;2585.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1430,10 +1437,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 15913 strings out of 493029
- 238039 string characters out of 6136233
- 647996 words of memory out of 5000000
- 18107 multiletter control sequences out of 15000+600000
+ 15917 strings out of 493029
+ 238082 string characters out of 6136233
+ 647947 words of memory out of 5000000
+ 18109 multiletter control sequences out of 15000+600000
  18280 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,12n,71p,1571b,1911s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1447,10 +1454,10 @@ ic/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200
 .pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/tex
 mf/fonts/type1/public/cm-super/sfsx2074.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sftt1200.pfb>
-Output written on Ergebnis_Gruppe4_WS16_17.pdf (53 pages, 2546654 bytes).
+Output written on Ergebnis_Gruppe4_WS16_17.pdf (53 pages, 2551235 bytes).
 PDF statistics:
- 1671 PDF objects out of 1728 (max. 8388607)
- 1576 compressed objects within 16 object streams
- 1026 named destinations out of 1200 (max. 500000)
+ 1686 PDF objects out of 1728 (max. 8388607)
+ 1591 compressed objects within 16 object streams
+ 1028 named destinations out of 1200 (max. 500000)
  358 words of extra memory for PDF output out of 10000 (max. 10000000)
 

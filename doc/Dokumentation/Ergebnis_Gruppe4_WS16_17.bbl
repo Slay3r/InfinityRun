@@ -7,6 +7,10 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Fre]{sounds}
+\textsc{Freesound}:
+\newblock \emph{Freesound.org} \url{https://www.freesound.org/}
+
 \bibitem[Git]{git}
 \textsc{Github}:
 \newblock \emph{Softwareverwaltung} \url{https://github.com/}
