@@ -1,0 +1,48 @@
+\contentsline {chapter}{Inhaltsverzeichnis}{ii}{figure.caption.1}
+\contentsline {chapter}{Abbildungsverzeichnis}{iii}{figure.caption.1}
+\contentsline {chapter}{Tabellenverzeichnis}{v}{section*.2}
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Team}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Rollenverteilung}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Spielidee}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Spielkonzept}{2}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Entwurfsskizze}{3}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Erforderliche Software}{4}{subsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.3.1}Notepad++}{4}{subsubsection.1.3.3.1}
+\contentsline {subsubsection}{\numberline {1.3.3.2}Chrome}{4}{subsubsection.1.3.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3.3}Gimp}{4}{subsubsection.1.3.3.3}
+\contentsline {subsubsection}{\numberline {1.3.3.4}Git/Github}{4}{subsubsection.1.3.3.4}
+\contentsline {chapter}{\numberline {2}Phasen}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Entwurf und Anforderungen}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Funktionale Anforderungen}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Nicht funktionale Anforderungen}{6}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Projektplan}{6}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Releaseplan}{7}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Implementation - Zwischenstand}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Erf\IeC {\"u}llte Anforderungen}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Nicht erf\IeC {\"u}llte Anforderungen}{8}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Das Spiel}{9}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Bibliothek}{10}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Code}{10}{subsection.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.5.1}Framework initialisieren}{10}{subsubsection.2.2.5.1}
+\contentsline {subsubsection}{\numberline {2.2.5.2}Spieler initialisieren}{11}{subsubsection.2.2.5.2}
+\contentsline {subsubsection}{\numberline {2.2.5.3}Erstellen der Spielebene}{12}{subsubsection.2.2.5.3}
+\contentsline {subsubsection}{\numberline {2.2.5.4}Update der Plattformen}{13}{subsubsection.2.2.5.4}
+\contentsline {subsubsection}{\numberline {2.2.5.5}Update der Plattformen}{15}{subsubsection.2.2.5.5}
+\contentsline {subsection}{\numberline {2.2.6}N\IeC {\"a}chste Ziele}{16}{subsection.2.2.6}
+\contentsline {section}{\numberline {2.3}Implementation - Endstand}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Spielkonzept \IeC {\"A}nderungen}{16}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Funktionsdiagramm}{17}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Grafiken}{17}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Sounds}{17}{subsection.2.3.4}
+\contentsline {section}{\numberline {2.4}Test}{17}{section.2.4}
+\contentsline {section}{\numberline {2.5}Dokumentation \& Pr\"asentation}{17}{section.2.5}
+\contentsline {chapter}{\numberline {3}Ausblick}{19}{chapter.3}
+\contentsline {chapter}{\numberline {4}Fazit}{21}{chapter.4}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{23}{chapter*.12}
+\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{25}{chapter*.13}
+\contentsline {chapter}{\numberline {A}Anhang}{27}{appendix.A}
+\contentsline {section}{\numberline {A.1}Github Changelog}{27}{section.A.1}
+\contentsline {section}{\numberline {A.2}game.js}{32}{section.A.2}
+\contentsline {section}{\numberline {A.3}game.css}{44}{section.A.3}
+\contentsline {section}{\numberline {A.4}index.html}{45}{section.A.4}
