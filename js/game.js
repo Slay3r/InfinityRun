@@ -34,7 +34,106 @@ var GameState = State.Menu;
 var MainMenu;
 
 var debug = true;
+var bgaudio = document.getElementById('backgroundmusic');
+var fxaudio = document.getElementById('fxaudio');
+var backgroundaudio = "sounds/main1.wav";
+        function playAudio() {
+            // Check for audio element support.
+            if (window.HTMLAudioElement) {
+                try {
+                     
+                        bgaudio.src = backgroundaudio;
+                        //currentFile = audioURL.value;                       
+                    //}
 
+                    // Tests the paused attribute and set state. 
+                    if (bgaudio.paused) {
+                        bgaudio.play();
+                        //btn.textContent = "Pause";
+                    }
+                    else {
+                        bgaudio.pause();
+                        //btn.textContent = "Play";
+                    }
+                }
+                catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                   if(window.console && console.error("Error:" + e));
+                }
+            }
+        }
+		function restartAudio() {
+            // Check for audio element support.
+            if (window.HTMLAudioElement) {
+                try {
+                     
+                        
+                    // Tests the paused attribute and set state. 
+                    if (bgaudio.ended) {
+						bgaudio.currentTime = 0;
+                        bgaudio.play();
+                        //btn.textContent = "Pause";
+                    }
+                    
+                    
+                }
+                catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                   if(window.console && console.error("Error:" + e));
+                }
+            }
+        }
+		
+		
+             // Rewinds the audio file by 30 seconds.
+
+        //function rewindAudio() {
+             // Check for audio element support.
+          //  if (window.HTMLAudioElement) {
+            //    try {
+              //      var oAudio = document.getElementById('myaudio');
+                //    oAudio.currentTime -= 30.0;
+                //}
+                //catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                  //   if(window.console && console.error("Error:" + e));
+                //}
+            //}
+        //}
+
+             // Fast forwards the audio file by 30 seconds.
+
+        //function forwardAudio() {
+
+             // Check for audio element support.
+          //  if (window.HTMLAudioElement) {
+            //    try {
+              //      var oAudio = document.getElementById('myaudio');
+                //    oAudio.currentTime += 30.0;
+                //}
+                //catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                  //   if(window.console && console.error("Error:" + e));
+                //}
+            //}
+        //}
+
+             // Restart the audio file to the beginning.
+
+        //function restartAudio() {
+             // Check for audio element support.
+           // if (window.HTMLAudioElement) {
+             //   try {
+               //     var oAudio = document.getElementById('myaudio');
+               //     oAudio.currentTime = 0;
+              //  }
+               // catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                //     if(window.console && console.error("Error:" + e));
+             //  }
+           // }
+       // }
+          
 // randomizer
 function random(min, max) {
     return Math.round(min + (Math.random() * (max - min)));
@@ -145,10 +244,21 @@ Player.prototype.update = function() {
         InfinityRun.scoreColor = '#181818';
         InfinityRun.platformManager.maxDistanceBetween = 350;
         InfinityRun.platformManager.updateWhenLose();
+		fxaudio.pause();
+	    fxaudio.src = 'sounds/crash.wav';
+	    fxaudio.load();
+	    fxaudio.play();
+		
     }
 
     if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
         this.velocityY += -0.75;
+    }
+	if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY >0) {
+        fxaudio.pause();
+	    fxaudio.src = 'sounds/jump.wav';
+	    fxaudio.load();
+	    fxaudio.play();
     }
 
 };
@@ -289,13 +399,16 @@ InfinityRun.setup = function() {
     this.jumpCount = 0;
     this.acceleration = 0;
     this.accelerationTweening = 0;
-
     this.player = new Player({
         x: 150,
         y: 30,
         width: 32,
         height: 32
     });
+	bgaudio.pause();
+	bgaudio.src = 'sounds/menu.wav';
+	bgaudio.load();
+	bgaudio.play();
 
     this.platformManager = new PlatformManager();
 
@@ -309,25 +422,55 @@ InfinityRun.setup = function() {
 };
 
 
-
 InfinityRun.update = function() {	
 	if (GameState == State.Started) {
-    this.player.update();	
+    this.player.update();
+    restartAudio();	
     switch (this.jumpCount) {
+		case 0:
+			bgaudio.pause();
+			bgaudio.src = 'sounds/main1.wav';
+			bgaudio.load();
+			bgaudio.play();
+            break;
         case 10:
             this.accelerationTweening = 1;
             this.platformManager.maxDistanceBetween = 430;
             //this.scoreColor = '#076C00';
+			bgaudio.pause();
+			bgaudio.src = 'sounds/main2.wav';
+			bgaudio.load();
+			bgaudio.play();
+			fxaudio.pause();
+			fxaudio.src = 'sounds/levelup.wav';
+			fxaudio.load();
+			fxaudio.play();
             break;
         case 25:
             this.accelerationTweening = 2;
             this.platformManager.maxDistanceBetween = 530;
             //this.scoreColor = '#0300A9';
+			bgaudio.pause();
+			bgaudio.src = 'sounds/main3.wav';
+			bgaudio.load();
+			bgaudio.play();
+			fxaudio.pause();
+			fxaudio.src = 'sounds/levelup.wav';
+			fxaudio.load();
+			fxaudio.play();
             break;
         case 40:
             this.accelerationTweening = 3;
             this.platformManager.maxDistanceBetween = 580;
             //this.scoreColor = '#9F8F00';
+			bgaudio.pause();
+			bgaudio.src = 'sounds/main4.wav';
+			bgaudio.load();
+			bgaudio.play();
+			fxaudio.pause();
+			fxaudio.src = 'sounds/levelup.wav';
+			fxaudio.load();
+			fxaudio.play();
             break;
     }
 	
@@ -402,6 +545,11 @@ InfinityRun.keydown = function() {
     if (InfinityRun.keys.ESCAPE && GameState==State.Started) {
 		InfinityRun.clear();
 		GameState = State.Menu;
+		bgaudio.pause();
+	    bgaudio.src = 'sounds/menu.wav';
+	    bgaudio.load();
+		bgaudio.play();
+		
 	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu) {
 		GameState = State.Started;
 	}
