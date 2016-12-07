@@ -317,7 +317,45 @@ Folgende Spielkonzept Äbnderungen haben wir im laufe der Implementation vorgeno
 	\item Spielhintergrund
 \end{itemize}
 \subsection{Funktionsdiagramm}
+\begin{landscape}
+	\begin{figure}%[hb]
+		\centering
+		\includegraphics[scale=0.5]{content/pictures/funktionsdiagramm.png}
+		\caption{Funktionsdiagramm}
+		\label{pic:diagramm}
+	\end{figure}
+\end{landscape}
+Beschreibung der Funktionen aus Abbildung \ref{pic:diagramm}
+\begin{table}[h]
+	\begin{tabular}{|l|l|}
+		\toprule
+		\textbf{Funktion}& \textbf{Erklärung}\\
+		\midrule
+		InfinityRun.draw & Spielfläche wird gezeichnet	\\ 
+		InfinityRun.setup & Grundeinstellungen des Spiels	\\
+		InfinityRun.update & Aktualisierung der Spielfläche	\\ 
+		Particle.prototype.update & Aktualisierung der Partikel	\\ 
+		PlatformManager.prototype.update & Neue Position der Plattformen	\\ 
+		Particle(Option) & Einstellungen der Partikel	\\ 
+		random(min, max) & Erstellen der Zufallszahl\\
+		randomChoice(array) & Zufälliger Wert aus dem Array	\\
+		restartAudio & Neustand der Audiosequenz	\\
+		InfinityRun.keydown & Festlegung der Spieltasten	\\
+		PlatformManager.prototype.updateWhenLose & Setzt die Plattformen zurück	\\
+		Player.prototype.update & Aktualisierung der Spielfigur	\\
+		PlatformManager() & Verwalten der Plattformen	\\
+		Platform(options) & Erzeugt eine Plattform	\\
+		Player(option) & Erstellt die Spielfigur	\\
+		Vector2(x, y, width, height) & Verwaltungen der Koordinaten	\\
+		Player.prototype.draw & Zeichnen der Spielfigur	\\
+		Particle.prototype.draw & Zeichnen der Partikel	\\
+		\bottomrule
+	\end{tabular}
+	\caption{Funktionsbeschreibung}
+\end{table}
 \subsection{Grafiken}
+Derzeit haben wir keine Grafiken implementiert, da unsere Objekte und Hintergründe mittels Canvas gezeichnet werden.
+\newpage
 \subsection{Sounds}
 Bei den implementierten Spielsounds greifen wir auf eine freie Sounddatenbank zurück. Quelle: \cite{sounds}\\
 Folgende Sounds werden wir verwenden:
@@ -340,6 +378,22 @@ Folgende Sounds werden wir verwenden:
 	\end{tabular}
 	\caption{Sound Links}
 \end{table}
-\section{Test}
-\section{Dokumentation \& Pr\"asentation}
+%\section{Test}
+%\subsection{Testplan}
+%\begin{table}[h]
+%	\centering
+%	\begin{tabular}{|c|l|l|}
+%		\toprule
+%		\textbf{Test-Nr.}& \textbf{Beschreibung}& Fehler \\
+%		\midrule
+%		1 & Test &\\ 
+%		2 & Test &\\
+%		3 & Test &\\ 
+%		4 & Test &\\
+%		5 & Test &\\
+%		\bottomrule
+%		\end{tabular}
+%		\caption{Testplan}
+%\end{table}
+%\section{Dokumentation \& Pr\"asentation}
 
