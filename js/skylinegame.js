@@ -45,6 +45,7 @@ var Building, Skyline, dt, skylines;
 skylines = [];
 
 dt = 1;
+ var jumpheight = 0
 //-------------------------------------------------------------
 
 
@@ -131,6 +132,12 @@ Building.prototype.reset = function(config) {
     this.slantedTop = floor(random(0, 10)) === 0;
     this.slantedTopHeight = this.width / random(2, 4);
     this.slantedTopDirection = round(random(0, 1)) === 0;
+	this.normalTop = !this.slantedTop && floor(random(0, 10)) === 0;
+    this.normalTopHeight = this.width / random(2, 4);
+    this.normalTopwindow = round(random(1, 2)) === 0;
+	this.companyTop = !this.slantedTop && !this.spireTop && !this.antennaTop && !this.normalTop && floor(random(0, 10)) === 0;
+    this.companyTopHeight = this.width / random(4, 6);
+    this.companyTopcount = 4;//round(random(3, 6));
     this.spireTop = floor(random(0, 15)) === 0;
     this.spireTopWidth = random(this.width * .01, this.width * .07);
     this.spireTopHeight = random(10, 20);
@@ -157,6 +164,75 @@ Building.prototype.render = function() {
       InfinityRun.closePath();
       InfinityRun.fill();
       InfinityRun.stroke();
+    }
+	if (this.normalTop) {
+      InfinityRun.beginPath();
+      InfinityRun.moveTo(this.x, this.y);
+      InfinityRun.lineTo(this.x + this.width, this.y);
+	  InfinityRun.lineTo(this.x + (this.width/2), this.y-this.normalTopHeight); 
+      InfinityRun.closePath();
+      InfinityRun.fill();
+      InfinityRun.stroke();
+	  //window still ugly as hell
+	  // if (this.normalTopwindow) {
+		// InfinityRun.beginPath();
+        // InfinityRun.arc(this.x + (this.width/2), this.y - (this.normalTopHeight/2),(this.normalTopHeight/3),0,2*PI,false);
+		// InfinityRun.fillStyle = 'yellow';
+		// InfinityRun.lineWidth = 3;
+		// InfinityRun.strokeStyle = 'black';
+		// InfinityRun.closePath();
+		// InfinityRun.fill();
+		// InfinityRun.stroke();
+      // }
+    }
+	// also looks ugly
+	if (this.companyTop) {
+      //InfinityRun.beginPath();
+      //InfinityRun.moveTo(this.x , this.y);
+	  var ctc = 1;
+	  while (ctc<=this.companyTopcount) {
+			InfinityRun.beginPath();
+			InfinityRun.moveTo(this.x , this.y);
+			InfinityRun.lineTo(this.x + ctc*(this.width/this.companyTopcount), this.y-this.companyTopHeight);
+			InfinityRun.lineTo(this.x + ctc*(this.width/this.companyTopcount), this.y+this.companyTopHeight);
+			InfinityRun.closePath();
+			InfinityRun.fill();
+			InfinityRun.stroke();
+			ctc++;
+	  }
+	  // InfinityRun.lineTo(this.x + (2*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	  // InfinityRun.lineTo(this.x + (2*(this.width/this.companyTopcount)), this.x);
+	  // InfinityRun.lineTo(this.x + (3*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	  // InfinityRun.lineTo(this.x + (3*(this.width/this.companyTopcount)), this.x);
+	  //if (this.companyTopcount>3){
+		  
+		  // InfinityRun.lineTo(this.x + (4*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	      // InfinityRun.lineTo(this.x + (4*(this.width/this.companyTopcount)), this.x);
+	  // //}
+	  //if (this.companyTopcount>4){
+		  //InfinityRun.lineTo(this.x + (5*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	      //InfinityRun.lineTo(this.x + (5*(this.width/this.companyTopcount)), this.x);
+	  //}
+	  //if (this.companyTopcount>5){
+		  //InfinityRun.lineTo(this.x + (6*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	      //InfinityRun.lineTo(this.x + (6*(this.width/this.companyTopcount)), this.x);
+	  //}
+	  
+	  //InfinityRun.lineTo(this.x + (this.width/2), this.y-this.normalTopHeight); 
+      //InfinityRun.closePath();
+      //InfinityRun.fill();
+      //InfinityRun.stroke();
+	  //window still ugly as hell
+	  // if (this.normalTopwindow) {
+		// InfinityRun.beginPath();
+        // InfinityRun.arc(this.x + (this.width/2), this.y - (this.normalTopHeight/2),(this.normalTopHeight/3),0,2*PI,false);
+		// InfinityRun.fillStyle = 'yellow';
+		// InfinityRun.lineWidth = 3;
+		// InfinityRun.strokeStyle = 'black';
+		// InfinityRun.closePath();
+		// InfinityRun.fill();
+		// InfinityRun.stroke();
+      // }
     }
     if (this.spireTop) {
       InfinityRun.beginPath();
@@ -242,8 +318,8 @@ Skyline.prototype.update = function() {
     i = this.buildings.length;
     InfinityRun.save();
     //InfinityRun.translate(this.x, (InfinityRun.height - InfinityRun.mouse.y) / 20 * this.layer);
-	InfinityRun.translate(this.x, (InfinityRun.height - InfinityRun.mouse.y
-	) / 20 * this.layer);
+	//InfinityRun.translate(this.x, (InfinityRun.height - (InfinityRun.height-((jumpheight*jumpheight)*0.5))) / 20 * this.layer);
+	InfinityRun.translate(this.x, (InfinityRun.height - (InfinityRun.height-(-jumpheight*0.5)-400)) / 20 * this.layer);
     while (i--) {
       this.buildings[i].render(i);
     }
@@ -329,6 +405,8 @@ Player.prototype = new Vector2;
 Player.prototype.update = function() {
     // Gravity 
     this.velocityY += 1;
+	//um bg zu ändern
+	jumpheight=(this.y);
     this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
 
     if (this.y > InfinityRun.height || this.x + this.width < 0) {
@@ -346,11 +424,14 @@ Player.prototype.update = function() {
 	    fxaudio.src = 'sounds/crash.wav';
 	    fxaudio.load();
 	    fxaudio.play();
+		//bg ändern
+		//jumpheight=0;
 		
     }
 
     if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
         this.velocityY += -0.75;
+		//jumpheight+=1
     }
 	if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY >0) {
         fxaudio.pause();
@@ -525,12 +606,12 @@ InfinityRun.setup = function() {
       results.push(skylines.push(new Skyline({
         layer: i + 1,
         width: {
-          min: (i + 1) * 30,
-          max: (i + 1) * 40
+          min: (i + 1) * 20,
+          max: (i + 1) * 50
         },
         height: {
-          min: 150 - (i * 35),
-          max: 300 - (i * 35)
+          min: InfinityRun.height-200 - (i * round(InfinityRun.height/3)),
+          max: InfinityRun.height-50 - (i * round(InfinityRun.height/3))
         },
         speed: (i + 1) * .003,
         color: 'hsl( 200, ' + (((i + 1) * 1) + 10) + '%, ' + (75 - (i * 13)) + '% )'
@@ -797,7 +878,7 @@ InfinityRun.draw = function() {
         this.fillText('Record: ' + this.jumpCountRecord, this.width - 150, 33);
         this.fillStyle = this.scoreColor;
         this.fillText('Jumps: ' + this.jumpCount, this.width - 150, 50);
-        this.fillText('Distance: ' + this.player.y , this.width - 150, 65);
+        this.fillText('Distance: ' + random (3,6) , this.width - 150, 65);
 		this.fillText('mouse: ' + this.mouse.y , this.width - 150, 100);
 	this.fillText('GameState: ' + GameState, this.width - 150, 80);
     }
