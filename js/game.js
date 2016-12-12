@@ -27,7 +27,8 @@
  * https://crossbrowsertesting.com/
  * https://www.browserstack.com/
  */
-var i = 0;
+//testweise rausgenommen verändert nix
+//var i = 0; 
 
 var State = { Menu:0, Started:1, Paused:2, Over:3 };
 var GameState = State.Menu;
@@ -37,6 +38,17 @@ var debug = true;
 var bgaudio = document.getElementById('backgroundmusic');
 var fxaudio = document.getElementById('fxaudio');
 var backgroundaudio = "sounds/main1.wav";
+//-------------------------------------------------------------
+//vars background
+var Building, Skyline, dt, skylines;
+
+skylines = [];
+
+dt = 1;
+ var jumpheight = 0
+//-------------------------------------------------------------
+
+
         function playAudio() {
             // Check for audio element support.
             if (window.HTMLAudioElement) {
@@ -83,56 +95,6 @@ var backgroundaudio = "sounds/main1.wav";
                 }
             }
         }
-		
-		
-             // Rewinds the audio file by 30 seconds.
-
-        //function rewindAudio() {
-             // Check for audio element support.
-          //  if (window.HTMLAudioElement) {
-            //    try {
-              //      var oAudio = document.getElementById('myaudio');
-                //    oAudio.currentTime -= 30.0;
-                //}
-                //catch (e) {
-                    // Fail silently but show in F12 developer tools console
-                  //   if(window.console && console.error("Error:" + e));
-                //}
-            //}
-        //}
-
-             // Fast forwards the audio file by 30 seconds.
-
-        //function forwardAudio() {
-
-             // Check for audio element support.
-          //  if (window.HTMLAudioElement) {
-            //    try {
-              //      var oAudio = document.getElementById('myaudio');
-                //    oAudio.currentTime += 30.0;
-                //}
-                //catch (e) {
-                    // Fail silently but show in F12 developer tools console
-                  //   if(window.console && console.error("Error:" + e));
-                //}
-            //}
-        //}
-
-             // Restart the audio file to the beginning.
-
-        //function restartAudio() {
-             // Check for audio element support.
-           // if (window.HTMLAudioElement) {
-             //   try {
-               //     var oAudio = document.getElementById('myaudio');
-               //     oAudio.currentTime = 0;
-              //  }
-               // catch (e) {
-                    // Fail silently but show in F12 developer tools console
-                //     if(window.console && console.error("Error:" + e));
-             //  }
-           // }
-       // }
           
 // randomizer
 function random(min, max) {
@@ -151,7 +113,219 @@ var InfinityRun = Sketch.create({
     height: 360,
     container: document.getElementById('container')
 });
-
+//Mountainintain mouse init
+InfinityRun.mouse.x = InfinityRun.width / 10;
+InfinityRun.mouse.y = InfinityRun.height;
+//---------------------------------------------------------
+//Mountainfunc
+Building = function(config) {
+    return this.reset(config);
+  };
+  
+Building.prototype.reset = function(config) {
+    this.layer = config.layer;
+    this.x = config.x;
+    this.y = config.y;
+    this.width = config.width;
+    this.height = config.height;
+    this.color = config.color;
+    this.slantedTop = floor(random(0, 10)) === 0;
+    this.slantedTopHeight = this.width / random(2, 4);
+    this.slantedTopDirection = round(random(0, 1)) === 0;
+	this.normalTop = !this.slantedTop && floor(random(0, 10)) === 0;
+    this.normalTopHeight = this.width / random(2, 4);
+    this.normalTopwindow = round(random(1, 2)) === 0;
+	this.companyTop = !this.slantedTop && !this.spireTop && !this.antennaTop && !this.normalTop && floor(random(0, 10)) === 0;
+    this.companyTopHeight = this.width / random(4, 6);
+    this.companyTopcount = 4;//round(random(3, 6));
+    this.spireTop = floor(random(0, 15)) === 0;
+    this.spireTopWidth = random(this.width * .01, this.width * .07);
+    this.spireTopHeight = random(10, 20);
+    this.antennaTop = !this.spireTop && floor(random(0, 10)) === 0;
+    this.antennaTopWidth = this.layer / 2;
+    return this.antennaTopHeight = random(5, 20);
+  };
+Building.prototype.render = function() {
+    InfinityRun.fillStyle = InfinityRun.strokeStyle = this.color;
+    InfinityRun.lineWidth = 2;
+    InfinityRun.beginPath();
+    InfinityRun.rect(this.x, this.y, this.width, this.height);
+    InfinityRun.fill();
+    InfinityRun.stroke();
+    if (this.slantedTop) {
+      InfinityRun.beginPath();
+      InfinityRun.moveTo(this.x, this.y);
+      InfinityRun.lineTo(this.x + this.width, this.y);
+      if (this.slantedTopDirection) {
+        InfinityRun.lineTo(this.x + this.width, this.y - this.slantedTopHeight);
+      } else {
+        InfinityRun.lineTo(this.x, this.y - this.slantedTopHeight);
+      }
+      InfinityRun.closePath();
+      InfinityRun.fill();
+      InfinityRun.stroke();
+    }
+	if (this.normalTop) {
+      InfinityRun.beginPath();
+      InfinityRun.moveTo(this.x, this.y);
+      InfinityRun.lineTo(this.x + this.width, this.y);
+	  InfinityRun.lineTo(this.x + (this.width/2), this.y-this.normalTopHeight); 
+      InfinityRun.closePath();
+      InfinityRun.fill();
+      InfinityRun.stroke();
+	  //window still ugly as hell
+	  // if (this.normalTopwindow) {
+		// InfinityRun.beginPath();
+        // InfinityRun.arc(this.x + (this.width/2), this.y - (this.normalTopHeight/2),(this.normalTopHeight/3),0,2*PI,false);
+		// InfinityRun.fillStyle = 'yellow';
+		// InfinityRun.lineWidth = 3;
+		// InfinityRun.strokeStyle = 'black';
+		// InfinityRun.closePath();
+		// InfinityRun.fill();
+		// InfinityRun.stroke();
+      // }
+    }
+	// also looks ugly
+	if (this.companyTop) {
+      //InfinityRun.beginPath();
+      //InfinityRun.moveTo(this.x , this.y);
+	  var ctc = 1;
+	  while (ctc<=this.companyTopcount) {
+			InfinityRun.beginPath();
+			InfinityRun.moveTo(this.x , this.y);
+			InfinityRun.lineTo(this.x + ctc*(this.width/this.companyTopcount), this.y-this.companyTopHeight);
+			InfinityRun.lineTo(this.x + ctc*(this.width/this.companyTopcount), this.y+this.companyTopHeight);
+			InfinityRun.closePath();
+			InfinityRun.fill();
+			InfinityRun.stroke();
+			ctc++;
+	  }
+	  // InfinityRun.lineTo(this.x + (2*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	  // InfinityRun.lineTo(this.x + (2*(this.width/this.companyTopcount)), this.x);
+	  // InfinityRun.lineTo(this.x + (3*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	  // InfinityRun.lineTo(this.x + (3*(this.width/this.companyTopcount)), this.x);
+	  //if (this.companyTopcount>3){
+		  
+		  // InfinityRun.lineTo(this.x + (4*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	      // InfinityRun.lineTo(this.x + (4*(this.width/this.companyTopcount)), this.x);
+	  // //}
+	  //if (this.companyTopcount>4){
+		  //InfinityRun.lineTo(this.x + (5*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	      //InfinityRun.lineTo(this.x + (5*(this.width/this.companyTopcount)), this.x);
+	  //}
+	  //if (this.companyTopcount>5){
+		  //InfinityRun.lineTo(this.x + (6*(this.width/this.companyTopcount)), this.y-this.companyTopHeight);
+	      //InfinityRun.lineTo(this.x + (6*(this.width/this.companyTopcount)), this.x);
+	  //}
+	  
+	  //InfinityRun.lineTo(this.x + (this.width/2), this.y-this.normalTopHeight); 
+      //InfinityRun.closePath();
+      //InfinityRun.fill();
+      //InfinityRun.stroke();
+	  //window still ugly as hell
+	  // if (this.normalTopwindow) {
+		// InfinityRun.beginPath();
+        // InfinityRun.arc(this.x + (this.width/2), this.y - (this.normalTopHeight/2),(this.normalTopHeight/3),0,2*PI,false);
+		// InfinityRun.fillStyle = 'yellow';
+		// InfinityRun.lineWidth = 3;
+		// InfinityRun.strokeStyle = 'black';
+		// InfinityRun.closePath();
+		// InfinityRun.fill();
+		// InfinityRun.stroke();
+      // }
+    }
+    if (this.spireTop) {
+      InfinityRun.beginPath();
+      InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.spireTopHeight);
+      InfinityRun.lineTo(this.x + (this.width / 2) + this.spireTopWidth, this.y);
+      InfinityRun.lineTo(this.x + (this.width / 2) - this.spireTopWidth, this.y);
+      InfinityRun.closePath();
+      InfinityRun.fill();
+      InfinityRun.stroke();
+    }
+    if (this.antennaTop) {
+      InfinityRun.beginPath();
+      InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.antennaTopHeight);
+      InfinityRun.lineTo(this.x + (this.width / 2), this.y);
+      InfinityRun.lineWidth = this.antennaTopWidth;
+      return InfinityRun.stroke();
+    }
+  };
+Skyline = function(config) {
+    this.x = 0;
+    this.buildings = [];
+    this.layer = config.layer;
+    this.width = {
+      min: config.width.min,
+      max: config.width.max
+    };
+    this.height = {
+      min: config.height.min,
+      max: config.height.max
+    };
+    this.speed = config.speed;
+    this.color = config.color;
+    this.populate();
+    return this;
+  };
+Skyline.prototype.populate = function() {
+    var newHeight, newWidth, results, totalWidth;
+    totalWidth = 0;
+    results = [];
+    while (totalWidth <= InfinityRun.width + (this.width.max * 2)) {
+      newWidth = round(random(this.width.min, this.width.max));
+      newHeight = round(random(this.height.min, this.height.max));
+      this.buildings.push(new Building({
+        layer: this.layer,
+        x: this.buildings.length === 0 ? 0 : this.buildings[this.buildings.length - 1].x + this.buildings[this.buildings.length - 1].width,
+        y: InfinityRun.height - newHeight,
+        width: newWidth,
+        height: newHeight,
+        color: this.color
+      }));
+      results.push(totalWidth += newWidth);
+    }
+    return results;
+  };
+Skyline.prototype.update = function() {
+    var firstBuilding, lastBuilding, newHeight, newWidth;
+	//accelerationTweening ist 0 am anfang
+	if (InfinityRun.accelerationTweening==0){
+		this.x-=((150) * this.speed) * dt;
+	}
+	else
+	{
+    this.x -= ((InfinityRun.accelerationTweening*330) * this.speed) * dt;
+	}
+    firstBuilding = this.buildings[0];
+    if (firstBuilding.width + firstBuilding.x + this.x < 0) {
+      newWidth = round(random(this.width.min, this.width.max));
+      newHeight = round(random(this.height.min, this.height.max));
+      lastBuilding = this.buildings[this.buildings.length - 1];
+      firstBuilding.reset({
+        layer: this.layer,
+        x: lastBuilding.x + lastBuilding.width,
+        y: InfinityRun.height - newHeight,
+        width: newWidth,
+        height: newHeight,
+        color: this.color
+      });
+      return this.buildings.push(this.buildings.shift());
+    }
+  };
+  Skyline.prototype.render = function() {
+    var i;
+    i = this.buildings.length;
+    InfinityRun.save();
+    //InfinityRun.translate(this.x, (InfinityRun.height - InfinityRun.mouse.y) / 20 * this.layer);
+	//InfinityRun.translate(this.x, (InfinityRun.height - (InfinityRun.height-((jumpheight*jumpheight)*0.5))) / 20 * this.layer);
+	InfinityRun.translate(this.x, (InfinityRun.height - (InfinityRun.height-(-jumpheight*0.5)-400)) / 20 * this.layer);
+    while (i--) {
+      this.buildings[i].render(i);
+    }
+    return InfinityRun.restore();
+  };
+//---------------------------------------------------------
 //------- Vector [Get/Set] Functions ---------
 
 //Set X,Y,Width,Height
@@ -231,6 +405,8 @@ Player.prototype = new Vector2;
 Player.prototype.update = function() {
     // Gravity 
     this.velocityY += 1;
+	//um bg zu ändern
+	jumpheight=(this.y);
     this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
 
     if (this.y > InfinityRun.height || this.x + this.width < 0) {
@@ -248,11 +424,14 @@ Player.prototype.update = function() {
 	    fxaudio.src = 'sounds/crash.wav';
 	    fxaudio.load();
 	    fxaudio.play();
+		//bg ändern
+		//jumpheight=0;
 		
     }
 
     if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
         this.velocityY += -0.75;
+		//jumpheight+=1
     }
 	if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY >0) {
         fxaudio.pause();
@@ -418,12 +597,54 @@ InfinityRun.setup = function() {
     this.collidedPlatform = null;
     this.scoreColor = '#181818';
     this.jumpCountRecord = 0;
+	//--------------------------------------
+	//bg add
+    var i, results;
+    i = 3;
+    results = [];
+    while (i--) {
+      results.push(skylines.push(new Skyline({
+        layer: i + 1,
+        width: {
+          min: (i + 1) * 20,
+          max: (i + 1) * 50
+        },
+        height: {
+          min: InfinityRun.height-200 - (i * round(InfinityRun.height/3)),
+          max: InfinityRun.height-50 - (i * round(InfinityRun.height/3))
+        },
+        speed: (i + 1) * .003,
+        color: 'hsl( 200, ' + (((i + 1) * 1) + 10) + '%, ' + (75 - (i * 13)) + '% )'
+      })));
+    }
+	return results;
+	//--------------------------------------
+	
 
 };
+//--------------------------------------------
+//clear func bg
+InfinityRun.clear = function() {
+    return InfinityRun.clearRect(0, 0, InfinityRun.width, InfinityRun.height);
+  };
+//--------------------------------------------
+
 
 
 InfinityRun.update = function() {	
 	if (GameState == State.Started) {
+	//--------------------------------------------
+	//clear func bg
+	var i, results;
+    dt = InfinityRun.dt < .1 ? .1 : InfinityRun.dt / 16;
+    dt = dt > 5 ? 5 : dt;
+    i = skylines.length;
+    results = [];
+    while (i--) {
+      results.push(skylines[i].update(i));
+    }
+    //return results;
+	//--------------------------------------------
     this.player.update();
     restartAudio();	
     switch (this.jumpCount) {
@@ -535,6 +756,10 @@ InfinityRun.update = function() {
     for (i = 0; i < this.particles.length; i++) {
         this.particles[i].update();
     };
+	//-----------------------------------------------
+	//bg 
+	return results;
+	//-----------------------------------------------
 }
 
 };
@@ -576,6 +801,15 @@ Menu = function() {
 
 InfinityRun.draw = function() {
 	if(GameState == State.Started) {
+	//----------------------------------------------------------------
+	//bg draw
+	var i, results;
+    i = skylines.length;
+    results = [];
+    while (i--) {
+      results.push(skylines[i].render(i));
+    }	
+	//----------------------------------------------------------------
     this.player.draw();
 
     for (i = 0; i < this.platformManager.platforms.length; i++) {
@@ -628,6 +862,10 @@ InfinityRun.draw = function() {
 		this.fillText(items[i], InfinityRun.width/2, height);
 		this.fillStyle = "White";
 	}
+	//-----------------------------------------------------------
+	//bg dd
+	return results;
+	//-----------------------------------------------------------
 	
 	}
 	
@@ -640,7 +878,8 @@ InfinityRun.draw = function() {
         this.fillText('Record: ' + this.jumpCountRecord, this.width - 150, 33);
         this.fillStyle = this.scoreColor;
         this.fillText('Jumps: ' + this.jumpCount, this.width - 150, 50);
-        this.fillText('Distance: ' + 0/* -TODO- */, this.width - 150, 65);
+        this.fillText('Distance: ' + random (3,6) , this.width - 150, 65);
+		this.fillText('mouse: ' + this.mouse.y , this.width - 150, 100);
 	this.fillText('GameState: ' + GameState, this.width - 150, 80);
     }
 
