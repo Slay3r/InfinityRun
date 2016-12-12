@@ -46,6 +46,9 @@ skylines = [];
 
 dt = 1;
  var jumpheight = 0
+ //logoimage 
+var bglogo = new Image();
+bglogo.src = 'image/logo.png';
 //-------------------------------------------------------------
 function restartAudio() 
 {
@@ -800,7 +803,9 @@ InfinityRun.draw = function() {
 	this.fillStyle = "White";
 	
 	var height = 150;
-	
+	//logo
+	this.drawImage(bglogo,this.width-500,this.height-300);
+	//-------------------------------
 	if (this.title) {
 		this.font = Math.floor(this.size*1.3).toString() + "px Times New Roman";
 		this.fillText(this.title, this.width/2, height);
