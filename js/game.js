@@ -40,9 +40,10 @@ var fxaudio = document.getElementById('fxaudio');
 var backgroundaudio = "sounds/main1.wav";
 //-------------------------------------------------------------
 //vars background
-var Building, Skyline, dt, skylines;
+var Tower, Street, dt, Town;
+//Building
 
-skylines = [];
+Town = [];
 
 dt = 1;
  var jumpheight = 0
@@ -92,19 +93,16 @@ var InfinityRun = Sketch.create({
     	container: document.getElementById('container')
 });
 
-//Mountainintain mouse init
-InfinityRun.mouse.x = InfinityRun.width / 10;
-InfinityRun.mouse.y = InfinityRun.height;
 
 //---------------------------------------------------------
 
-//Mountainfunc
-Building = function(config) 
+//bg func
+Tower = function(config) 
 {
     	return this.reset(config);
 };
   
-Building.prototype.reset = function(config) 
+Tower.prototype.reset = function(config) 
 {
     	this.layer = config.layer;
     	this.x = config.x;
@@ -112,24 +110,24 @@ Building.prototype.reset = function(config)
     	this.width = config.width;
     	this.height = config.height;
     	this.color = config.color;
-    	this.slantedTop = floor(random(0, 10)) === 0;
-    	this.slantedTopHeight = this.width / random(2, 4);
-    	this.slantedTopDirection = round(random(0, 1)) === 0;
-	this.normalTop = !this.slantedTop && floor(random(0, 10)) === 0;
+    	this.singleroofTop = floor(random(0, 10)) === 0;
+    	this.singleroofTopHeight = this.width / random(2, 4);
+    	this.singleroofTopDirection = round(random(0, 1)) === 0;
+	this.normalTop = !this.singleroofTop && floor(random(0, 10)) === 0;
     	this.normalTopHeight = this.width / random(2, 4);
     	this.normalTopwindow = round(random(1, 2)) === 0;
-	this.companyTop = !this.slantedTop && !this.spireTop && !this.antennaTop && !this.normalTop && floor(random(0, 10)) === 0;
+	this.companyTop = !this.singleroofTop && !this.summitTop && !this.radioTop && !this.normalTop && floor(random(0, 10)) === 0;
     	this.companyTopHeight = this.width / random(4, 6);
     	this.companyTopcount = 4;//round(random(3, 6));
-    	this.spireTop = floor(random(0, 15)) === 0;
-    	this.spireTopWidth = random(this.width * .01, this.width * .07);
-    	this.spireTopHeight = random(10, 20);
-    	this.antennaTop = !this.spireTop && floor(random(0, 10)) === 0;
-    	this.antennaTopWidth = this.layer / 2;
-    	return this.antennaTopHeight = random(5, 20);
+    	this.summitTop = floor(random(0, 15)) === 0;
+    	this.summitTopWidth = random(this.width * .01, this.width * .07);
+    	this.summitTopHeight = random(10, 20);
+    	this.radioTop = !this.summitTop && floor(random(0, 10)) === 0;
+    	this.radioTopWidth = this.layer / 2;
+    	return this.radioTopHeight = random(5, 20);
 };
 
-Building.prototype.render = function() 
+Tower.prototype.render = function() 
 {
     	InfinityRun.fillStyle = InfinityRun.strokeStyle = this.color;
     	InfinityRun.lineWidth = 2;
@@ -137,18 +135,18 @@ Building.prototype.render = function()
     	InfinityRun.rect(this.x, this.y, this.width, this.height);
     	InfinityRun.fill();
     	InfinityRun.stroke();
-    	if (this.slantedTop) 
+    	if (this.singleroofTop) 
 	{
       		InfinityRun.beginPath();
       		InfinityRun.moveTo(this.x, this.y);
       		InfinityRun.lineTo(this.x + this.width, this.y);
-      		if (this.slantedTopDirection) 
+      		if (this.singleroofTopDirection) 
 		{
-        		InfinityRun.lineTo(this.x + this.width, this.y - this.slantedTopHeight);
+        		InfinityRun.lineTo(this.x + this.width, this.y - this.singleroofTopHeight);
       		} 
 		else 
 		{
-        		InfinityRun.lineTo(this.x, this.y - this.slantedTopHeight);
+        		InfinityRun.lineTo(this.x, this.y - this.singleroofTopHeight);
       		}
       		InfinityRun.closePath();
       		InfinityRun.fill();
@@ -181,31 +179,31 @@ Building.prototype.render = function()
 			ctc++;
 	  	}
     	}
-    	if (this.spireTop) 
+    	if (this.summitTop) 
 	{
       		InfinityRun.beginPath();
-      		InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.spireTopHeight);
-      		InfinityRun.lineTo(this.x + (this.width / 2) + this.spireTopWidth, this.y);
-      		InfinityRun.lineTo(this.x + (this.width / 2) - this.spireTopWidth, this.y);
+      		InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.summitTopHeight);
+      		InfinityRun.lineTo(this.x + (this.width / 2) + this.summitTopWidth, this.y);
+      		InfinityRun.lineTo(this.x + (this.width / 2) - this.summitTopWidth, this.y);
       		InfinityRun.closePath();
       		InfinityRun.fill();
       		InfinityRun.stroke();
     	}
 
-    	if (this.antennaTop) 
+    	if (this.radioTop) 
 	{
       		InfinityRun.beginPath();
-      		InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.antennaTopHeight);
+      		InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.radioTopHeight);
       		InfinityRun.lineTo(this.x + (this.width / 2), this.y);
-      		InfinityRun.lineWidth = this.antennaTopWidth;
+      		InfinityRun.lineWidth = this.radioTopWidth;
       		return InfinityRun.stroke();
     	}
 };
 
-Skyline = function(config) 
+Street = function(config) 
 {
     	this.x = 0;
-    	this.buildings = [];
+    	this.alltowers = [];
     	this.layer = config.layer;
     	this.width = {
       	min: config.width.min,
@@ -223,7 +221,7 @@ this.height = {
     return this;
 };
 
-Skyline.prototype.populate = function() 
+Street.prototype.populate = function() 
 {
     	var newHeight, newWidth, results, totalWidth;
     	totalWidth = 0;
@@ -232,9 +230,9 @@ Skyline.prototype.populate = function()
 	{
       		newWidth = round(random(this.width.min, this.width.max));
       		newHeight = round(random(this.height.min, this.height.max));
-      		this.buildings.push(new Building({
+      		this.alltowers.push(new Tower({
         	layer: this.layer,
-        	x: this.buildings.length === 0 ? 0 : this.buildings[this.buildings.length - 1].x + this.buildings[this.buildings.length - 1].width,
+        	x: this.alltowers.length === 0 ? 0 : this.alltowers[this.alltowers.length - 1].x + this.alltowers[this.alltowers.length - 1].width,
         	y: InfinityRun.height - newHeight,
         	width: newWidth,
         	height: newHeight,
@@ -245,9 +243,9 @@ Skyline.prototype.populate = function()
     	return results;
 };
 
-Skyline.prototype.update = function() 
+Street.prototype.update = function() 
 {
-	var firstBuilding, lastBuilding, newHeight, newWidth;
+	var firstTower, lastTower, newHeight, newWidth;
 	if (InfinityRun.accelerationTweening==0)
 	{
 		this.x-=((150) * this.speed) * dt;
@@ -257,33 +255,33 @@ Skyline.prototype.update = function()
     		this.x -= ((InfinityRun.accelerationTweening*330) * this.speed) * dt;
 	}
 
-    	firstBuilding = this.buildings[0];
-    	if (firstBuilding.width + firstBuilding.x + this.x < 0) 
+    	firstTower = this.alltowers[0];
+    	if (firstTower.width + firstTower.x + this.x < 0) 
 	{
       		newWidth = round(random(this.width.min, this.width.max));
       		newHeight = round(random(this.height.min, this.height.max));
-      		lastBuilding = this.buildings[this.buildings.length - 1];
-      		firstBuilding.reset({
+      		lastTower = this.alltowers[this.alltowers.length - 1];
+      		firstTower.reset({
         		layer: this.layer,
-        		x: lastBuilding.x + lastBuilding.width,
+        		x: lastTower.x + lastTower.width,
         		y: InfinityRun.height - newHeight,
         		width: newWidth,
         		height: newHeight,
         		color: this.color
       		});
-      	return this.buildings.push(this.buildings.shift());
+      	return this.alltowers.push(this.alltowers.shift());
     	}
 };
 
-Skyline.prototype.render = function() 
+Street.prototype.render = function() 
 {
 	var i;
-    	i = this.buildings.length;
+    	i = this.alltowers.length;
     	InfinityRun.save();
 	InfinityRun.translate(this.x, (InfinityRun.height - (InfinityRun.height-(-jumpheight*0.5)-400)) / 20 * this.layer);
     	while (i--) 
 	{
-      		this.buildings[i].render(i);
+      		this.alltowers[i].render(i);
     	}
     	return InfinityRun.restore();
 };
@@ -564,7 +562,7 @@ InfinityRun.setup = function() {
     i = 3;
     results = [];
     while (i--) {
-      results.push(skylines.push(new Skyline({
+      results.push(Town.push(new Street({
         layer: i + 1,
         width: {
           min: (i + 1) * 20,
@@ -599,10 +597,10 @@ InfinityRun.update = function() {
 	var i, results;
     dt = InfinityRun.dt < .1 ? .1 : InfinityRun.dt / 16;
     dt = dt > 5 ? 5 : dt;
-    i = skylines.length;
+    i = Town.length;
     results = [];
     while (i--) {
-      results.push(skylines[i].update(i));
+      results.push(Town[i].update(i));
     }
     //return results;
 	//--------------------------------------------
@@ -765,10 +763,10 @@ InfinityRun.draw = function() {
 	//----------------------------------------------------------------
 	//bg draw
 	var i, results;
-    i = skylines.length;
+    i = Town.length;
     results = [];
     while (i--) {
-      results.push(skylines[i].render(i));
+      results.push(Town[i].render(i));
     }	
 	//----------------------------------------------------------------
     this.player.draw();
