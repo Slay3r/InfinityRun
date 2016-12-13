@@ -1,3 +1,25 @@
+2d7d953 butjo         2016-12-12 Favicon und Logo im Menü
+
+2b8a139 ans77         2016-12-12 Logos hinzugefügt
+
+92b7b28 Slay3r        2016-12-12 Code Cleanup
+
+30b0c6f Slay3r        2016-12-12 Clean up
+
+37f6e94 butjo         2016-12-12 Favicon hinzugefügt
+
+35801ac butjo         2016-12-11 Hintergrund ist nun abhänig von der Fenstergröße und reagiert auf den Player nicht mehr auf die Maus sowie noch die Dacharten erweitert und bugs behoben
+
+8d06d8a butjo         2016-12-09 skyline eingefügt
+
+4e52883 Slay3r        2016-12-07 Doku + Alte Dateien
+
+2c3491b butjo         2016-12-05 Sounds hinzugefügt teilweise noch ein paar Bugs und dirty code
+
+2e6dfbe butjo         2016-11-30 Dirty Code mit versuch den background zu implementieren files sind mit prefix back gekennzeichnetund liegen im Hauptverzeichnis.
+
+dda171b Slay3r        2016-11-30 Changelog geändert
+
 ffe660b Slay3r        2016-11-30 Ausblick/Fazit auskommentiert
 
 01e309a Slay3r        2016-11-30 Sounds

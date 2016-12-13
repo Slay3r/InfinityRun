@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  7 DEC 2016 10:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  13 DEC 2016 12:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,21 +980,21 @@ LaTeX Warning: Unused global option(s):
 ) (./content/phasen.aux) (./content/affirmation.aux))
 \openout1 = `Ergebnis_Gruppe4_WS16_17.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1072,7 +1072,7 @@ Package caption Info: End \AtBeginDocument code.
 bibgerm.sty: (n)german.sty 2.5b detected
 
 \AtBeginShipoutBox=\box36
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 23.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1081,9 +1081,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count147
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 
 (./Ergebnis_Gruppe4_WS16_17.out) (./Ergebnis_Gruppe4_WS16_17.out)
 \@outlinefile=\write5
@@ -1092,32 +1092,42 @@ LaTeX Info: Redefining \nameref on input line 24.
 \openout2 = `content/title.aux'.
 
 
-(./content/title.tex
-<content/pictures/hfu.jpg, id=151, 1015.795pt x 411.5375pt>
+(./content/title.tex <../../image/logo.png, id=147, 120.45pt x 62.3931pt>
+File: ../../image/logo.png Graphic file (type png)
+
+<use ../../image/logo.png>
+Package pdftex.def Info: ../../image/logo.png used on input line 11.
+(pdftex.def)             Requested size: 164.78941pt x 85.35826pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+
+<content/pictures/hfu.jpg, id=149, 1015.795pt x 411.5375pt>
 File: content/pictures/hfu.jpg Graphic file (type jpg)
 
 <use content/pictures/hfu.jpg>
-Package pdftex.def Info: content/pictures/hfu.jpg used on input line 10.
+Package pdftex.def Info: content/pictures/hfu.jpg used on input line 16.
 (pdftex.def)             Requested size: 210.68828pt x 85.35826pt.
+
+Overfull \hbox (25.0353pt too wide) in paragraph at lines 16--18
+ []
+ []
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 18.
+(Font)              size <17.28> substituted on input line 25.
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 23.
+(Font)              size <20.74> substituted on input line 30.
 
 
 LaTeX Font Warning: Font shape `T1/cmss/bx/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 23.
+(Font)              size <20.74> substituted on input line 30.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 35.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 35.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 35.
 [1
 
 
@@ -1126,8 +1136,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./content/pictures/hfu.jpg
->]) [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../../image/logo.png> <./c
+ontent/pictures/hfu.jpg>]) [2
 
 
 
@@ -1152,16 +1162,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ] [4
 
 
-] (./Ergebnis_Gruppe4_WS16_17.lot
-Overfull \hbox (1.83984pt too wide) detected at line 10
-\T1/cmss/m/n/12 Tabelle 10: 
- []
-
-)
+] (./Ergebnis_Gruppe4_WS16_17.lot)
 \tf@lot=\write8
 \openout8 = `Ergebnis_Gruppe4_WS16_17.lot'.
 
- [5] [6
+
+[5] [6
 
 
 ]
@@ -1176,28 +1182,28 @@ File: content/pictures/Florian.png Graphic file (type png)
 Package pdftex.def Info: content/pictures/Florian.png used on input line 7.
 (pdftex.def)             Requested size: 92.9721pt x 104.64067pt.
 
-<content/pictures/Jannik.png, id=265, 160.34906pt x 212.29312pt>
+<content/pictures/Jannik.png, id=264, 160.34906pt x 212.29312pt>
 File: content/pictures/Jannik.png Graphic file (type png)
 
 <use content/pictures/Jannik.png>
 Package pdftex.def Info: content/pictures/Jannik.png used on input line 13.
 (pdftex.def)             Requested size: 89.79485pt x 118.88333pt.
 
-<content/pictures/Johannes.png, id=266, 103.88812pt x 135.50626pt>
+<content/pictures/Johannes.png, id=265, 103.88812pt x 135.50626pt>
 File: content/pictures/Johannes.png Graphic file (type png)
 
 <use content/pictures/Johannes.png>
 Package pdftex.def Info: content/pictures/Johannes.png used on input line 19.
 (pdftex.def)             Requested size: 90.38193pt x 117.88947pt.
 
-<content/pictures/Marco.png, id=267, 1505.625pt x 1927.2pt>
+<content/pictures/Marco.png, id=266, 1505.625pt x 1927.2pt>
 File: content/pictures/Marco.png Graphic file (type png)
 
 <use content/pictures/Marco.png>
 Package pdftex.def Info: content/pictures/Marco.png used on input line 25.
 (pdftex.def)             Requested size: 87.324pt x 111.77473pt.
 
-<content/pictures/Koray.png, id=268, 99.61215pt x 128.03835pt>
+<content/pictures/Koray.png, id=267, 99.61215pt x 128.03835pt>
 File: content/pictures/Koray.png Graphic file (type png)
 
 <use content/pictures/Koray.png>
@@ -1220,7 +1226,7 @@ has been already used, duplicate ignored
                    \relax 
 l.60 \newpage
               [2]
-<content/pictures/entwurfsskizze.png, id=278, 1720.4275pt x 986.68625pt>
+<content/pictures/entwurfsskizze.png, id=277, 1720.4275pt x 986.68625pt>
 File: content/pictures/entwurfsskizze.png Graphic file (type png)
 
 <use content/pictures/entwurfsskizze.png>
@@ -1252,7 +1258,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) detected at line 93
  []
 
-[7] [8] <content/pictures/start.png, id=321, 1926.19624pt x 963.6pt>
+[7] [8] <content/pictures/start.png, id=320, 1926.19624pt x 963.6pt>
 File: content/pictures/start.png Graphic file (type png)
 
 <use content/pictures/start.png>
@@ -1263,7 +1269,7 @@ Overfull \hbox (11.1995pt too wide) in paragraph at lines 120--121
  [][] 
  []
 
-<content/pictures/spiel.png, id=322, 1926.19624pt x 967.615pt>
+<content/pictures/spiel.png, id=321, 1926.19624pt x 967.615pt>
 File: content/pictures/spiel.png Graphic file (type png)
 
 <use content/pictures/spiel.png>
@@ -1289,7 +1295,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
 [15] [16]
-<content/pictures/funktionsdiagramm.png, id=516, 1292.83pt x 707.64375pt>
+<content/pictures/funktionsdiagramm.png, id=515, 1292.83pt x 707.64375pt>
 File: content/pictures/funktionsdiagramm.png Graphic file (type png)
 
 <use content/pictures/funktionsdiagramm.png>
@@ -1300,20 +1306,42 @@ ine 323.
 
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 368.
+<content/pictures/startende.png, id=528, 1926.19624pt x 968.61874pt>
+File: content/pictures/startende.png Graphic file (type png)
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Overfull \hbox (38.25606pt too wide) in paragraph at lines 364--379
+<use content/pictures/startende.png>
+Package pdftex.def Info: content/pictures/startende.png used on input line 363.
+
+(pdftex.def)             Requested size: 423.76448pt x 213.09677pt.
+
+Overfull \hbox (11.1995pt too wide) in paragraph at lines 363--364
  [][] 
  []
 
-) [19] (./Ergebnis_Gruppe4_WS16_17.bbl [20
+<content/pictures/spielende.png, id=529, 1925.1925pt x 966.61125pt>
+File: content/pictures/spielende.png Graphic file (type png)
+
+<use content/pictures/spielende.png>
+Package pdftex.def Info: content/pictures/spielende.png used on input line 369.
+
+(pdftex.def)             Requested size: 423.54366pt x 212.65514pt.
+
+Overfull \hbox (10.97867pt too wide) in paragraph at lines 369--370
+ [][] 
+ []
+
+[19 <./content/pictures/startende.png> <./content/pictures/spielende.png>]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 383.
 
 
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Overfull \hbox (38.25606pt too wide) in paragraph at lines 379--394
+ [][] 
+ []
 
-]
+) [20] (./Ergebnis_Gruppe4_WS16_17.bbl
 chapter without number
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <12> not available
@@ -1325,7 +1353,11 @@ Underfull \hbox (badness 5667) in paragraph at lines 23--26
 /cmtt/m/n/12 https : / / github . com / Slay3r / InfinityRun /
  []
 
-) [21]
+) [21
+
+
+
+]
 \openout2 = `content/affirmation.aux'.
 
  (./content/affirmation.tex [22
@@ -1374,26 +1406,36 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 87--110
+Underfull \hbox (badness 10000) in paragraph at lines 86--110
 
  []
 
 (../../CHANGELOG.md [25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26])
-(../../js/game.js [27]
+ [26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
-Overfull \hbox (34.08699pt too wide) in paragraph at lines 73--74
-[][]\U/ark/m/n/12 C 
+ [27])
+(../../js/game.js [28]
+Overfull \hbox (42.28035pt too wide) in paragraph at lines 41--42
+[][][][]\U/ark/m/n/12 C 
+ []
+
+
+Overfull \hbox (42.28035pt too wide) in paragraph at lines 52--53
+[][][][][]\U/ark/m/n/12 C 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
+Overfull \hbox (14.08699pt too wide) in paragraph at lines 99--101
+[][][][]\U/ark/m/n/12 C 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
@@ -1409,6 +1451,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34]
+Overfull \hbox (14.08699pt too wide) in paragraph at lines 290--291
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [35]
@@ -1432,26 +1479,58 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [41]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42])
-(../../css/game.css) [43] (../../index.html)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
+ [42]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [44]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46]
+Overfull \hbox (119.81209pt too wide) in paragraph at lines 765--766
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Overfull \hbox (119.81209pt too wide) in paragraph at lines 773--774
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+Overfull \hbox (84.57039pt too wide) in paragraph at lines 828--829
+[][][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Overfull \hbox (84.57039pt too wide) in paragraph at lines 831--833
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [48])
+(../../css/game.css) (../../index.html [49])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
+ [50]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
 
 (./Ergebnis_Gruppe4_WS16_17.aux (./content/title.aux) (./content/einleitung.aux
 ) (./content/phasen.aux) (./content/affirmation.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
+Package rerunfilecheck Info: File `Ergebnis_Gruppe4_WS16_17.out' has not change
+d.
+(rerunfilecheck)             Checksum: 651B597270E69CB6329BED6A52FFF164;2439.
 
-
-Package rerunfilecheck Warning: File `Ergebnis_Gruppe4_WS16_17.out' has changed
-.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Ergebnis_Gruppe4_WS16_17.out':
-(rerunfilecheck)             Before: AE152056F673AE790622572A605A604A;2481
-(rerunfilecheck)             After:  E61D24FAFD4323E2B7A21FB9FC758F30;2360.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.26pt have occurred.
@@ -1461,42 +1540,27 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16074 strings out of 493029
- 239319 string characters out of 6136233
- 645167 words of memory out of 5000000
- 18249 multiletter control sequences out of 15000+600000
+ 16424 strings out of 493029
+ 244603 string characters out of 6136233
+ 644447 words of memory out of 5000000
+ 18369 multiletter control sequences out of 15000+600000
  18280 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,12n,71p,1571b,1911s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{table.caption.18} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.15} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.17} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.4} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} </home/florian/.tex
-mf-var/fonts/pk/ljfour/public/dingbat/ark10.720pk></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1200.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfsx2074.pfb></usr/share/texmf/fonts/type1/public/
-cm-super/sftt1200.pfb>
-Output written on Ergebnis_Gruppe4_WS16_17.pdf (52 pages, 2614731 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} </home/florian/.t
+exmf-var/fonts/pk/ljfour/public/dingbat/ark10.720pk></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/pub
+lic/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi120
+0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/te
+xmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/type1/publ
+ic/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfsx2074.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sftt1200.pfb>
+Output written on Ergebnis_Gruppe4_WS16_17.pdf (58 pages, 2701687 bytes).
 PDF statistics:
- 1705 PDF objects out of 1728 (max. 8388607)
- 1609 compressed objects within 17 object streams
- 1048 named destinations out of 1200 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2000 PDF objects out of 2073 (max. 8388607)
+ 1892 compressed objects within 19 object streams
+ 1274 named destinations out of 1440 (max. 500000)
+ 354 words of extra memory for PDF output out of 10000 (max. 10000000)
 

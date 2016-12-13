@@ -34,11 +34,12 @@
 \contentsline {subsection}{\numberline {2.3.1}Spielkonzept \IeC {\"A}nderungen}{16}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Funktionsdiagramm}{16}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Grafiken}{18}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Sounds}{19}{subsection.2.3.4}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{21}{chapter*.15}
-\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{23}{chapter*.16}
+\contentsline {subsection}{\numberline {2.3.4}Das Spiel - Endstand}{19}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}Sounds}{20}{subsection.2.3.5}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{21}{chapter*.17}
+\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{23}{chapter*.18}
 \contentsline {chapter}{\numberline {A}Anhang}{25}{appendix.A}
 \contentsline {section}{\numberline {A.1}Github Changelog}{25}{section.A.1}
-\contentsline {section}{\numberline {A.2}game.js}{27}{section.A.2}
-\contentsline {section}{\numberline {A.3}game.css}{43}{section.A.3}
-\contentsline {section}{\numberline {A.4}index.html}{44}{section.A.4}
+\contentsline {section}{\numberline {A.2}game.js}{28}{section.A.2}
+\contentsline {section}{\numberline {A.3}game.css}{49}{section.A.3}
+\contentsline {section}{\numberline {A.4}index.html}{49}{section.A.4}
