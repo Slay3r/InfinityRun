@@ -110,21 +110,25 @@ Tower.prototype.reset = function(config)
     	this.width = config.width;
     	this.height = config.height;
     	this.color = config.color;
+		this.summitTop = floor(random(0, 15)) === 0;
+    	this.summitTopWidth = random(this.width * .01, this.width * .07);
+    	this.summitTopHeight = random(10, 20);
     	this.singleroofTop = floor(random(0, 10)) === 0;
     	this.singleroofTopHeight = this.width / random(2, 4);
     	this.singleroofTopDirection = round(random(0, 1)) === 0;
-	this.normalTop = !this.singleroofTop && floor(random(0, 10)) === 0;
+		this.normalTop = !this.singleroofTop && floor(random(0, 10)) === 0;
     	this.normalTopHeight = this.width / random(2, 4);
-    	this.normalTopwindow = round(random(1, 2)) === 0;
-	this.companyTop = !this.singleroofTop && !this.summitTop && !this.radioTop && !this.normalTop && floor(random(0, 10)) === 0;
+    	this.normalTopchimney = round(random(0, 1)) === 0;
+		this.coneTop = !this.singleroofTop && !this.normalTop && floor(random(0, 10)) === 0;
+    	this.coneTopHeight = this.width / random(3, 4);
+		this.coneTopWidth = this.width / random(1, 2);
+    	this.coneTopeflat = round(random(0, 1)) === 0;
+		this.companyTop = !this.singleroofTop && !this.summitTop && !this.radioTop && !this.normalTop && floor(random(0, 10)) === 0;
     	this.companyTopHeight = this.width / random(4, 6);
     	this.companyTopcount = 4;//round(random(3, 6));
-    	this.summitTop = floor(random(0, 15)) === 0;
-    	this.summitTopWidth = random(this.width * .01, this.width * .07);
-    	this.summitTopHeight = random(10, 20);
     	this.radioTop = !this.summitTop && floor(random(0, 10)) === 0;
     	this.radioTopWidth = this.layer / 2;
-    	return this.radioTopHeight = random(5, 20);
+    	return this.radioTopHeight = random(6, 30);
 };
 
 Tower.prototype.render = function() 
@@ -158,12 +162,38 @@ Tower.prototype.render = function()
 	      	InfinityRun.beginPath();
       		InfinityRun.moveTo(this.x, this.y);
       		InfinityRun.lineTo(this.x + this.width, this.y);
-	  	InfinityRun.lineTo(this.x + (this.width/2), this.y-this.normalTopHeight); 
+			InfinityRun.lineTo(this.x + (this.width/2), this.y-this.normalTopHeight); 
       		InfinityRun.closePath();
       		InfinityRun.fill();
       		InfinityRun.stroke();
+			if(this.normalTopchimney)
+			{
+				InfinityRun.beginPath();
+				InfinityRun.moveTo(this.x+(this.width/5), this.y);
+				InfinityRun.lineTo(this.x+(this.width/5), this.y- 0.8*(this.normalTopHeight));
+				InfinityRun.lineTo(this.x + (this.width/5)+(this.width/10), this.y- 0.8*(this.normalTopHeight));
+				InfinityRun.lineTo(this.x + (this.width/5)+(this.width/10), this.y); 
+				InfinityRun.closePath();
+				InfinityRun.fill();
+				InfinityRun.stroke();	
+			}
     	}
-
+	if (this.coneTop) 
+	{
+	      	InfinityRun.beginPath();
+      		InfinityRun.moveTo(this.x, this.y);
+      		InfinityRun.lineTo(this.x + (this.width-this.coneTopWidth)/2, this.y-this.coneTopHeight);
+			if(!this.coneTopeflat)
+			{
+				InfinityRun.lineTo(this.x+(this.width/2), this.y-(this.coneTopHeight*1.3));
+			}
+			InfinityRun.lineTo(this.x + ((this.width-this.coneTopWidth)/2)+this.coneTopWidth, this.y-this.coneTopHeight);
+			InfinityRun.lineTo(this.x + this.width, this.y);
+      		InfinityRun.closePath();
+      		InfinityRun.fill();
+      		InfinityRun.stroke();
+			
+    	}
 	if (this.companyTop) 
 	{
 		var ctc = 1;
