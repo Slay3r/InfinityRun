@@ -421,36 +421,50 @@ Player.prototype.update = function() {
 		
 		//InfinityRun.pause();
 		
+		//highscore update-----------------------------------------------
+		if (timePassed>highScore[0]){
+			var help =highScore[0];
+			var help2=highScore[1];
+			highScore[0]=timePassed;
+			for(i=1; i<=9;i++){
+			help2 = highScore[i];
+			highScore[i]=help;
+			help=help2;
+			
+			}
+			
+		}
+	
+		//---------------------------------------------------------------
 		
-		
-		var j = 0;
-		var k = 1;
+		//var j = 0;
+		//var k = 1;
 		//var u = 0;
 		
 		
 		//update highscore TODO
 		
 		
-		for(var i = 0; i<9; i++) {	
-			if (timePassed > highScore[i])  {
+		// for(var i = 0; i<9; i++) {	
+			// if (timePassed > highScore[i])  {
 					
 				
 					
-				// drag all scores down a value
+				// // drag all scores down a value
 					
 					
-				if(highScore[j] != 0)  {
-					highScore[k] = highScore[j];
+				// if(highScore[j] != 0)  {
+					// highScore[k] = highScore[j];
 						
-					j++;
-					k++;
+					// j++;
+					// k++;
 						
-				}
+				// }
 					
-			}
-					//highScore[0] = timePassed;
+			// }
+					// //highScore[0] = timePassed;
 				
-		}
+		// }
 		
         InfinityRun.platformManager.updateWhenLose();
 		fxaudio.pause();
@@ -459,14 +473,14 @@ Player.prototype.update = function() {
 	    fxaudio.play();
 		
 		date = new Date();
-		//bg ändern
-		//jumpheight=0;
+		
+		
 		
     }
 
     if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
         this.velocityY += -0.75;
-		//jumpheight+=1
+		
     }
 	
 	
@@ -523,13 +537,13 @@ function PlatformManager() {
     })
     this.second = new Platform({
         x: (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween),
-        y: random(this.first.y - 128, InfinityRun.height - 80),
+        y: 570,//y: random(this.first.y - 128, InfinityRun.height - 80),
         width: 400,
         height: 70
     })
     this.third = new Platform({
         x: (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween),
-        y: random(this.second.y - 128, InfinityRun.height - 80),
+        y: 540,//y: random(this.second.y - 128, InfinityRun.height - 80),
         width: 400,
         height: 70
     })
@@ -552,7 +566,8 @@ PlatformManager.prototype.update = function() {
     if (this.first.x + this.first.width < 0) {
         this.first.width = random(450, 800);
         this.first.x = (this.third.x + this.third.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
-        this.first.y = random(this.third.y - 32, InfinityRun.height - 80);
+        //this.first.y = random(this.third.y - 32, InfinityRun.height - 80);
+		this.first.y = random(this.third.y - 32, InfinityRun.height - 200);
         this.first.height = this.first.y + InfinityRun.height + 10;
         this.first.color = randomChoice(this.colors);
     }
@@ -561,7 +576,8 @@ PlatformManager.prototype.update = function() {
     if (this.second.x + this.second.width < 0) {
         this.second.width = random(450, 800);
         this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
-        this.second.y = random(this.first.y - 32, InfinityRun.height - 80);
+		//this.first.y = random(this.third.y - 32, InfinityRun.height - 80);
+        this.second.y = random(this.first.y - 32, InfinityRun.height - 200);
         this.second.height = this.second.y + InfinityRun.height + 10;
         this.second.color = randomChoice(this.colors);
     }
@@ -570,7 +586,8 @@ PlatformManager.prototype.update = function() {
     if (this.third.x + this.third.width < 0) {
         this.third.width = random(450, 800);
         this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
-        this.third.y = random(this.second.y - 32, InfinityRun.height - 80);
+		//this.first.y = random(this.third.y - 32, InfinityRun.height - 80);
+        this.third.y = random(this.second.y - 32, InfinityRun.height - 200);
         this.third.height = this.third.y + InfinityRun.height + 10;
         this.third.color = randomChoice(this.colors);
     }
@@ -687,7 +704,6 @@ InfinityRun.update = function() {
     while (i--) {
       results.push(Town[i].update(i));
     }
-    //return results;
 	//--------------------------------------------
 	
 	dateNow = new Date();
@@ -1194,8 +1210,8 @@ InfinityRun.draw = function() {
         this.fillStyle = this.scoreColor;
         this.fillText('Jumps: ' + this.jumpCount, this.width - 150, 50);
         this.fillText('Distance: ' + Math.round(timePassed) , this.width - 150, 65);
-		this.fillText('mouse: ' + this.mouse.y , this.width - 150, 100);
-	this.fillText('GameState: ' + GameState, this.width - 150, 80);
+		//this.fillText('mouse: ' + this.mouse.y , this.width - 150, 100);
+		//this.fillText('GameState: ' + GameState, this.width - 150, 80);
     }
 
 };
