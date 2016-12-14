@@ -4,8 +4,6 @@ The top-level auxiliary file: Ergebnis_Gruppe4_WS16_17.aux
 A level-1 auxiliary file: content/title.aux
 A level-1 auxiliary file: content/einleitung.aux
 A level-1 auxiliary file: content/phasen.aux
-A level-1 auxiliary file: content/ausblick.aux
-A level-1 auxiliary file: content/fazit.aux
 The style file: alphadin.bst
 A level-1 auxiliary file: content/affirmation.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -14,6 +12,7 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bibtex.bib
+Warning--empty publisher in background
 Warning--empty publisher in sounds
 Warning--empty publisher in git
 Warning--empty publisher in chrome
@@ -21,45 +20,45 @@ Warning--empty publisher in changelog
 Warning--empty publisher in notepad
 Warning--empty publisher in sketch
 Warning--empty publisher in gimp
-You've used 7 entries,
+You've used 8 entries,
             4793 wiz_defined-function locations,
-            923 strings with 6821 characters,
-and the built_in function-call counts, 2665 in all, are:
-= -- 245
-> -- 56
-< -- 27
-+ -- 27
-- -- 15
-* -- 166
-:= -- 474
+            925 strings with 6852 characters,
+and the built_in function-call counts, 3025 in all, are:
+= -- 278
+> -- 64
+< -- 29
++ -- 29
+- -- 17
+* -- 189
+:= -- 537
 add.period$ -- 0
-call.type$ -- 7
-change.case$ -- 28
-chr.to.int$ -- 7
-cite$ -- 14
-duplicate$ -- 112
-empty$ -- 267
-format.name$ -- 42
-if$ -- 583
+call.type$ -- 8
+change.case$ -- 32
+chr.to.int$ -- 8
+cite$ -- 16
+duplicate$ -- 128
+empty$ -- 305
+format.name$ -- 48
+if$ -- 664
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 38
-num.names$ -- 21
-pop$ -- 77
+missing$ -- 32
+newline$ -- 42
+num.names$ -- 24
+pop$ -- 88
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 48
 quote$ -- 0
-skip$ -- 96
+skip$ -- 108
 stack$ -- 0
-substring$ -- 99
-swap$ -- 14
-text.length$ -- 14
-text.prefix$ -- 7
+substring$ -- 111
+swap$ -- 16
+text.length$ -- 16
+text.prefix$ -- 8
 top$ -- 0
-type$ -- 42
-warning$ -- 7
-while$ -- 21
-width$ -- 10
-write$ -- 77
-(There were 7 warnings)
+type$ -- 48
+warning$ -- 8
+while$ -- 24
+width$ -- 11
+write$ -- 87
+(There were 8 warnings)
