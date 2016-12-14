@@ -33,11 +33,22 @@
 var State = { Menu:0, Started:1, Paused:2, Over:3 };
 var GameState = State.Menu;
 var MainMenu;
+var MenuTab = {Main:0, Settings:1, Highscore:2, Credits:3};
+var curMenuTab = MenuTab.Main;
+
+var dateNow;
+var date = new Date();
+var timePassed;
+
+var highScore = new Array(10);
+highScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 var debug = true;
 var bgaudio = document.getElementById('backgroundmusic');
 var fxaudio = document.getElementById('fxaudio');
 var backgroundaudio = "sounds/main1.wav";
+
+
 //-------------------------------------------------------------
 //vars background
 var Tower, Street, dt, Town;
@@ -74,23 +85,21 @@ function restartAudio()
 }
           
 // randomizer
-function random(min, max) 
-{
-    	return Math.round(min + (Math.random() * (max - min)));
+function random(min, max) {
+    return Math.round(min + (Math.random() * (max - min)));
 }
 
-function randomChoice(array) 
-{
-    	return array[Math.round(random(0, array.length - 1))];
+function randomChoice(array) {
+    return array[Math.round(random(0, array.length - 1))];
 }
 
 
 //initialize Sketch Framework
 var InfinityRun = Sketch.create({
-    	fullscreen: true,
-    	width: 640,
-    	height: 360,
-    	container: document.getElementById('container')
+    fullscreen: true,
+    width: 640,
+    height: 360,
+    container: document.getElementById('container')
 });
 
 
@@ -282,7 +291,7 @@ Street.prototype.update = function()
 	}
 	else
 	{
-    		this.x -= ((InfinityRun.accelerationTweening*330) * this.speed) * dt;
+    this.x -= ((InfinityRun.accelerationTweening*330) * this.speed) * dt;
 	}
 
     	firstTower = this.alltowers[0];
@@ -319,138 +328,170 @@ Street.prototype.render = function()
 //------- Vector [Get/Set] Functions ---------
 
 //Set X,Y,Width,Height
-function Vector2(x, y, width, height) 
-{
-    	this.x = x;
-    	this.y = y;
-    	this.width = width;
-    	this.height = height;
-    	this.previousX = 0;
-    	this.previousY = 0;
+function Vector2(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.previousX = 0;
+    this.previousY = 0;
 };
 
 
 // Set X,Y
-Vector2.prototype.setPosition = function(x, y) 
-{
+Vector2.prototype.setPosition = function(x, y) {
 
-    	this.previousX = this.x;
-    	this.previousY = this.y;
-    	this.x = x;
-    	this.y = y;
+    this.previousX = this.x;
+    this.previousY = this.y;
+
+    this.x = x;
+    this.y = y;
+
 };
-
 // Set X
-Vector2.prototype.setX = function(x) 
-{
-    	this.previousX = this.x;
-    	this.x = x;
+Vector2.prototype.setX = function(x) {
+
+    this.previousX = this.x;
+    this.x = x;
+
 };
 
 // Set Y
-Vector2.prototype.setY = function(y) 
-{
-    	this.previousY = this.y;
-    	this.y = y;
+Vector2.prototype.setY = function(y) {
+
+    this.previousY = this.y;
+    this.y = y;
+
 };
 
 // Collision / Intersection Top
-Vector2.prototype.intersects = function(obj) 
-{
+Vector2.prototype.intersects = function(obj) {
+
     if (obj.x < this.x + this.width && obj.y < this.y + this.height &&
-        obj.x + obj.width > this.x && obj.y + obj.height > this.y) 
-	{
-        	return true;
-    	}
+        obj.x + obj.width > this.x && obj.y + obj.height > this.y) {
+        return true;
+    }
+
     return false;
 };
 
 // Collision / Intersection Left
-Vector2.prototype.intersectsLeft = function(obj) 
-{
-    	if (obj.x < this.x + this.width && obj.y < this.y + this.height) 
-	{
-        	return true;
-    	}
-    	return false;
+Vector2.prototype.intersectsLeft = function(obj) {
+
+    if (obj.x < this.x + this.width && obj.y < this.y + this.height) {
+        return true;
+    }
+
+    return false;
 };
 
 //--------- Player ---------
 
-function Player(options) 
-{
-    	this.setPosition(options.x, options.y);
-    	this.width = options.width;
-    	this.height = options.height;
-    	this.velocityX = 0;
-    	this.velocityY = 0;
-    	this.jumpSize = -13;
-    	this.color = '#181818';
+function Player(options) {
+
+    this.setPosition(options.x, options.y);
+    this.width = options.width;
+    this.height = options.height;
+    this.velocityX = 0;
+    this.velocityY = 0;
+    this.jumpSize = -13;
+    this.color = '#181818';
+
 }
 
 Player.prototype = new Vector2;
 
-Player.prototype.update = function() 
-{
+Player.prototype.update = function() {
     // Gravity 
-	this.velocityY += 1;
+    this.velocityY += 1;
+	//um bg zu ändern
 	jumpheight=(this.y);
-   	this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
+    this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
 
-    	if (this.y > InfinityRun.height || this.x + this.width < 0) 
-	{
-        	this.x = 150;
-        	this.y = 50;
-        	this.velocityX = 0;
-        	this.velocityY = 0;
-        	InfinityRun.jumpCount = 0;
-        	InfinityRun.acceleration = 0;
-        	InfinityRun.accelerationTweening = 0;
-        	InfinityRun.scoreColor = '#181818';
-        	InfinityRun.platformManager.maxDistanceBetween = 350;
-        	InfinityRun.platformManager.updateWhenLose();
+    if (this.y > InfinityRun.height || this.x + this.width < 0) {
+        this.x = 150;
+        this.y = 50;
+        this.velocityX = 0;
+        this.velocityY = 0;
+        InfinityRun.jumpCount = 0;
+        InfinityRun.acceleration = 0;
+        InfinityRun.accelerationTweening = 0;
+        InfinityRun.scoreColor = '#181818';
+        InfinityRun.platformManager.maxDistanceBetween = 350;
+		
+		//InfinityRun.pause();
+		
+		
+		
+		var j = 0;
+		var k = 1;
+		
+		//update highscore TODO
+		for(var i = 0; i<9; i++) {	
+			if (timePassed > highScore[i])  {
+					
+				
+					
+				// drag all scores down a value
+					
+					
+				if(highScore[j] != 0)  {
+					highScore[k] = highScore[j];
+						
+					j++;
+					k++;
+						
+				}
+					
+			}
+					//highScore[0] = timePassed;
+				
+		}
+		
+        InfinityRun.platformManager.updateWhenLose();
 		fxaudio.pause();
-	    	fxaudio.src = 'sounds/crash.wav';
-	    	fxaudio.load();
-	    	fxaudio.play();
-    	}
+	    fxaudio.src = 'sounds/crash.wav';
+	    fxaudio.load();
+	    fxaudio.play();
+		
+		date = new Date();
+		//bg ändern
+		//jumpheight=0;
+		
+    }
 
-    	if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) 
-	{
-        	this.velocityY += -0.75;
-    	}
-	if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY >0) 
-	{
-        	fxaudio.pause();
-	    	fxaudio.src = 'sounds/jump.wav';
-	    	fxaudio.load();
-	    	fxaudio.play();
-    	}
+    if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
+        this.velocityY += -0.75;
+		//jumpheight+=1
+    }
+	
+	
+    if (InfinityRun.keys.DOWN) {
+        this.velocityY += 1;
+    }
+
 };
 
-Player.prototype.draw = function() 
-{
-	InfinityRun.fillStyle = this.color;
-    	InfinityRun.fillRect(this.x, this.y, this.width, this.height);
+Player.prototype.draw = function() {
+    InfinityRun.fillStyle = this.color;
+    InfinityRun.fillRect(this.x, this.y, this.width, this.height);
 };
 
 // --------- Platforms ---------
 
-function Platform(options) 
-{
-    	this.x = options.x;
-    	this.y = options.y;
-    	this.width = options.width;
-    	this.height = options.height;
-    	this.previousX = 0;
-    	this.previousY = 0;
-    	this.color = options.color;
+function Platform(options) {
+    this.x = options.x;
+    this.y = options.y;
+    this.width = options.width;
+    this.height = options.height;
+    this.previousX = 0;
+    this.previousY = 0;
+    this.color = options.color;
 }
 
 Platform.prototype = new Vector2;
 
-Platform.prototype.draw = function() 
-{
+Platform.prototype.draw = function() {
     InfinityRun.fillStyle = this.color;
     InfinityRun.fillRect(this.x, this.y, this.width, this.height);
 };
@@ -465,7 +506,7 @@ function PlatformManager() {
 	//first 3 Platforms execept the Starter Platform
     this.first = new Platform({
         x: 300,
-        y: InfinityRun.width / 2,
+        y: 600,
         width: 400,
         height: 70
     })
@@ -498,7 +539,7 @@ PlatformManager.prototype.update = function() {
 
     this.first.x -= 3 + InfinityRun.acceleration;
     if (this.first.x + this.first.width < 0) {
-        this.first.width = random(450, InfinityRun.width + 200);
+        this.first.width = random(450, 800);
         this.first.x = (this.third.x + this.third.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
         this.first.y = random(this.third.y - 32, InfinityRun.height - 80);
         this.first.height = this.first.y + InfinityRun.height + 10;
@@ -507,7 +548,7 @@ PlatformManager.prototype.update = function() {
 
     this.second.x -= 3 + InfinityRun.acceleration;
     if (this.second.x + this.second.width < 0) {
-        this.second.width = random(450, InfinityRun.width + 200);
+        this.second.width = random(450, 800);
         this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
         this.second.y = random(this.first.y - 32, InfinityRun.height - 80);
         this.second.height = this.second.y + InfinityRun.height + 10;
@@ -516,7 +557,7 @@ PlatformManager.prototype.update = function() {
 
     this.third.x -= 3 + InfinityRun.acceleration;
     if (this.third.x + this.third.width < 0) {
-        this.third.width = random(450, InfinityRun.width + 200);
+        this.third.width = random(450, 800);
         this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
         this.third.y = random(this.second.y - 32, InfinityRun.height - 80);
         this.third.height = this.third.y + InfinityRun.height + 10;
@@ -532,7 +573,8 @@ PlatformManager.prototype.updateWhenLose = function() {
 
     this.first.x = 300;
     this.first.color = randomChoice(this.colors);
-    this.first.y = InfinityRun.width / random(2, 3);
+	this.first.y = 500;
+    //this.first.y = InfinityRun.width / random(2, 3);
     this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
     this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
 
@@ -618,7 +660,9 @@ InfinityRun.clear = function() {
   };
 //--------------------------------------------
 
-
+Array.max = function( array ){
+    return Math.max.apply( Math, array );
+};
 
 InfinityRun.update = function() {	
 	if (GameState == State.Started) {
@@ -634,6 +678,10 @@ InfinityRun.update = function() {
     }
     //return results;
 	//--------------------------------------------
+	
+	dateNow = new Date();
+	timePassed = (dateNow - date) / 10;
+	
     this.player.update();
     restartAudio();	
     switch (this.jumpCount) {
@@ -644,7 +692,7 @@ InfinityRun.update = function() {
 			bgaudio.play();
             break;
         case 10:
-            this.accelerationTweening = 1;
+            this.accelerationTweening = 1.3;
             this.platformManager.maxDistanceBetween = 430;
             //this.scoreColor = '#076C00';
 			bgaudio.pause();
@@ -657,7 +705,7 @@ InfinityRun.update = function() {
 			fxaudio.play();
             break;
         case 25:
-            this.accelerationTweening = 2;
+            this.accelerationTweening = 2.3;
             this.platformManager.maxDistanceBetween = 530;
             //this.scoreColor = '#0300A9';
 			bgaudio.pause();
@@ -670,7 +718,7 @@ InfinityRun.update = function() {
 			fxaudio.play();
             break;
         case 40:
-            this.accelerationTweening = 3;
+            this.accelerationTweening = 3.5;
             this.platformManager.maxDistanceBetween = 580;
             //this.scoreColor = '#9F8F00';
 			bgaudio.pause();
@@ -722,6 +770,17 @@ InfinityRun.update = function() {
                 // bounce player / push him away (effect)
                 this.player.velocityY = -10 + -(this.acceleration * 4);
                 this.player.velocityX = -20 + -(this.acceleration * 4);
+				
+				
+			
+			
+				if (timePassed > this.jumpCountRecord) {
+                        this.jumpCountRecord = timePassed;
+                }
+				
+				
+				
+				
             } else {
 
                 // --------- Controller ---------
@@ -729,10 +788,15 @@ InfinityRun.update = function() {
                 if (this.dragging || this.keys.SPACE || this.keys.UP || this.keys.W) {
                     this.player.velocityY = this.player.jumpSize;
                     this.jumpCount++;
+					//play jump_sound
+					fxaudio.pause();
+					fxaudio.src = 'sounds/jump.wav';
+					fxaudio.load();
+					fxaudio.play();
 					
-                    if (this.jumpCount > this.jumpCountRecord) {
-                        this.jumpCountRecord = this.jumpCount;
-                    }
+					
+					
+                    
                 }
             }
         }
@@ -753,6 +817,9 @@ InfinityRun.update = function() {
 
 };
 
+
+
+
 var selectedItem = 0;
 
 InfinityRun.keydown = function() {
@@ -764,13 +831,28 @@ InfinityRun.keydown = function() {
 	    bgaudio.load();
 		bgaudio.play();
 		
-	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu) {
+	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Main) {
 		GameState = State.Started;
+	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Settings) {
+		curMenuTab = MenuTab.Main;
+	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Highscore) {
+		curMenuTab = MenuTab.Main;
 	}
+	
+	//main menu controls
 	if (InfinityRun.keys.UP) {
 		selectedItem = (selectedItem + items.length - 1) % items.length;
 	}
 	if (InfinityRun.keys.DOWN) {
+		selectedItem = (selectedItem + 1) % items.length;
+	}
+	
+	// settings audio change
+	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && selectedItem !=0) {
+		selectedItem = (selectedItem + items.length - 1) % items.length;
+	}
+	
+	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && selectedItem !=9) {
 		selectedItem = (selectedItem + 1) % items.length;
 	}
 	
@@ -789,6 +871,7 @@ Menu = function() {
 //--------- Draw ---------
 
 InfinityRun.draw = function() {
+	
 	if(GameState == State.Started) {
 	//----------------------------------------------------------------
 	//bg draw
@@ -810,13 +893,36 @@ InfinityRun.draw = function() {
         this.particles[i].draw();
     };
 	
-	//Draw menu --TODO prototype
-	} else if (GameState == State.Menu) {
+	/*
+	 * Main Menu
+	 *
+	 */
+	} else if (GameState == State.Menu && curMenuTab==MenuTab.Main) {
 	
 	this.title = "InfinityRun";
-	items = ["Play", "Settings", "Highscore"];
+	items = ["Play", "Settings", "Highscore", "Credits"];
 	
-	callback = function(numItem) { if (numItem == 0) GameState=State.Started };
+	callback = function(numItem) { //if (numItem == 0) GameState=State.Started 
+	
+	switch (numItem) {
+	  case 0:
+		GameState=State.Started;
+		break;
+	  case 1:
+		curMenuTab=MenuTab.Settings;
+		break;
+	  case 2:
+	    curMenuTab=MenuTab.Highscore;
+		break;
+	  case 3:
+	    curMenuTab=MenuTab.Credits;
+		break;
+	  
+	}
+	
+	
+	
+	};
 	this.height = InfinityRun.height;
 	this.width = InfinityRun.width;
 	this.size = 120;	
@@ -853,10 +959,150 @@ InfinityRun.draw = function() {
 		this.fillText(items[i], InfinityRun.width/2, height);
 		this.fillStyle = "White";
 	}
-	//-----------------------------------------------------------
-	//bg dd
+	//----------------------------------------------------------- 
+	//bg dd <-- ??
 	return results;
 	//-----------------------------------------------------------
+	
+	/*
+	 * Settings Tab
+	 *
+	 */
+	} else if (GameState == State.Menu && curMenuTab==MenuTab.Settings){
+		
+	this.title = "Settings";
+	items = [10, 20, 30, 40, 50, 60, 70, 80, 90 , 100];
+	
+
+
+	callback = function(volume) { //if (numItem == 0) GameState=State.Started 
+	
+	switch (volume) {
+
+	}
+	
+	
+	
+	};
+	
+	
+
+	this.height = InfinityRun.height;
+	this.width = InfinityRun.width;
+
+	var lingrad = this.createLinearGradient(0,0,0,this.height);
+	lingrad.addColorStop(0, '#000');
+	lingrad.addColorStop(1, '#023');
+	this.fillStyle = lingrad;
+	this.fillRect(0,0,this.width, this.height, items[i]);
+	
+	this.textAlign = "center";
+	this.fillStyle = "White";
+	
+	var width = 10;
+	var height = 10;
+	var posx = 130;
+	var posy = 380;
+	this.space = 15;	
+	this.heightincr = 4;
+	
+	
+	
+	if (this.title) {
+		this.font = Math.floor(this.size*1.3).toString() + "px Times New Roman";
+		this.fillText(this.title, this.width/2, 150);
+		height+= height;
+	}
+	
+	this.font = "70px Times New Roman";
+	//this.fillText('Volume', InfinityRun.Left, InfinityRun.Top);
+	
+	
+	this.fillText('Volume', 240, 300);
+
+	
+
+	
+	for (var i = 0; i < items.length; ++i) {
+		var size = Math.floor(this.size*0.8);
+		if (i == selectedItem)
+		{
+			this.fillStyle = "#A9F5F2";
+			size = this.size+5;
+		}
+		this.font = size.toString() + "px Times New Roman";
+		posx += this.space;
+		posy -= this.heightincr;
+		height += this.heightincr;
+		
+		items[i] = this.fillRect(posx,posy,width,height);
+		
+		//this.fillText(items[i], InfinityRun.width/2, height);
+		this.fillStyle = "White";
+		
+	}
+	
+	/*
+	 * Highscore Tab
+	 *
+	 */
+	
+	} else if (GameState == State.Menu && curMenuTab == MenuTab.Highscore) {
+	
+	
+	this.title = "Highscore";
+	items = highScore;
+	
+
+	callback = function(volume) { //if (numItem == 0) GameState=State.Started 
+	
+	switch (volume) {
+
+	}
+	
+	
+	
+	};
+	this.height = InfinityRun.height;
+	this.width = InfinityRun.width;
+
+	var lingrad = this.createLinearGradient(0,0,0,this.height);
+	lingrad.addColorStop(0, '#000');
+	lingrad.addColorStop(1, '#023');
+	this.fillStyle = lingrad;
+	this.fillRect(0,0,this.width, this.height, items[i]);
+	
+	this.textAlign = "center";
+	this.fillStyle = "White";
+	
+	var width = 10;
+	var height = 150;
+	
+	
+	if (this.title) {
+		this.font = Math.floor(this.size*1.3).toString() + "px Times New Roman";
+		this.fillText(this.title, this.width/2, 150);
+		height+= height;
+	}
+	
+	var rank = 1;
+		
+	for (var i = 0; i < items.length; ++i)
+	{
+		
+		var size = Math.floor(this.size*0.8);
+		if (i == selectedItem)
+		{
+			this.fillStyle = "#A9F5F2";
+			size = this.size+5;
+		}
+		this.font = 0.6*size.toString() + "px Times New Roman";
+		height += 50;
+		this.fillText(rank + ". " + items[i], InfinityRun.width/2, height);
+		this.fillStyle = "White";
+		
+		rank++;
+	}
 	
 	}
 	
@@ -866,10 +1112,10 @@ InfinityRun.draw = function() {
     if (debug) {
         this.font = '12pt Arial';
         this.fillStyle = '#181818';
-        this.fillText('Record: ' + this.jumpCountRecord, this.width - 150, 33);
+        this.fillText('Record: ' + highScore[0]/*this.jumpCountRecord*/, this.width - 150, 33);
         this.fillStyle = this.scoreColor;
         this.fillText('Jumps: ' + this.jumpCount, this.width - 150, 50);
-        this.fillText('Distance: ' + random (3,6) , this.width - 150, 65);
+        this.fillText('Distance: ' + Math.round(timePassed) , this.width - 150, 65);
 		this.fillText('mouse: ' + this.mouse.y , this.width - 150, 100);
 	this.fillText('GameState: ' + GameState, this.width - 150, 80);
     }
