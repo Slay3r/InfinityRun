@@ -425,8 +425,12 @@ Player.prototype.update = function() {
 		
 		var j = 0;
 		var k = 1;
+		//var u = 0;
+		
 		
 		//update highscore TODO
+		
+		
 		for(var i = 0; i<9; i++) {	
 			if (timePassed > highScore[i])  {
 					
@@ -500,7 +504,14 @@ Platform.prototype.draw = function() {
 
 function PlatformManager() {
     this.maxDistanceBetween = 300;
-    this.colors = ['#2ca8c2', '#98cb4a', '#f76d3c', '#f15f74', '#5481e6'];
+    //bunt
+    //this.colors = ['#2ca8c2', '#98cb4a', '#f76d3c', '#f15f74', '#5481e6'];
+	//bunt mit grau
+	//this.colors = ['#AB8888', '#8E8383', '#625B5B', '#9491B1', '#A68FA4'];
+	//grau gelb
+	//this.colors = ['#D8D6B1', '#B5B28C', '#71705E', '#A4A072', '#8E8A5E'];
+	//grau blau
+	this.colors = ['#BEC3E3', '#A6AAC6', '#9194AB', '#77798A', '#666876'];
 
 	
 	//first 3 Platforms execept the Starter Platform
