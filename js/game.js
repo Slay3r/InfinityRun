@@ -1178,7 +1178,7 @@ InfinityRun.draw = function() {
 	this.font = Math.floor(15).toString() + "px Times New Roman";
 	this.textAlign = "center";
 	this.fillText("InfinityRun is a nonprofit students project at \"Hochschule Furtwangen\"/\"Furtwangen University.\" Special thanks to \"Soulwire\" for his Sketch.js Minimal JavaScript Creative Coding Framework",this.width/2, this.height-2*distanceText);
-	this.fillText("Soundrights: bitte nachtragen wo ihr die geholt habt oder free to use oder sowas. Special thanks to Jack Rugil for his Parralax Skyline",this.width/2, this.height-distanceText);
+	this.fillText("Sounds: freesounds.org Special thanks to Jack Rugil for his Parrallax Skyline",this.width/2, this.height-distanceText);
 	this.fillText("2016",this.width/2, this.height);
 	
 	
