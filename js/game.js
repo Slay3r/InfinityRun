@@ -832,6 +832,8 @@ InfinityRun.update = function() {
 
 
 var selectedItem = 0;
+var audioItem = 10;
+
 
 InfinityRun.keydown = function() {
     if (InfinityRun.keys.ESCAPE && GameState==State.Started) {
@@ -859,12 +861,18 @@ InfinityRun.keydown = function() {
 	}
 	
 	// settings audio change
-	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && selectedItem !=0) {
-		selectedItem = (selectedItem + items.length - 1) % items.length;
+	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && audioItem !=0) {
+		audioItem = (audioItem + items.length - 1) % items.length;
+		if (bgaudio.volume>=0)
+		bgaudio.volume-=0.1;
+	    fxaudio.volume-=0.1;
 	}
 	
-	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && selectedItem !=9) {
-		selectedItem = (selectedItem + 1) % items.length;
+	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && audioItem !=10) {
+		audioItem = (audioItem + 1) % items.length;
+		if (bgaudio.volume<1.0)
+		bgaudio.volume+=0.1;
+	    fxaudio.volume+=0.1;
 	}
 	
 	if(InfinityRun.keys.ENTER) {
@@ -982,7 +990,7 @@ InfinityRun.draw = function() {
 	} else if (GameState == State.Menu && curMenuTab==MenuTab.Settings){
 		
 	this.title = "Settings";
-	items = [10, 20, 30, 40, 50, 60, 70, 80, 90 , 100];
+	items = [0,10, 20, 30, 40, 50, 60, 70, 80, 90 , 100];
 	
 
 
@@ -1036,7 +1044,7 @@ InfinityRun.draw = function() {
 	
 	for (var i = 0; i < items.length; ++i) {
 		var size = Math.floor(this.size*0.8);
-		if (i == selectedItem)
+		if (i == audioItem)
 		{
 			this.fillStyle = "#A9F5F2";
 			size = this.size+5;
