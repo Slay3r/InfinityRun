@@ -850,6 +850,8 @@ InfinityRun.keydown = function() {
 		curMenuTab = MenuTab.Main;
 	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Highscore) {
 		curMenuTab = MenuTab.Main;
+	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Credits) {
+		curMenuTab = MenuTab.Main;
 	}
 	
 	//main menu controls
@@ -1122,6 +1124,63 @@ InfinityRun.draw = function() {
 		
 		rank++;
 	}
+	
+	}
+    // Credits Menu----------------------------------------------------------	
+	else if (GameState == State.Menu && curMenuTab == MenuTab.Credits) {
+	
+	
+	this.title = "Credits";
+	items = highScore;
+	
+
+	callback = function(volume) { //if (numItem == 0) GameState=State.Started 
+	
+	switch (volume) {
+
+	}
+	
+	
+	
+	};
+	this.height = InfinityRun.height;
+	this.width = InfinityRun.width;
+
+	var lingrad = this.createLinearGradient(0,0,0,this.height);
+	lingrad.addColorStop(0, '#000');
+	lingrad.addColorStop(1, '#023');
+	this.fillStyle = lingrad;
+	this.fillRect(0,0,this.width, this.height, items[i]);
+	
+	this.textAlign = "center";
+	this.fillStyle = "White";
+	
+	var width = 10;
+	var height = 150;
+	
+	
+	if (this.title) {
+		this.font = Math.floor(this.size*1.3).toString() + "px Times New Roman";
+		this.fillText(this.title, this.width/2, 150);
+		height+= height;
+	}
+	var distanceText = 20
+	this.font = Math.floor(20).toString() + "px Times New Roman";
+	this.textAlign = "left";
+	//Names
+	this.fillText("Group Members:", this.width/5, 300);
+	this.fillText("-Florian Durli", this.width/5, 300+distanceText);
+	this.fillText("-Koray Emtekin", this.width/5, 300+2*distanceText);
+	this.fillText("-Jannik Mayer", this.width/5, 300+3*distanceText);
+	this.fillText("-Marco ", this.width/5, 300+4*distanceText);
+	this.fillText("-Johannes But", this.width/5, 300+5*distanceText);
+	//bottom info
+	this.font = Math.floor(15).toString() + "px Times New Roman";
+	this.textAlign = "center";
+	this.fillText("InfinityRun is a nonprofit students project at \"Hochschule Furtwangen\"/\"Furtwangen University.\" Special thanks to \"Soulwire\" for his Sketch.js Minimal JavaScript Creative Coding Framework",this.width/2, this.height-2*distanceText);
+	this.fillText("Soundrights: bitte nachtragen wo ihr die geholt habt oder free to use oder sowas. Special thanks to Jack Rugil for his Parralax Skyline",this.width/2, this.height-distanceText);
+	this.fillText("2016",this.width/2, this.height);
+	
 	
 	}
 	
