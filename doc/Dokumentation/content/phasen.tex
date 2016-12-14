@@ -354,7 +354,123 @@ Beschreibung der Funktionen aus Abbildung \ref{pic:diagramm}
 	\caption{Funktionsbeschreibung}
 \end{table}
 \subsection{Grafiken}
+\subsubsection{Spiel}
 Derzeit haben wir keine Grafiken implementiert, da unsere Objekte und Hintergründe mittels Canvas gezeichnet werden.
+\subsubsection{Logo}
+Wir haben für unser Spiel zusätzlich ein Logo erstellt dieses Logo wurde mit Gimp erstellt und wird in unserem Spiel, wie auch auf dem Deckblatt dieser Dokumentation angezeigt.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[scale=1]{../../image/logo.png}
+	\caption{Logo}
+	\label{pic:logo}
+\end{figure}
+\newpage
+\subsection{Code Änderungen}
+\subsubsection{Musik}
+Die ausgewählte Musik wurde per Audio-Element in JavaScript implementiert. Es gibt zwei Audio-Elemente, einen für den Hintergrund und einen für die Effekte. Folgende Code Beispiele zeigen diese Elemente.\\
+Erstellen der Audio-Elemente:
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+var bgaudio = document.getElementById('backgroundmusic');
+var fxaudio = document.getElementById('fxaudio');
+\end{lstlisting}
+Zugriff auf Element per Funktion zum Neustarten der Musik:
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+function restartAudio() 
+{
+	// Check for audio element support.
+	if (window.HTMLAudioElement) 
+	{
+		try 
+		{                     
+			// Tests the paused attribute and set state. 
+			if (bgaudio.ended) 
+			{
+				bgaudio.currentTime = 0;
+				bgaudio.play();
+			}                    
+		}
+		catch (e) 
+		{
+			// Fail silently but show in F12 developer tools console
+			if(window.console && console.error("Error:" + e));
+		}
+	}
+}
+\end{lstlisting}
+Beispiel für die Audio Wiedergabe:
+\lstset{language=java}
+\begin{lstlisting}[frame=single]
+if (this.dragging || this.keys.SPACE || this.keys.UP || this.keys.W) 
+{
+	this.player.velocityY = this.player.jumpSize;
+	this.jumpCount++;
+	fxaudio.pause();
+	fxaudio.src = 'sounds/jump.wav';
+	fxaudio.load();
+	fxaudio.play();	
+}
+\end{lstlisting}
+\newpage
+\subsubsection{Hintergrund}
+Unser Hintergrund stellt in drei verschiedenen Layern Hochhäuser dar. Diese Hochhäuser werden ähnlich wie unsere Plattformen generiert und von links nach rechts auf dem Bildschirm dargestellt. Der Hintergrund reagiert zusätzlich auf Sprünge der Spielfigur.
+Erstellt die Hochhäuser mit ihren Eigenschaften:
+\begin{lstlisting}[frame=single]
+Street.prototype.populate = function() 
+{
+	var newHeight, newWidth, results, totalWidth;
+	totalWidth = 0;
+	results = [];
+	while (totalWidth <= InfinityRun.width + (this.width.max * 2)) 
+	{
+		newWidth = round(random(this.width.min, this.width.max));
+		newHeight = round(random(this.height.min, this.height.max));
+		this.alltowers.push(new Tower({
+			layer: this.layer,
+			x: this.alltowers.length === 0 ? 0 : this.alltowers[this.alltowers.length - 1].x + this.alltowers[this.alltowers.length - 1].width,
+			y: InfinityRun.height - newHeight,
+			width: newWidth,
+			height: newHeight,
+			color: this.color
+		}));
+		results.push(totalWidth += newWidth);
+	}
+	return results;
+};
+\end{lstlisting}
+Aktualisieren der Hochhäuser, für neues erscheinen am rechten Spielrand:
+\begin{lstlisting}[frame=single]
+Street.prototype.update = function() 
+{
+	var firstTower, lastTower, newHeight, newWidth;
+	if (InfinityRun.accelerationTweening==0)
+	{
+		this.x-=((150) * this.speed) * dt;
+	}
+	else
+	{
+		this.x -= ((InfinityRun.accelerationTweening*330) * this.speed) * dt;
+	}
+
+	firstTower = this.alltowers[0];
+	if (firstTower.width + firstTower.x + this.x < 0) 
+	{
+		newWidth = round(random(this.width.min, this.width.max));
+		newHeight = round(random(this.height.min, this.height.max));
+		lastTower = this.alltowers[this.alltowers.length - 1];
+		firstTower.reset({
+			layer: this.layer,
+			x: lastTower.x + lastTower.width,
+			y: InfinityRun.height - newHeight,
+			width: newWidth,
+			height: newHeight,
+			color: this.color
+		});
+	return this.alltowers.push(this.alltowers.shift());
+	}
+};
+\end{lstlisting}
 \newpage
 \subsection{Das Spiel - Endstand}
 Hier werden zwei Screenshots des derzeitigen Spiels dargestellt. In der Abbildung \ref{pic:startende} zu sehen, ist der endgültige Startbildschirm des Spiels. Hier gibt es verschiedene Auswahlmöglichkeiten, die das Spielerlebnis ergänzen. In der Abbildung \ref{pic:spielende} zu sehen ist der endgültige Stand des Spiels. Der Hintergrund reagiert hierbei auf den Sprung des Spielers und ein Partikeleffekt hinter dem Spieler ist ebenfalls implementiert.

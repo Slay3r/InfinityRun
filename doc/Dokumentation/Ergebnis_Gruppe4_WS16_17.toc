@@ -34,12 +34,17 @@
 \contentsline {subsection}{\numberline {2.3.1}Spielkonzept \IeC {\"A}nderungen}{16}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Funktionsdiagramm}{16}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Grafiken}{18}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Das Spiel - Endstand}{19}{subsection.2.3.4}
-\contentsline {subsection}{\numberline {2.3.5}Sounds}{20}{subsection.2.3.5}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{21}{chapter*.17}
-\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{23}{chapter*.18}
-\contentsline {chapter}{\numberline {A}Anhang}{25}{appendix.A}
-\contentsline {section}{\numberline {A.1}Github Changelog}{25}{section.A.1}
-\contentsline {section}{\numberline {A.2}game.js}{28}{section.A.2}
-\contentsline {section}{\numberline {A.3}game.css}{49}{section.A.3}
-\contentsline {section}{\numberline {A.4}index.html}{49}{section.A.4}
+\contentsline {subsubsection}{\numberline {2.3.3.1}Spiel}{18}{subsubsection.2.3.3.1}
+\contentsline {subsubsection}{\numberline {2.3.3.2}Logo}{18}{subsubsection.2.3.3.2}
+\contentsline {subsection}{\numberline {2.3.4}Code \IeC {\"A}nderungen}{19}{subsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.4.1}Musik}{19}{subsubsection.2.3.4.1}
+\contentsline {subsubsection}{\numberline {2.3.4.2}Hintergrund}{21}{subsubsection.2.3.4.2}
+\contentsline {subsection}{\numberline {2.3.5}Das Spiel - Endstand}{23}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.6}Sounds}{24}{subsection.2.3.6}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{25}{chapter*.18}
+\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{27}{chapter*.19}
+\contentsline {chapter}{\numberline {A}Anhang}{29}{appendix.A}
+\contentsline {section}{\numberline {A.1}Github Changelog}{29}{section.A.1}
+\contentsline {section}{\numberline {A.2}game.js}{32}{section.A.2}
+\contentsline {section}{\numberline {A.3}game.css}{60}{section.A.3}
+\contentsline {section}{\numberline {A.4}index.html}{60}{section.A.4}
