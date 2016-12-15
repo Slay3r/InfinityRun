@@ -9,7 +9,49 @@ body{
   /*margin-top: 10%;*/
   display: inline-block;
 }
+
 canvas{
+  font-family: 'Bungee', cursive;
   background: #cecece;
   border: 1px solid #181818;
+}
+
+canvas.sunsetFilter {
+  -webkit-animation: sunset-animation 70s;
+}
+
+canvas.invertFilter {
+  -webkit-animation: invert-animation 20s;
+}
+
+
+
+@-webkit-keyframes sunset-animation {
+  0% {
+    -webkit-filter: sepia(0) saturate(2);
+  }
+  
+  50% {
+    -webkit-filter: sepia(1) saturate(15);
+  }
+  
+  100% {
+    -webkit-filter: sepia(0) saturate(2);
+  }
+}
+
+
+
+@-webkit-keyframes invert-animation {
+  0% {
+    -webkit-filter: invert(0);
+  }
+  
+  50% {
+    -webkit-filter: invert(.8);
+  }
+  
+  100% {
+    -webkit-filter: invert(.0);
+  }
 }
