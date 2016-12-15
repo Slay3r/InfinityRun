@@ -30,7 +30,7 @@
 //testweise rausgenommen verändert nix
 //var i = 0; 
 
-var debug = true;
+var debug = false;
 
 var State = { Menu:0, Started:1, Paused:2, Over:3 };
 var GameState = State.Menu;
@@ -113,7 +113,7 @@ Tower = function(config)
 {
     	return this.reset(config);
 };
-  
+
 Tower.prototype.reset = function(config) 
 {
     	this.layer = config.layer;
@@ -320,9 +320,9 @@ Street.prototype.render = function()
 	var i;
     	i = this.alltowers.length;
     	InfinityRun.save();
-	InfinityRun.translate(this.x, (InfinityRun.height - (InfinityRun.height-(-jumpheight*0.5)-400)) / 20 * this.layer);
-    	while (i--) 
-	{
+		InfinityRun.translate(this.x, (InfinityRun.height - (InfinityRun.height-(-jumpheight*0.5)-400)) / 20 * this.layer);
+    	
+		while (i--) {
       		this.alltowers[i].render(i);
     	}
     	return InfinityRun.restore();
@@ -787,13 +787,6 @@ InfinityRun.update = function() {
     }
 	//--------------------------------------------
 
-	
-	/*if(document.hasFocus()) {
-		dateNow = new Date();
-		timePassed = (dateNow - date);
-	} else {
-		stopTime = dateNow;
-	}*/
 	if(document.hasFocus()) {
 		toggleTimer();
 	} else {
@@ -803,9 +796,65 @@ InfinityRun.update = function() {
 	
     this.player.update();
     restartAudio();	
+	if(timePassed==0) {
+		bgaudio.pause();
+		bgaudio.src = 'sounds/main1.wav';
+		bgaudio.load();
+		bgaudio.play();
+	} else if (timePassed>1000 && timePassed < 5000) {
+		this.accelerationTweening = 1.5;
+        this.platformManager.maxDistanceBetween = 430;
+        //this.scoreColor = '#076C00';
+		bgaudio.pause();
+		bgaudio.src = 'sounds/main2.wav';
+		bgaudio.load();
+		bgaudio.play();
+		fxaudio.pause();
+		fxaudio.src = 'sounds/levelup.wav';
+		fxaudio.load();
+		fxaudio.play();
+	} else if (timePassed>500000 && timePassed < 10000) {
+		this.accelerationTweening = 2.7;
+        this.platformManager.maxDistanceBetween = 530;
+        //this.scoreColor = '#0300A9';
+		bgaudio.pause();
+		bgaudio.src = 'sounds/main3.wav';
+		bgaudio.load();
+		bgaudio.play();
+		fxaudio.pause();
+		fxaudio.src = 'sounds/levelup.wav';
+		fxaudio.load();
+		fxaudio.play();
+	} else if (timePassed>10000 && timePassed < 15000) {
+		this.accelerationTweening = 3.8;
+        this.platformManager.maxDistanceBetween = 580;
+        //this.scoreColor = '#9F8F00';
+		bgaudio.pause();
+		bgaudio.src = 'sounds/main4.wav';
+		bgaudio.load();
+		bgaudio.play();
+		fxaudio.pause();
+		fxaudio.src = 'sounds/levelup.wav';
+		fxaudio.load();
+		fxaudio.play();
+	} else if (timePassed>15000 && timePassed < 20000) {
+		this.accelerationTweening = 4.4;
+		this.PlatformManager.maxDistanceBetween = 610;
+		fxaudio.pause();
+		fxaudio.src = 'sounds/levelup.wav';
+		fxaudio.load();
+		fxaudio.play();
+	} else if (timePassed>20000) {
+		this.accelerationTweening = 5;
+		this.PlatformManager.maxDistanceBetween = 620;
+		fxaudio.pause();
+		fxaudio.src = 'sounds/levelup.wav';
+		fxaudio.load();
+		fxaudio.play();
+	}
+	/*
     switch (timePassed) {
 		case 0:
-			//$('canvas').toggleClass('animated');
 			bgaudio.pause();
 			bgaudio.src = 'sounds/main1.wav';
 			bgaudio.load();
@@ -839,7 +888,7 @@ InfinityRun.update = function() {
             break;
         case 10000:
             this.accelerationTweening = 3.8;
-            this.platformManager.maxDistanceBetween = 580;
+            this.platformManager.maxDistanceBetween = 610;
             //this.scoreColor = '#9F8F00';
 			bgaudio.pause();
 			bgaudio.src = 'sounds/main4.wav';
@@ -851,7 +900,7 @@ InfinityRun.update = function() {
 			fxaudio.play();
             break;
     }
-	
+	*/
     this.acceleration += (this.accelerationTweening - this.acceleration) * 0.01;
 
 
@@ -1002,6 +1051,7 @@ Menu = function() {
 
 //--------- Draw ---------
 
+
 InfinityRun.draw = function() {
 	
 	if(GameState == State.Started) {
@@ -1015,6 +1065,7 @@ InfinityRun.draw = function() {
       results.push(Town[i].render(i));
     }	
 	//----------------------------------------------------------------
+	
     this.player.draw();
 
     for (i = 0; i < this.platformManager.platforms.length; i++) {
