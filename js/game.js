@@ -32,10 +32,10 @@
 
 var debug = false;
 
-var State = { Menu:0, Started:1, Paused:2, Over:3 };
+var State = { Menu:0, Controlls:1,Started:2, Paused:3, Over:4 };
 var GameState = State.Menu;
 var MainMenu;
-var MenuTab = {Main:0, Settings:1, Highscore:2, Credits:3};
+var MenuTab = {Main:0, Controlls:1,Settings:2, Highscore:3, Credits:4};
 var curMenuTab = MenuTab.Main;
 
 //timer
@@ -437,38 +437,6 @@ Player.prototype.update = function() {
 			}
 			
 		}
-	
-		//---------------------------------------------------------------
-		
-		//var j = 0;
-		//var k = 1;
-		//var u = 0;
-		
-		
-		//update highscore TODO
-		
-		
-		// for(var i = 0; i<9; i++) {	
-			// if (timePassed > highScore[i])  {
-					
-				
-					
-				// // drag all scores down a value
-					
-					
-				// if(highScore[j] != 0)  {
-					// highScore[k] = highScore[j];
-						
-					// j++;
-					// k++;
-						
-				// }
-					
-			// }
-					// //highScore[0] = timePassed;
-				
-		// }
-		
         InfinityRun.platformManager.updateWhenLose();
 		fxaudio.pause();
 	    fxaudio.src = 'sounds/crash.wav';
@@ -476,10 +444,6 @@ Player.prototype.update = function() {
 	    fxaudio.play();
 		
 		ms = 0;
-		
-		
-		
-		
     }
 
     if ((InfinityRun.keys.UP || InfinityRun.keys.SPACE || InfinityRun.keys.W || InfinityRun.dragging) && this.velocityY < -8) {
@@ -522,17 +486,8 @@ Platform.prototype.draw = function() {
 
 function PlatformManager() {
     this.maxDistanceBetween = 300;
-    //bunt
-    //this.colors = ['#2ca8c2', '#98cb4a', '#f76d3c', '#f15f74', '#5481e6'];
-	//bunt mit grau
-	//this.colors = ['#AB8888', '#8E8383', '#625B5B', '#9491B1', '#A68FA4'];
-	//grau gelb
-	//this.colors = ['#D8D6B1', '#B5B28C', '#71705E', '#A4A072', '#8E8A5E'];
-	//grau blau
-	//this.colors = ['#BEC3E3', '#A6AAC6', '#9194AB', '#77798A', '#666876'];
 	this.colors = ['#3D494F'];
 
-	
 	//first 3 Platforms execept the Starter Platform
     this.first = new Platform({
         x: 300,
@@ -662,7 +617,6 @@ InfinityRun.setup = function() {
     this.scoreColor = '#181818';
     this.jumpCountRecord = 0;
 	//--------------------------------------
-	//bg add
     var i, results;
     i = 3;
     results = [];
@@ -687,7 +641,6 @@ InfinityRun.setup = function() {
 
 };
 //--------------------------------------------
-//clear func bg
 InfinityRun.clear = function() {
     return InfinityRun.clearRect(0, 0, InfinityRun.width, InfinityRun.height);
   };
@@ -756,10 +709,6 @@ function updateTimer() {
   
 
 	timePassed = ms;
-  //sEl.innerText = s;
-  //msEl.innerText = ms;
- 
-  
 }
 
 function toggleTimer() {
@@ -852,58 +801,7 @@ InfinityRun.update = function() {
 		fxaudio.load();
 		fxaudio.play();
 	}
-	/*
-    switch (timePassed) {
-		case 0:
-			bgaudio.pause();
-			bgaudio.src = 'sounds/main1.wav';
-			bgaudio.load();
-			bgaudio.play();
-            break;
-        case 1000:
-            this.accelerationTweening = 1.5;
-            this.platformManager.maxDistanceBetween = 430;
-            //this.scoreColor = '#076C00';
-			bgaudio.pause();
-			bgaudio.src = 'sounds/main2.wav';
-			bgaudio.load();
-			bgaudio.play();
-			fxaudio.pause();
-			fxaudio.src = 'sounds/levelup.wav';
-			fxaudio.load();
-			fxaudio.play();
-            break;
-        case 5000:
-            this.accelerationTweening = 2.7;
-            this.platformManager.maxDistanceBetween = 530;
-            //this.scoreColor = '#0300A9';
-			bgaudio.pause();
-			bgaudio.src = 'sounds/main3.wav';
-			bgaudio.load();
-			bgaudio.play();
-			fxaudio.pause();
-			fxaudio.src = 'sounds/levelup.wav';
-			fxaudio.load();
-			fxaudio.play();
-            break;
-        case 10000:
-            this.accelerationTweening = 3.8;
-            this.platformManager.maxDistanceBetween = 610;
-            //this.scoreColor = '#9F8F00';
-			bgaudio.pause();
-			bgaudio.src = 'sounds/main4.wav';
-			bgaudio.load();
-			bgaudio.play();
-			fxaudio.pause();
-			fxaudio.src = 'sounds/levelup.wav';
-			fxaudio.load();
-			fxaudio.play();
-            break;
-    }
-	*/
     this.acceleration += (this.accelerationTweening - this.acceleration) * 0.01;
-
-
 
     for (i = 0; i < this.platformManager.platforms.length; i++) {
         if (this.player.intersects(this.platformManager.platforms[i])) {
@@ -939,17 +837,10 @@ InfinityRun.update = function() {
                 // bounce player / push him away (effect)
                 this.player.velocityY = -10 + -(this.acceleration * 4);
                 this.player.velocityX = -20 + -(this.acceleration * 4);
-				
-				
-			
-			
+
 				if (timePassed > this.jumpCountRecord) {
                         this.jumpCountRecord = timePassed;
-                }
-				
-				
-				
-				
+                }	
             } else {
 
                 // --------- Controller ---------
@@ -961,10 +852,7 @@ InfinityRun.update = function() {
 					fxaudio.pause();
 					fxaudio.src = 'sounds/jump.wav';
 					fxaudio.load();
-					fxaudio.play();
-												
-			
-                    
+					fxaudio.play();  
                 }
             }
         }
@@ -1006,7 +894,9 @@ InfinityRun.keydown = function() {
 	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Main) {
 		GameState = State.Started;
 		toggleTimer();
-	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Settings) {
+	}else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Controlls) {
+		curMenuTab = MenuTab.Main;
+    }else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Settings) {
 		curMenuTab = MenuTab.Main;
 	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Highscore) {
 		curMenuTab = MenuTab.Main;
@@ -1044,8 +934,6 @@ InfinityRun.keydown = function() {
 }
 
 Menu = function() {
-
-	//this.backgroundCallback = null;
 }
 
 
@@ -1091,7 +979,7 @@ InfinityRun.draw = function() {
 	} else if (GameState == State.Menu && curMenuTab==MenuTab.Main) {
 	
 	this.title = "InfinityRun";
-	items = ["Play", "Settings", "Highscore", "Credits"];
+	items = ["Play","Controlls", "Settings", "Highscore", "Credits"];
 	
 	callback = function(numItem) { //if (numItem == 0) GameState=State.Started 
 	
@@ -1101,12 +989,15 @@ InfinityRun.draw = function() {
 		toggleTimer();
 		break;
 	  case 1:
+	    curMenuTab=MenuTab.Controlls;
+	    break;
+	  case 2:
 		curMenuTab=MenuTab.Settings;
 		break;
-	  case 2:
+	  case 3:
 	    curMenuTab=MenuTab.Highscore;
 		break;
-	  case 3:
+	  case 4:
 	    curMenuTab=MenuTab.Credits;
 		break;
 	  
@@ -1117,7 +1008,7 @@ InfinityRun.draw = function() {
 	};
 	this.height = InfinityRun.height;
 	this.width = InfinityRun.width;
-	this.size = 80;	
+	this.size = 70;	
 	
 	var lingrad = this.createLinearGradient(0,0,0,this.height);
 	lingrad.addColorStop(0, '#000');
@@ -1128,7 +1019,7 @@ InfinityRun.draw = function() {
 	this.textAlign = "center";
 	this.fillStyle = "White";
 	
-	var height = 150;
+	var height = 100;
 	//logo
 	this.drawImage(bglogo,this.width-500,this.height-300);
 	//-------------------------------
@@ -1160,12 +1051,10 @@ InfinityRun.draw = function() {
 	 * Settings Tab
 	 *
 	 */
-	} else if (GameState == State.Menu && curMenuTab==MenuTab.Settings){
-		
-	this.title = "Settings";
-	items = [0,10, 20, 30, 40, 50, 60, 70, 80, 90 , 100];
+	}else if (GameState == State.Menu && curMenuTab==MenuTab.Controlls){ 
+		this.title = "Controlls";
+	items = highScore;
 	
-
 
 	callback = function(volume) { //if (numItem == 0) GameState=State.Started 
 	
@@ -1176,8 +1065,59 @@ InfinityRun.draw = function() {
 	
 	
 	};
+	this.height = InfinityRun.height;
+	this.width = InfinityRun.width;
+
+	var lingrad = this.createLinearGradient(0,0,0,this.height);
+	lingrad.addColorStop(0, '#000');
+	lingrad.addColorStop(1, '#023');
+	this.fillStyle = lingrad;
+	this.fillRect(0,0,this.width, this.height, items[i]);
+	
+	this.textAlign = "center";
+	this.fillStyle = "White";
+	
+	var width = 10;
+	var height = 150;
+	
+	if (this.title) {
+		this.font = Math.floor(this.size*1.3).toString() + "px Bungee";
+		this.fillText(this.title, this.width/2, 150);
+		height+= height;
+	}
+	var distanceText = 50
+	this.font = Math.floor(40).toString() + "px Bungee";
+	this.textAlign = "left";
+	//Names
+	this.fillText("Menu:", this.width/5, 300);
+	this.font = Math.floor(20).toString() + "px Bungee";
+	this.fillText("[ESC] - Menu", this.width/5, 300+distanceText);
+	this.fillText("[Arrow up/down] - To navigate", this.width/5, 300+2*distanceText);
+	this.fillText("[Enter] - Accept", this.width/5, 300+3*distanceText);
+
+	this.font = Math.floor(40).toString() + "px Bungee";
+	this.textAlign = "left";
+	//Names
+	this.fillText("Game:", this.width/5, 300+5*distanceText);
+	this.font = Math.floor(20).toString() + "px Bungee";
+	this.fillText("[ESC] - Menu", this.width/5, 300+6*distanceText);
+	this.fillText("[W], [Arrow up], [Leertaste] - Jump", this.width/5, 300+7*distanceText);
+	this.fillText("[Arrow down ] - increase falling speed", this.width/5, 300+8*distanceText);
+	}
+	else if (GameState == State.Menu && curMenuTab==MenuTab.Settings){
+		
+	this.title = "Settings";
+	items = [0,10, 20, 30, 40, 50, 60, 70, 80, 90 , 100];
+	
+	callback = function(volume) { //if (numItem == 0) GameState=State.Started 
+	
+	switch (volume) {
+
+	}
 	
 	
+	
+	};
 
 	this.height = InfinityRun.height;
 	this.width = InfinityRun.width;
@@ -1198,8 +1138,6 @@ InfinityRun.draw = function() {
 	this.space = 15;	
 	this.heightincr = 4;
 	
-	
-	
 	if (this.title) {
 		this.font = Math.floor(this.size*1.3).toString() + "px Bungee";
 		this.fillText(this.title, this.width/2, 150);
@@ -1207,9 +1145,6 @@ InfinityRun.draw = function() {
 	}
 	
 	this.font = "55px Bungee";
-	//this.fillText('Volume', InfinityRun.Left, InfinityRun.Top);
-	
-	
 	this.fillText('Volume', 240, 300);
 
 	
@@ -1300,10 +1235,8 @@ InfinityRun.draw = function() {
     // Credits Menu----------------------------------------------------------	
 	else if (GameState == State.Menu && curMenuTab == MenuTab.Credits) {
 	
-	
 	this.title = "Credits";
 	items = highScore;
-	
 
 	callback = function(volume) { //if (numItem == 0) GameState=State.Started 
 	
@@ -1357,8 +1290,6 @@ InfinityRun.draw = function() {
 	
 	}
 	
-
-	
     //Debug
     if (debug) {
         this.font = '16pt Arial';
@@ -1366,9 +1297,6 @@ InfinityRun.draw = function() {
         this.fillText('Record: ' + s + " " + sc/*this.jumpCountRecord*/, this.width - 150, 33);
         this.fillStyle = this.scoreColor;
         this.fillText('Jumps: ' + this.jumpCount, this.width - 150, 50);
-        
-		//this.fillText('mouse: ' + this.mouse.y , this.width - 150, 100);
-		//this.fillText('GameState: ' + GameState, this.width - 150, 80);
     }
 	
 };
