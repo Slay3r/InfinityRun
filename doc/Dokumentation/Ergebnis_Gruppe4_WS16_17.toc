@@ -49,4 +49,4 @@
 \contentsline {section}{\numberline {A.1}Github Changelog}{31}{section.A.1}
 \contentsline {section}{\numberline {A.2}game.js}{35}{section.A.2}
 \contentsline {section}{\numberline {A.3}game.css}{67}{section.A.3}
-\contentsline {section}{\numberline {A.4}index.html}{68}{section.A.4}
+\contentsline {section}{\numberline {A.4}index.html}{69}{section.A.4}
