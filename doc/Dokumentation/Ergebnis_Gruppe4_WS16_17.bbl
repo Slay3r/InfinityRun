@@ -7,6 +7,10 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Are]{freevar}
+\textsc{Area}, Free Web~H.:
+\newblock \emph{Free Hosting} \url{http://freevar.com/}
+
 \bibitem[dis]{background}
 \textsc{dissimulate}:
 \newblock \emph{Skyline} \url{https://codepen.io/dissimulate/pen/CAzlt}

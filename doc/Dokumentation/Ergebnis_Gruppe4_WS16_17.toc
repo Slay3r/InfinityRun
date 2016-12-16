@@ -40,11 +40,13 @@
 \contentsline {subsubsection}{\numberline {2.3.4.1}Musik}{19}{subsubsection.2.3.4.1}
 \contentsline {subsubsection}{\numberline {2.3.4.2}Hintergrund}{21}{subsubsection.2.3.4.2}
 \contentsline {subsection}{\numberline {2.3.5}Das Spiel - Endstand}{23}{subsection.2.3.5}
-\contentsline {subsection}{\numberline {2.3.6}Sounds}{24}{subsection.2.3.6}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{25}{chapter*.18}
-\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{27}{chapter*.19}
-\contentsline {chapter}{\numberline {A}Anhang}{29}{appendix.A}
-\contentsline {section}{\numberline {A.1}Github Changelog}{29}{section.A.1}
-\contentsline {section}{\numberline {A.2}game.js}{32}{section.A.2}
-\contentsline {section}{\numberline {A.3}game.css}{60}{section.A.3}
-\contentsline {section}{\numberline {A.4}index.html}{60}{section.A.4}
+\contentsline {subsubsection}{\numberline {2.3.5.1}Steuerung}{24}{subsubsection.2.3.5.1}
+\contentsline {subsubsection}{\numberline {2.3.5.2}Webserver und Smartphone}{24}{subsubsection.2.3.5.2}
+\contentsline {subsection}{\numberline {2.3.6}Sounds}{25}{subsection.2.3.6}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{27}{chapter*.20}
+\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{29}{chapter*.21}
+\contentsline {chapter}{\numberline {A}Anhang}{31}{appendix.A}
+\contentsline {section}{\numberline {A.1}Github Changelog}{31}{section.A.1}
+\contentsline {section}{\numberline {A.2}game.js}{34}{section.A.2}
+\contentsline {section}{\numberline {A.3}game.css}{69}{section.A.3}
+\contentsline {section}{\numberline {A.4}index.html}{70}{section.A.4}
