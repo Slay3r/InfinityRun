@@ -1,3 +1,37 @@
+c4876c7 Florian Durli 2016-12-16 Controlls
+
+9ce6d99 Florian Durli 2016-12-16 Doku Server,Steuerung
+
+e1c7138 r4qtor        2016-12-15 acceleration fix
+
+188bcdb r4qtor        2016-12-15 Delete sketch.minlesbar.js (RE: unbenutzt)
+
+55b3162 r4qtor        2016-12-15 bug fixes, 'Farbänderung', kleines 'Hindernis'
+
+0f5b9cc butjo         2016-12-15 HighScore gefixed Plattformen erhöht
+
+414cbc9 butjo         2016-12-14 Creditsverbesserungen
+
+fc96b76 butjo         2016-12-14 Credits eingefügt
+
+3b990da butjo         2016-12-14 Audioeinstellungen implementiert
+
+6fb84f9 Slay3r        2016-12-14 Doku Quellen angepasst
+
+02cecd1 butjo         2016-12-14 Merge branch 'master' of https://github.com/Slay3r/InfinityRun
+
+682c0d2 butjo         2016-12-14 Farbschema geändert
+
+449cf21 Slay3r        2016-12-14 Doku
+
+288bb25 butjo         2016-12-14 Merge
+
+2003a79 butjo         2016-12-13 Dacharten erweitert
+
+42e9a8f butjo         2016-12-13 Code verbessert/Optiemiert
+
+67cc215 Slay3r        2016-12-13 Doku logo
+
 2d7d953 butjo         2016-12-12 Favicon und Logo im Menü
 
 2b8a139 ans77         2016-12-12 Logos hinzugefügt

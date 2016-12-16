@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.20)  16 DEC 2016 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  16 DEC 2016 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,7 +452,7 @@ Now handling font encoding U ...
 (/usr/share/texlive/texmf-dist/tex/generic/german/german.sty v2.5e 1998-07-08
 Package: german 1998/07/08 v2.5e Support for writing german texts (br)
 \grmnU@D=\dimen103
-german -- \language number for Austrian undefined, default 14 used.
+german -- \language number for Austrian undefined, default 51 used.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
@@ -562,7 +562,7 @@ LaTeX Info: Redefining \flqq on input line 281.
 LaTeX Info: Redefining \frqq on input line 289.
 LaTeX Info: Redefining \flq on input line 297.
 LaTeX Info: Redefining \frq on input line 304.
-ngerman -- \language number for naustrian undefined, default 61 used.
+ngerman -- \language number for naustrian undefined, default 77 used.
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2016/02/24 3.9q The Babel package
 
@@ -1440,10 +1440,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33])
-(../../js/game.js [34]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [35]
+[34] (../../js/game.js [35]
 Overfull \hbox (42.28035pt too wide) in paragraph at lines 55--56
 [][][][]\U/ark/m/n/12 C 
  []
@@ -1499,11 +1496,6 @@ Overfull \hbox (62.28035pt too wide) in paragraph at lines 427--428
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
-Overfull \hbox (169.15047pt too wide) in paragraph at lines 441--443
-[][][][][]\U/ark/m/n/12 C 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46]
@@ -1540,67 +1532,61 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [57]
+Overfull \hbox (119.81209pt too wide) in paragraph at lines 946--947
+[][][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Overfull \hbox (119.81209pt too wide) in paragraph at lines 955--957
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [59]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [60]
-Overfull \hbox (119.81209pt too wide) in paragraph at lines 1058--1059
-[][][][][][]\U/ark/m/n/12 C 
- []
-
-
-Overfull \hbox (119.81209pt too wide) in paragraph at lines 1067--1069
+Overfull \hbox (84.57039pt too wide) in paragraph at lines 1045--1046
 [][][][][]\U/ark/m/n/12 C 
  []
 
 
+Overfull \hbox (84.57039pt too wide) in paragraph at lines 1048--1050
+[][][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [62]
-Overfull \hbox (84.57039pt too wide) in paragraph at lines 1154--1155
-[][][][][][]\U/ark/m/n/12 C 
- []
-
-
-Overfull \hbox (84.57039pt too wide) in paragraph at lines 1157--1159
-[][][][][]\U/ark/m/n/12 C 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65]
-Overfull \hbox (55.23201pt too wide) in paragraph at lines 1300--1301
+Overfull \hbox (55.23201pt too wide) in paragraph at lines 1235--1236
 [][]\U/ark/m/n/12 C 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66]
+ [65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [68])
-(../../css/game.css [69]) (../../index.html) [70]
+ [66])
+(../../css/game.css [67]) (../../index.html [68])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
- [71]
+ [69]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
 
 (./Ergebnis_Gruppe4_WS16_17.aux (./content/title.aux) (./content/einleitung.aux
@@ -1620,10 +1606,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17324 strings out of 493029
- 259994 string characters out of 6136233
- 662987 words of memory out of 5000000
- 18547 multiletter control sequences out of 15000+600000
+ 17239 strings out of 493029
+ 258626 string characters out of 6136233
+ 663984 words of memory out of 5000000
+ 18532 multiletter control sequences out of 15000+600000
  18280 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,12n,71p,1571b,1911s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1637,10 +1623,10 @@ ic/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200
 .pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/tex
 mf/fonts/type1/public/cm-super/sfsx2074.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sftt1200.pfb>
-Output written on Ergebnis_Gruppe4_WS16_17.pdf (79 pages, 2759164 bytes).
+Output written on Ergebnis_Gruppe4_WS16_17.pdf (77 pages, 2754662 bytes).
 PDF statistics:
- 2953 PDF objects out of 2984 (max. 8388607)
- 2814 compressed objects within 29 object streams
- 1992 named destinations out of 2073 (max. 500000)
+ 2861 PDF objects out of 2984 (max. 8388607)
+ 2725 compressed objects within 28 object streams
+ 1922 named destinations out of 2073 (max. 500000)
  362 words of extra memory for PDF output out of 10000 (max. 10000000)
 
