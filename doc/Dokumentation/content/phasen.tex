@@ -315,6 +315,7 @@ Folgende Spielkonzept Äbnderungen haben wir im laufe der Implementation vorgeno
 	\item Die Spielebene hat anstatt Hindernisse Zufalls generierte variable Plattformen.
 	\item Spiel-Menü eingefügt
 	\item Spielhintergrund
+	\item Spielfigur ändert sich nicht nach Aufprall
 \end{itemize}
 \subsection{Funktionsdiagramm}
 \begin{landscape}
@@ -540,22 +541,56 @@ Folgende Sounds werden wir verwenden:
 	\end{tabular}
 	\caption{Sound Links}
 \end{table}
-%\section{Test}
-%\subsection{Testplan}
-%\begin{table}[h]
-%	\centering
-%	\begin{tabular}{|c|l|l|}
-%		\toprule
-%		\textbf{Test-Nr.}& \textbf{Beschreibung}& Fehler \\
-%		\midrule
-%		1 & Test &\\ 
-%		2 & Test &\\
-%		3 & Test &\\ 
-%		4 & Test &\\
-%		5 & Test &\\
-%		\bottomrule
-%		\end{tabular}
-%		\caption{Testplan}
-%\end{table}
+\section{Test}
+In der Phase ``Test'' erstellen wir einen Testplan der auch an dritte ausgegeben wird.
+\subsection{Umfang}
+Das Spiel wird ausführlich von uns getestet und zusätzlich ein Feedback von dritten eingeholt.
+\subsection{Testplan}
+\subsubsection{Testumgebung}
+\begin{itemize}
+	\item Browser
+	\item Betriebssystem
+	\item System
+	\item Auflösung
+\end{itemize}
+\subsubsection{Modultest}
+\begin{itemize}
+	\item Steuerung
+	\item Sound
+	\item Spieloberfläche
+	\item Spielverlauf
+\end{itemize}
+\subsubsection{Systemtest}
+\begin{itemize}
+	\item Performance
+\end{itemize}
+\subsection{Testberichte}
+Testberichte werden an dritte ausgehändigt. Nachdem wir die Berichte zurück bekommen haben, werden wir diese digitalisieren. 
+Unser Testbericht haben wir zusätzlich noch angehängt. 
+\includepdf[pages=-]{content/berichte/felix.pdf}
+\includepdf[pages=-]{content/berichte/maurice.pdf}
+\includepdf[pages=-]{content/berichte/tomas.pdf}
+\includepdf[pages=-]{content/berichte/gruppe4.pdf}
+\subsection{Testberichte analysieren}
+Anhand der Testberichte und aus unserem eigenen Test sind uns einige Bugs aufgefallen. Diese Bugs werden wir in einer Liste mit Priorität abarbeiten.
+\subsubsection{Bugliste}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|l|c|l}
+		\textbf{Priorität}& \textbf{Bug} & \textbf{Reproduzierbar?} & \textbf{Ursache}\\
+		1 & Performance & Ja & Hintergrund	\\ 
+		2 & Hintergrundmusik & Ja/Nein & HTML-Audio Element\\
+		3 & Effektlautstärke & Ja & Nicht einstellbar\\
+		3 & Menüsound & Ja & Aktualisierung\\
+	\end{tabular}
+	\caption{Bugs}
+\end{table}
+\textbf{Legende:}
+\begin{itemize}
+	\item Priorität 1: Sehr Wichtig
+	\item Priorität 2: Wichtig
+	\item Priorität 3: Optional
+\end{itemize}
+%\subsection{Spielanforderungen}
 %\section{Dokumentation \& Pr\"asentation}
 

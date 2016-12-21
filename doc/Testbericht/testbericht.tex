@@ -1,0 +1,123 @@
+% Vorlage fuer Handouts
+% zum Seminar "Diskrete Geometrie und Kombinatorik -- ein topologischer Zugang"
+% im WS 2008/09
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Allgemeine Hinweise
+% - Halten Sie den LaTeX-Code so uebersichtlich wie moeglich;
+%   (La)TeX-Fehlermeldungen sind oft kryptisch -- in einem ordentlich 
+%   strukturierten Quellcode lassen sich Fehler leichter finden und 
+%   beseitigen
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jedes LaTeX-Dokument muss eine \documentclass-Deklaration enthalten0
+%   Diese sorgt fuer das allgemeine Seiten-Layout, das Aussehen der 
+%   Ueberschriften etc.
+\documentclass[a4paper,oneside,DIV8,8pt]{scrartcl}
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Einbinden weiterer Pakete
+  \usepackage{german}    % fuer die deutschen Trennmuster
+  % \usepackage{ngerman} % entsprechend fuer die neue Rechtschreibung
+  \usepackage[latin1]{inputenc} % falls Sie Umlaute in den Quellen verwenden wollen
+  \usepackage{amsmath}   % enthaelt nuetzliche Makros fuer Mathematik
+  \usepackage{amsthm}    % fuer Saetze, Definitionen, Beweise, etc.
+  \usepackage{relsize}   % fuer \smaller 
+  \usepackage{german,longtable}
+  \usepackage[T1]{fontenc}
+  %\usepackage[utf8]{inputenc}
+  \usepackage{listings}
+  \usepackage{float}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Deklaration weiterer Makros
+  \renewcommand{\labelitemi}{--}             % aendert die Symbole bei unnumerierten Aufzaehlungen
+  \makeatletter                              % Fussnote ohne Symbol
+    \def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+  \newcommand{\handouttitle}[4]
+   {\begin{center}
+      \Large #4
+    \end{center}
+
+    %\bigskip
+
+    \noindent
+    #1, \textsf{#2}
+    \hfill
+    #3 
+    \blfootnote{Testbericht, InfinityRun, {\smaller HFU}~Furtwangen}
+  
+    \noindent
+    \rule{\linewidth}{.5pt}
+
+    %\bigskip
+
+    %\@afterindentfalse\@afterheading
+   }
+  %\makeatother
+  \renewcommand{\sectfont}{\normalfont}       % aendert den Font fuer Ueberschriften
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anfang des eigentlichen Dokuments
+\begin{document}
+  % Titel fuer das Handout -- Sie koennen natuerlich auch selbst etwas entwerfen!
+  \handouttitle{Name: Gruppe 4}
+			   {Beruf: Studenten}
+               {Datum: 21.12.2016}
+               {Testbericht}
+\section{Testumgebung}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|l}
+		Browser & Chrome	\\ 
+		Betriebssystem & Linux\\
+		System & Laptop	\\ 
+		Auflösung & Full-HD \\
+	\end{tabular}
+\end{table}
+\section{Modultest}
+\subsection{Steuerung}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|l}
+		\textbf{}& \textbf{Erfüllt Ja/Nein?} & \textbf{Anmerkungen}\\
+		Funktioniert & Ja &\\ 
+		Intuitiv? & Ja & \\
+	\end{tabular}
+\end{table}
+\subsection{Sound}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|l}
+		\textbf{}& \textbf{Erfüllt Ja/Nein?} & \textbf{Anmerkungen}\\
+		Funktioniert & Ja/Nein & Probleme bei dauerhafter Wiedergabe\\ 
+		Passend? & Ja & \\
+	\end{tabular}
+\end{table}
+\subsection{Spieloberfläche}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|c|l}
+		\textbf{}& \textbf{Erfüllt Ja/Nein?} & \textbf{Anmerkungen}\\
+		Farbgestaltung passend? & Ja &\\ 
+		Darstellung der Komponenten & Ja & \\
+		\end{tabular}
+\end{table}
+\subsection{Spielverlauf}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|c|l}
+		\textbf{}& \textbf{Erfüllt Ja/Nein?} & \textbf{Anmerkungen}\\
+		Spielkonzept passend? & Ja &\\
+		Funktioniert der Highscore & Ja &\\ 
+		Schwierigkeit passend? & Ja & \\
+	\end{tabular}
+\end{table}
+\section{Systemtest}
+\textbf{Performance:}
+Nicht durchgehend Flüssig Spielbar.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende des Dokuments -- alles, was nach dieser Zeile steht, wird 
+% von LaTeX ignoriert!
+\end{document}
