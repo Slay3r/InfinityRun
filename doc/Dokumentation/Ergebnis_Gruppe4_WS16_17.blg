@@ -13,6 +13,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bibtex.bib
 Warning--empty publisher in freevar
+Warning--empty publisher in browsershots
 Warning--empty publisher in background
 Warning--empty publisher in sounds
 Warning--empty publisher in git
@@ -21,45 +22,45 @@ Warning--empty publisher in changelog
 Warning--empty publisher in notepad
 Warning--empty publisher in sketch
 Warning--empty publisher in gimp
-You've used 9 entries,
+You've used 10 entries,
             4793 wiz_defined-function locations,
-            929 strings with 6911 characters,
-and the built_in function-call counts, 3513 in all, are:
-= -- 329
-> -- 72
-< -- 48
-+ -- 48
-- -- 20
-* -- 215
-:= -- 618
+            933 strings with 6976 characters,
+and the built_in function-call counts, 3873 in all, are:
+= -- 362
+> -- 80
+< -- 50
++ -- 50
+- -- 22
+* -- 238
+:= -- 681
 add.period$ -- 0
-call.type$ -- 9
-change.case$ -- 36
-chr.to.int$ -- 9
-cite$ -- 18
-duplicate$ -- 144
-empty$ -- 343
-format.name$ -- 54
-if$ -- 763
+call.type$ -- 10
+change.case$ -- 40
+chr.to.int$ -- 10
+cite$ -- 20
+duplicate$ -- 160
+empty$ -- 381
+format.name$ -- 60
+if$ -- 844
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 36
-newline$ -- 46
-num.names$ -- 27
-pop$ -- 99
+missing$ -- 40
+newline$ -- 50
+num.names$ -- 30
+pop$ -- 110
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 60
 quote$ -- 0
-skip$ -- 137
+skip$ -- 149
 stack$ -- 0
-substring$ -- 142
-swap$ -- 18
-text.length$ -- 18
-text.prefix$ -- 9
+substring$ -- 154
+swap$ -- 20
+text.length$ -- 20
+text.prefix$ -- 10
 top$ -- 0
-type$ -- 54
-warning$ -- 9
-while$ -- 27
-width$ -- 12
-write$ -- 97
-(There were 9 warnings)
+type$ -- 60
+warning$ -- 10
+while$ -- 30
+width$ -- 13
+write$ -- 107
+(There were 10 warnings)

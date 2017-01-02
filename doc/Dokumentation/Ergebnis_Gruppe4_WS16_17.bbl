@@ -11,6 +11,10 @@
 \textsc{Area}, Free Web~H.:
 \newblock \emph{Free Hosting} \url{http://freevar.com/}
 
+\bibitem[bro]{browsershots}
+\textsc{browsershots.org}:
+\newblock \emph{Browsershoots} \url{http://browsershots.org/}
+
 \bibitem[dis]{background}
 \textsc{dissimulate}:
 \newblock \emph{Skyline} \url{https://codepen.io/dissimulate/pen/CAzlt}
