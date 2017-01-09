@@ -37,6 +37,8 @@ var GameState = State.Menu;
 var MainMenu;
 var MenuTab = {Main:0, Controlls:1,Settings:2, Highscore:3, Credits:4};
 var curMenuTab = MenuTab.Main;
+var vgaquality = 0; //0=low 1=mid 2=high
+var settingsItem = 0; // 0=audiosettings 1= Graphicsettings
 
 //timer
 var s = 0,
@@ -911,22 +913,35 @@ InfinityRun.keydown = function() {
 	if (InfinityRun.keys.DOWN && GameState == State.Menu) {
 		selectedItem = (selectedItem + 1) % items.length;
 	}
-	
+	//general settings choose
+	if (InfinityRun.keys.UP && curMenuTab==MenuTab.Settings && settingsItem!=0) {
+		settingsItem-=1;
+	}
+	if (InfinityRun.keys.DOWN && curMenuTab==MenuTab.Settings && settingsItem!=1) {
+		settingsItem+=1;
+	}
 	// settings audio change
-	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && audioItem !=0) {
+	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && audioItem !=0 && settingsItem ==0) {
 		audioItem = (audioItem + items.length - 1) % items.length;
 		if (bgaudio.volume>=0)
 		bgaudio.volume-=0.1;
 	    fxaudio.volume-=0.1;
 	}
 	
-	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && audioItem !=10) {
+	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && audioItem !=10 && settingsItem ==0) {
 		audioItem = (audioItem + 1) % items.length;
 		if (bgaudio.volume<1.0)
 		bgaudio.volume+=0.1;
 	    fxaudio.volume+=0.1;
 	}
+	//graphic settings change
+	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && vgaquality!=0 && settingsItem ==1) {
+		vgaquality-=1;
+	}
 	
+	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && vgaquality!=2 && settingsItem ==1) {
+		vgaquality+=1;
+	}
 	if(InfinityRun.keys.ENTER && GameState == State.Menu) {
 		callback(selectedItem);
 	}
@@ -1152,10 +1167,10 @@ InfinityRun.draw = function() {
 	
 	for (var i = 0; i < items.length; ++i) {
 		var size = Math.floor(this.size*0.8);
-		if (i == audioItem)
+		if (i == audioItem && settingsItem==0)
 		{
 			this.fillStyle = "#A9F5F2";
-			size = this.size+5;
+			//size = this.size+5;//nicht sicher für was diese zeile code steht? funktioniert auch ohne?
 		}
 		this.font = size.toString() + "px Bungee";
 		posx += this.space;
@@ -1168,7 +1183,45 @@ InfinityRun.draw = function() {
 		this.fillStyle = "White";
 		
 	}
+	//------------------------------------------------------------------------------------
+	//Graphic Settings
+	this.fillText('Graphics', 240, 500);
+	switch (vgaquality) {
+		//Low
+	  case 0:
+	    this.fillText('Mid', 500,600 );
+		this.fillText('High', 700, 600);
+		if (settingsItem == 1){
+		this.fillStyle = "#A9F5F2";
+		}
+		this.fillText('Low', 240, 600);
+		break;
+		//mid
+	  case 1:
+	  
+		this.fillText('Low', 240, 600);
+		this.fillText('High', 700, 600);
+		if (settingsItem == 1){
+		this.fillStyle = "#A9F5F2";
+		}
+		this.fillText('Mid', 500,600 );
+		
+	    break;
+		//high
+	  case 2:
+	    this.fillText('Mid', 500,600 );
+		this.fillText('Low', 240, 600);
+		if (settingsItem == 1){
+		this.fillStyle = "#A9F5F2";
+		}
+		this.fillText('High', 700, 600);
+		
+		break;
+	  
+	}
 	
+	
+	//------------------------------------------------------------------------------------
 	/*
 	 * Highscore Tab
 	 *
