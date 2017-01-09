@@ -153,6 +153,8 @@ Tower.prototype.render = function()
     	InfinityRun.rect(this.x, this.y, this.width, this.height);
     	InfinityRun.fill();
     	InfinityRun.stroke();
+		
+if (vgaquality > 0){ //graphics higher then low
     	if (this.singleroofTop) 
 	{
       		InfinityRun.beginPath();
@@ -192,7 +194,7 @@ Tower.prototype.render = function()
 				InfinityRun.stroke();	
 			}
     	}
-	if (this.coneTop) 
+	if (vgaquality > 1 && this.coneTop) 
 	{
 	      	InfinityRun.beginPath();
       		InfinityRun.moveTo(this.x, this.y);
@@ -208,7 +210,7 @@ Tower.prototype.render = function()
       		InfinityRun.stroke();
 			
     	}
-	if (this.companyTop) 
+	if (vgaquality > 1 && this.companyTop) 
 	{
 		var ctc = 1;
 	  	while (ctc<=this.companyTopcount) 
@@ -223,7 +225,7 @@ Tower.prototype.render = function()
 			ctc++;
 	  	}
     	}
-    	if (this.summitTop) 
+    	if (vgaquality > 1 && this.summitTop) 
 	{
       		InfinityRun.beginPath();
       		InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.summitTopHeight);
@@ -234,7 +236,7 @@ Tower.prototype.render = function()
       		InfinityRun.stroke();
     	}
 
-    	if (this.radioTop) 
+    	if (vgaquality > 1 && this.radioTop) 
 	{
       		InfinityRun.beginPath();
       		InfinityRun.moveTo(this.x + (this.width / 2), this.y - this.radioTopHeight);
@@ -242,6 +244,7 @@ Tower.prototype.render = function()
       		InfinityRun.lineWidth = this.radioTopWidth;
       		return InfinityRun.stroke();
     	}
+}
 };
 
 Street = function(config) 
@@ -964,9 +967,29 @@ InfinityRun.draw = function() {
 	var i, results;
     i = Town.length;
     results = [];
+	if(vgaquality>1){
     while (i--) {
-      results.push(Town[i].render(i));
-    }	
+            results.push(Town[i].render(i));
+		
+    }
+	}
+    if (vgaquality==1)
+	{
+    i-=1; //only upper towers will be drawn
+	while (i--) {
+            results.push(Town[i+1].render(i+1));
+		
+    }
+	}
+    if (vgaquality<1)
+	{
+    i-=2; //only one street will be drawn
+	while (i--) {
+            results.push(Town[i+1].render(i+1));
+		
+    }
+	
+	}	
 	//----------------------------------------------------------------
 	
     this.player.draw();
