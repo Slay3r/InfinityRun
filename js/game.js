@@ -38,7 +38,9 @@ var MainMenu;
 var MenuTab = {Main:0, Controlls:1,Settings:2, Highscore:3, Credits:4};
 var curMenuTab = MenuTab.Main;
 var vgaquality = 0; //0=low 1=mid 2=high
-var settingsItem = 0; // 0=audiosettings 1= Graphicsettings
+var settingsItem = 0; // 0=audiosettings 1= Graphicsettings 2= filtersettings
+var setFilters = true; //set filter on or off
+
 
 //timer
 var s = 0,
@@ -691,7 +693,10 @@ function updateTimer() {
 	  if(!invertRunning) {
 	  invertRunning = true;
 	  rng = random(30,50);
-	  qs.classList.toggle('invertFilter');
+	  if(setFilters) //toggle filters
+	  {
+	      qs.classList.toggle('invertFilter');
+	  }
 	  }
 	  s=0;
   }
@@ -699,7 +704,10 @@ function updateTimer() {
 	  if(!sunsetRunning) {
 	  sunsetRunning = true;
 	  rng2 = random(2,5);
-	  qs.classList.toggle('sunsetFilter');
+	  if(setFilters) //toggle filters
+	  {
+	      qs.classList.toggle('sunsetFilter');
+	  }
 	  }
       sx=0;
   }
@@ -920,7 +928,7 @@ InfinityRun.keydown = function() {
 	if (InfinityRun.keys.UP && curMenuTab==MenuTab.Settings && settingsItem!=0) {
 		settingsItem-=1;
 	}
-	if (InfinityRun.keys.DOWN && curMenuTab==MenuTab.Settings && settingsItem!=1) {
+	if (InfinityRun.keys.DOWN && curMenuTab==MenuTab.Settings && settingsItem!=2) {
 		settingsItem+=1;
 	}
 	// settings audio change
@@ -944,6 +952,14 @@ InfinityRun.keydown = function() {
 	
 	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && vgaquality!=2 && settingsItem ==1) {
 		vgaquality+=1;
+	}
+	//filter settings change
+	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && !setFilters && settingsItem ==2) {
+		setFilters=true;
+	}
+	
+	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && setFilters && settingsItem ==2) {
+		setFilters=false;
 	}
 	if(InfinityRun.keys.ENTER && GameState == State.Menu) {
 		callback(selectedItem);
@@ -1208,6 +1224,7 @@ InfinityRun.draw = function() {
 	}
 	//------------------------------------------------------------------------------------
 	//Graphic Settings
+	this.fillStyle = "White";
 	this.fillText('Graphics', 240, 500);
 	switch (vgaquality) {
 		//Low
@@ -1242,7 +1259,28 @@ InfinityRun.draw = function() {
 		break;
 	  
 	}
-	
+	//-----------------------------------------------------------------------------------
+	//Filter settings
+	this.fillStyle = "White";
+	this.fillText('Filters', InfinityRun.width-300, 300);
+	if(setFilters)
+	{
+	   this.fillText('Off', InfinityRun.width-200, 400);
+	   if (settingsItem==2)
+	   {
+           this.fillStyle = "#A9F5F2";
+	   }
+       this.fillText('On', InfinityRun.width-350, 400);	   
+	}
+	else
+	{
+	   this.fillText('On', InfinityRun.width-350, 400);
+       if (settingsItem==2)
+	   {
+           this.fillStyle = "#A9F5F2";
+	   }
+       this.fillText('Off', InfinityRun.width-200, 400);
+	}
 	
 	//------------------------------------------------------------------------------------
 	/*
