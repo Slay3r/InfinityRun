@@ -560,8 +560,10 @@ PlatformManager.prototype.updateWhenLose = function() {
 
     this.first.x = 300;
     this.first.color = randomChoice(this.colors);
-	this.first.y = 500;
+	this.first.y = 700;
     //this.first.y = InfinityRun.width / random(2, 3);
+	this.second.y = 650;
+	this.third.y = 600;
     this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
     this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
 
