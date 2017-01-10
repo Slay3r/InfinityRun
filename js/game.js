@@ -752,7 +752,6 @@ InfinityRun.update = function() {
 	
 	
     this.player.update();
-    restartAudio();	
 	if(difficulty ==0) {
 		
 		playbgFX("Main1");
