@@ -37,10 +37,10 @@ var GameState = State.Menu;
 var MainMenu;
 var MenuTab = {Main:0, Controlls:1,Settings:2, Highscore:3, Credits:4};
 var curMenuTab = MenuTab.Main;
+
 var vgaquality = 0; //0=low 1=mid 2=high
 var settingsItem = 0; // 0=audiosettings 1= Graphicsettings 2= filtersettings
 var setFilters = true; //set filter on or off
-
 
 //timer
 var s = 0,
@@ -49,11 +49,6 @@ playTimer = false;
 
 var highScore = new Array(10);
 highScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-
-var bgaudio = document.getElementById('backgroundmusic');
-var fxaudio = document.getElementById('fxaudio');
-var backgroundaudio = "sounds/main1.wav";
 
 
 //-------------------------------------------------------------
@@ -69,27 +64,24 @@ dt = 1;
 var bglogo = new Image();
 bglogo.src = 'image/logo.png';
 //-------------------------------------------------------------
-function restartAudio() 
-{
-	// Check for audio element support.
-	if (window.HTMLAudioElement) 
-	{
-		try 
-		{                     
-			// Tests the paused attribute and set state. 
-                    	if (bgaudio.ended) 
-			{
-				bgaudio.currentTime = 0;
-                        	bgaudio.play();
-                    	}                    
-                }
-                catch (e) 
-		{
-                	// Fail silently but show in F12 developer tools console
-                   	if(window.console && console.error("Error:" + e));
-                }
-	}
+var bgFX;
+var sfx;
+
+//playSound
+function playMenuFX () {
+	menuFX = createjs.Sound.play("MainMenu", {loop:-1});
 }
+
+function playbgFX (soundID) {
+	bgFX = createjs.Sound.play(soundID, {loop:-1});
+}
+
+
+function playSFX (soundID) {
+	sfx = createjs.Sound.play(soundID);
+}
+
+//-------------------------------------------------------------
           
 // randomizer
 function random(min, max) {
@@ -445,11 +437,10 @@ Player.prototype.update = function() {
 			
 		}
         InfinityRun.platformManager.updateWhenLose();
-		fxaudio.pause();
-	    fxaudio.src = 'sounds/crash.wav';
-	    fxaudio.load();
-	    fxaudio.play();
-		
+	
+		playSFX("Crash");
+		bgFX.stop();
+		difficulty = 0;
 		ms = 0;
     }
 
@@ -599,6 +590,7 @@ Particle.prototype.draw = function() {
 
 /************************************************/
 
+
 InfinityRun.setup = function() {
 
     this.jumpCount = 0;
@@ -610,10 +602,12 @@ InfinityRun.setup = function() {
         width: 32,
         height: 32
     });
-	bgaudio.pause();
-	bgaudio.src = 'sounds/menu.wav';
-	bgaudio.load();
-	bgaudio.play();
+
+	setTimeout(function (){
+	playMenuFX("MainMenu");
+
+	}, 100); 
+	
 
     this.platformManager = new PlatformManager();
 
@@ -733,12 +727,13 @@ function toggleTimer() {
   playTimer = !playTimer;
 }
 
-
+var difficulty = 0;
 
 InfinityRun.update = function() {	
 	if (GameState == State.Started) {
 	//--------------------------------------------
 	//clear func bg
+	
 	var i, results;
     dt = InfinityRun.dt < .1 ? .1 : InfinityRun.dt / 16;
     dt = dt > 5 ? 5 : dt;
@@ -758,61 +753,55 @@ InfinityRun.update = function() {
 	
     this.player.update();
     restartAudio();	
-	if(timePassed==0) {
-		bgaudio.pause();
-		bgaudio.src = 'sounds/main1.wav';
-		bgaudio.load();
-		bgaudio.play();
-	} else if (timePassed>1000 && timePassed < 5000) {
+	if(difficulty ==0) {
+		
+		playbgFX("Main1");
+		difficulty = 1;
+	} else if (timePassed>1000 && timePassed < 5000 && difficulty == 1) {
 		this.accelerationTweening = 1.5;
         this.platformManager.maxDistanceBetween = 430;
-        //this.scoreColor = '#076C00';
-		bgaudio.pause();
-		bgaudio.src = 'sounds/main2.wav';
-		bgaudio.load();
-		bgaudio.play();
-		fxaudio.pause();
-		fxaudio.src = 'sounds/levelup.wav';
-		fxaudio.load();
-		fxaudio.play();
-	} else if (timePassed>500000 && timePassed < 10000) {
+
+		bgFX.stop();
+		playbgFX("Main2");
+		playSFX("LevelUP");
+		
+		difficulty = 2;
+	} else if (timePassed>5000 && timePassed < 10000 && difficulty == 2) {
 		this.accelerationTweening = 2.7;
         this.platformManager.maxDistanceBetween = 530;
-        //this.scoreColor = '#0300A9';
-		bgaudio.pause();
-		bgaudio.src = 'sounds/main3.wav';
-		bgaudio.load();
-		bgaudio.play();
-		fxaudio.pause();
-		fxaudio.src = 'sounds/levelup.wav';
-		fxaudio.load();
-		fxaudio.play();
-	} else if (timePassed>10000 && timePassed < 15000) {
+
+		
+		bgFX.stop();
+		playbgFX("Main3");
+		playSFX("LevelUP");
+		
+		difficulty = 3; 
+	} else if (timePassed>10000 && timePassed < 15000 && difficulty == 3) {
 		this.accelerationTweening = 3.8;
         this.platformManager.maxDistanceBetween = 580;
-        //this.scoreColor = '#9F8F00';
-		bgaudio.pause();
-		bgaudio.src = 'sounds/main4.wav';
-		bgaudio.load();
-		bgaudio.play();
-		fxaudio.pause();
-		fxaudio.src = 'sounds/levelup.wav';
-		fxaudio.load();
-		fxaudio.play();
-	} else if (timePassed>15000 && timePassed < 20000) {
+
+		
+		bgFX.stop();
+		playbgFX("Main4");
+		playSFX("LevelUP");
+
+		difficulty = 4;
+	} else if (timePassed>15000 && timePassed < 20000 && difficulty == 4) {
 		this.accelerationTweening = 4.4;
 		this.PlatformManager.maxDistanceBetween = 610;
-		fxaudio.pause();
-		fxaudio.src = 'sounds/levelup.wav';
-		fxaudio.load();
-		fxaudio.play();
-	} else if (timePassed>20000) {
+		
+		
+		playSFX("LevelUP");
+		
+		difficulty = 5;
+	} else if (timePassed>20000 && difficulty == 5) {
 		this.accelerationTweening = 5;
 		this.PlatformManager.maxDistanceBetween = 620;
-		fxaudio.pause();
-		fxaudio.src = 'sounds/levelup.wav';
-		fxaudio.load();
-		fxaudio.play();
+
+		
+		playSFX("LevelUP");
+		
+		difficulty = 6;
 	}
     this.acceleration += (this.accelerationTweening - this.acceleration) * 0.01;
 
@@ -861,11 +850,8 @@ InfinityRun.update = function() {
                 if (this.dragging || this.keys.SPACE || this.keys.UP || this.keys.W) {
                     this.player.velocityY = this.player.jumpSize;
                     this.jumpCount++;
-					//play jump_sound
-					fxaudio.pause();
-					fxaudio.src = 'sounds/jump.wav';
-					fxaudio.load();
-					fxaudio.play();  
+					
+					playSFX("Jump");
                 }
             }
         }
@@ -897,16 +883,21 @@ InfinityRun.keydown = function() {
     if (InfinityRun.keys.ESCAPE && GameState==State.Started) {
 		InfinityRun.clear();
 		GameState = State.Menu;
-		bgaudio.pause();
-	    bgaudio.src = 'sounds/menu.wav';
-	    bgaudio.load();
-		bgaudio.play();
-		
+
+		bgFX.setPaused(true);
+		//playMenuFX("MainMenu");
+		menuFX.setPaused(false);
 		toggleTimer();
 		
 	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Main) {
 		GameState = State.Started;
 		toggleTimer();
+		//menuFX.stop();
+		bgFX.setPaused(false);
+		menuFX.setPaused(true);
+
+		
+		
 	}else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Controlls) {
 		curMenuTab = MenuTab.Main;
     }else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Settings) {
@@ -934,16 +925,12 @@ InfinityRun.keydown = function() {
 	// settings audio change
 	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && audioItem !=0 && settingsItem ==0) {
 		audioItem = (audioItem + items.length - 1) % items.length;
-		if (bgaudio.volume>=0)
-		bgaudio.volume-=0.1;
-	    fxaudio.volume-=0.1;
+		createjs.Sound.volume -= 0.1;
 	}
 	
 	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && audioItem !=10 && settingsItem ==0) {
 		audioItem = (audioItem + 1) % items.length;
-		if (bgaudio.volume<1.0)
-		bgaudio.volume+=0.1;
-	    fxaudio.volume+=0.1;
+		createjs.Sound.volume += 0.1;
 	}
 	//graphic settings change
 	if (InfinityRun.keys.LEFT && curMenuTab==MenuTab.Settings && vgaquality!=0 && settingsItem ==1) {
@@ -960,6 +947,12 @@ InfinityRun.keydown = function() {
 	
 	if (InfinityRun.keys.RIGHT && curMenuTab==MenuTab.Settings && setFilters && settingsItem ==2) {
 		setFilters=false;
+		if (invertRunning) {
+			qs.classList.toggle('invertFilter');
+		}
+		if (sunsetRunning) {
+			qs.classList.toggle('sunsetFilter');
+		}
 	}
 	if(InfinityRun.keys.ENTER && GameState == State.Menu) {
 		callback(selectedItem);
@@ -1033,7 +1026,7 @@ InfinityRun.draw = function() {
 	} else if (GameState == State.Menu && curMenuTab==MenuTab.Main) {
 	
 	this.title = "InfinityRun";
-	items = ["Play","Controlls", "Settings", "Highscore", "Credits"];
+	items = ["Play","Controls", "Settings", "Highscore", "Credits"];
 	
 	callback = function(numItem) { //if (numItem == 0) GameState=State.Started 
 	
@@ -1041,6 +1034,8 @@ InfinityRun.draw = function() {
 	  case 0:
 		GameState=State.Started;
 		toggleTimer();
+		//bgFX.stop();
+		menuFX.setPaused(true);
 		break;
 	  case 1:
 	    curMenuTab=MenuTab.Controlls;
@@ -1199,9 +1194,12 @@ InfinityRun.draw = function() {
 	}
 	
 	this.font = "55px Bungee";
+	if (settingsItem==0) {
+	this.fillStyle = "#A9F5F2";
+	}
 	this.fillText('Volume', 240, 300);
-
 	
+	this.fillStyle = "White";
 
 	
 	for (var i = 0; i < items.length; ++i) {
@@ -1209,7 +1207,7 @@ InfinityRun.draw = function() {
 		if (i == audioItem && settingsItem==0)
 		{
 			this.fillStyle = "#A9F5F2";
-			//size = this.size+5;//nicht sicher für was diese zeile code steht? funktioniert auch ohne?
+			//size = this.size+5;
 		}
 		this.font = size.toString() + "px Bungee";
 		posx += this.space;
@@ -1225,7 +1223,11 @@ InfinityRun.draw = function() {
 	//------------------------------------------------------------------------------------
 	//Graphic Settings
 	this.fillStyle = "White";
+	if (settingsItem==1) {
+	this.fillStyle = "#A9F5F2";
+	}
 	this.fillText('Graphics', 240, 500);
+	this.fillStyle = "White";
 	switch (vgaquality) {
 		//Low
 	  case 0:
@@ -1262,7 +1264,11 @@ InfinityRun.draw = function() {
 	//-----------------------------------------------------------------------------------
 	//Filter settings
 	this.fillStyle = "White";
+	if (settingsItem==2) {
+	this.fillStyle = "#A9F5F2";
+	}
 	this.fillText('Filters', InfinityRun.width-300, 300);
+	this.fillStyle = "White";
 	if(setFilters)
 	{
 	   this.fillText('Off', InfinityRun.width-200, 400);
@@ -1317,7 +1323,7 @@ InfinityRun.draw = function() {
 	this.fillStyle = "White";
 	
 	var width = 10;
-	var height = 150;
+	var height = 100;
 	
 	
 	if (this.title) {

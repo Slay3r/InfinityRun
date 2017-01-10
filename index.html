@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<script type="text/javascript" src="js/sketch.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/soundjs-0.6.2.min.js" charset="utf-8"></script>
 	<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 
     <title>Infinity Run</title>
@@ -10,7 +11,30 @@
     <link href="css/game.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/x-icon" href="image/favicon.png">
 </head>
-<body>
+<body onload="loadSound();">
+
+<script>
+// internal load sound files (called in onload (body))
+function loadSound() {
+    if (!createjs.Sound.initializeDefaultPlugins()) {return;}
+ 
+    var audioPath = "sounds/";
+    var sounds = [
+        {id:"MainMenu", src:"menu.wav"},
+		{id:"Crash", src:"crash.wav"},
+		//{id:"", src:"error.wav"},    ::unused
+        {id:"Jump", src:"jump.wav"},
+		{id:"LevelUp", src:"levelup.wav"},
+        {id:"Main1", src:"main1.wav"},
+		{id:"Main2", src:"main2.wav"},
+        {id:"Main3", src:"main3.wav"},
+		{id:"Main4", src:"main4.wav"}
+        
+    ];
+	
+    createjs.Sound.registerSounds(sounds, audioPath);
+}
+</script>
 <!-- Game div -->
 <div id="container">
 
