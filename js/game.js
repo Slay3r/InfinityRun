@@ -41,6 +41,7 @@ var curMenuTab = MenuTab.Main;
 var vgaquality = 0; //0=low 1=mid 2=high
 var settingsItem = 0; // 0=audiosettings 1= Graphicsettings 2= filtersettings
 var setFilters = true; //set filter on or off
+var freshStart = 0;
 
 //timer
 var s = 0,
@@ -606,7 +607,7 @@ InfinityRun.setup = function() {
 	setTimeout(function (){
 	playMenuFX("MainMenu");
 
-	}, 100); 
+	}, 200); 
 	
 
     this.platformManager = new PlatformManager();
@@ -888,7 +889,9 @@ InfinityRun.keydown = function() {
 		menuFX.setPaused(false);
 		toggleTimer();
 		
-	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Main) {
+		freshStart = 1;
+		
+	} else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Main && freshStart == 1) {
 		GameState = State.Started;
 		toggleTimer();
 		//menuFX.stop();
@@ -1035,6 +1038,7 @@ InfinityRun.draw = function() {
 		toggleTimer();
 		//bgFX.stop();
 		menuFX.setPaused(true);
+		bgFX.setPaused(false);
 		break;
 	  case 1:
 	    curMenuTab=MenuTab.Controlls;
