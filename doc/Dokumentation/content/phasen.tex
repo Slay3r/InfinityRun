@@ -593,5 +593,13 @@ Anhand der Testberichte und aus unserem eigenen Test sind uns einige Bugs aufgef
 \end{itemize}
 \subsection{Browsertest}
 Unseren Browsertest haben wir mittels eines Online Tools gemacht. Browsershots.org \cite{browsershots} erlaubte uns verschiedene Browser und auch verschiedene Betriebssysteme zu testen. So kam das Ergebnis heraus dass unser Spiel auf den gängigsten Browsern spielbar ist, jedoch einige Ausnahmen wie z.B. Konqueror und Dillo nicht funktionieren.
-%\section{Dokumentation \& Pr\"asentation}
-
+\subsection{Bug Behebung}
+Wir haben die Bugs nach Priorität behoben und die Nachfolgende Auflistung orientiert sich an dieser.
+\subsubsection{Performance - Priorität 1}
+Wir konnten diesen Bug beheben in dem wir in das Menü eine Grafikoption implementiert haben in der man zwischen ``Low, Mid, High'' auswählen kann. Je nach Option werden mehrere Layer im Hintergrund erzeugt und auch die Komplexität der Häuser im Hintergrund ändert sich.
+\subsubsection{Hintergrundmusik - Priorität 2}
+Die Hintergrundmusik haben wir nun durch eine Audio-Bibliothek behoben. Diese Technologie ist ausgereifter als die Musik per HTML-Audioelemente zu implementieren.
+\subsubsection{Effektlautstärke - Priorität 3}
+Die Effektlautstärke wurde von uns nun perfekt zum Spiel angepasst.
+\subsubsection{Menüsound - Priorität 3}
+Diesen Fehler konnten bei der Behebung der Hintergrundmusik zusätzlich lösen.

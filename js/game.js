@@ -27,9 +27,6 @@
  * https://crossbrowsertesting.com/
  * https://www.browserstack.com/
  */
-//testweise rausgenommen verändert nix
-//var i = 0; 
-
 var debug = false;
 
 var State = { Menu:0, Controlls:1,Started:2, Paused:3, Over:4 };
@@ -81,9 +78,7 @@ function playbgFX (soundID) {
 function playSFX (soundID) {
 	sfx = createjs.Sound.play(soundID);
 }
-
-//-------------------------------------------------------------
-          
+        
 // randomizer
 function random(min, max) {
     return Math.round(min + (Math.random() * (max - min)));
@@ -102,8 +97,6 @@ var InfinityRun = Sketch.create({
     container: document.getElementById('container')
 });
 var qs = document.querySelector('canvas');
-
-//---------------------------------------------------------
 
 //bg func
 Tower = function(config) 
@@ -327,9 +320,8 @@ Street.prototype.render = function()
     	}
     	return InfinityRun.restore();
 };
-//---------------------------------------------------------
-//------- Vector [Get/Set] Functions ---------
 
+//------- Vector [Get/Set] Functions ---------
 //Set X,Y,Width,Height
 function Vector2(x, y, width, height) {
     this.x = x;
@@ -389,7 +381,6 @@ Vector2.prototype.intersectsLeft = function(obj) {
 };
 
 //--------- Player ---------
-
 function Player(options) {
 
     this.setPosition(options.x, options.y);
@@ -424,7 +415,7 @@ Player.prototype.update = function() {
 		
 		//InfinityRun.pause();
 		
-		//highscore update-----------------------------------------------
+		//highscore update
 		if (timePassed>highScore[0]){
 			var help =highScore[0];
 			var help2=highScore[1];
@@ -482,7 +473,6 @@ Platform.prototype.draw = function() {
 };
 
 // --------- Platform Manager ---------
-
 function PlatformManager() {
     this.maxDistanceBetween = 300;
 	this.colors = ['#3D494F'];
@@ -555,7 +545,7 @@ PlatformManager.prototype.update = function() {
 
 
 
-// reset / new Game: set Starting Platform Parameters
+// reset
 PlatformManager.prototype.updateWhenLose = function() {
 
     this.first.x = 300;
@@ -570,7 +560,6 @@ PlatformManager.prototype.updateWhenLose = function() {
 };
 
 // --------- Particle System --------- (Sketch Docs)
-
 function Particle(options) {
     this.x = options.x;
     this.y = options.y;
@@ -592,8 +581,6 @@ Particle.prototype.draw = function() {
 };
 
 /************************************************/
-
-
 InfinityRun.setup = function() {
 
     this.jumpCount = 0;
@@ -644,11 +631,10 @@ InfinityRun.setup = function() {
 	
 
 };
-//--------------------------------------------
+
 InfinityRun.clear = function() {
     return InfinityRun.clearRect(0, 0, InfinityRun.width, InfinityRun.height);
   };
-//--------------------------------------------
 
 Array.max = function( array ){
     return Math.max.apply( Math, array );
@@ -734,9 +720,7 @@ var difficulty = 0;
 
 InfinityRun.update = function() {	
 	if (GameState == State.Started) {
-	//--------------------------------------------
 	//clear func bg
-	
 	var i, results;
     dt = InfinityRun.dt < .1 ? .1 : InfinityRun.dt / 16;
     dt = dt > 5 ? 5 : dt;
@@ -745,7 +729,6 @@ InfinityRun.update = function() {
     while (i--) {
       results.push(Town[i].update(i));
     }
-	//--------------------------------------------
 
 	if(document.hasFocus()) {
 		toggleTimer();
@@ -772,7 +755,6 @@ InfinityRun.update = function() {
 		this.accelerationTweening = 2.7;
         this.platformManager.maxDistanceBetween = 530;
 
-		
 		bgFX.stop();
 		playbgFX("Main3");
 		playSFX("LevelUP");
@@ -781,7 +763,6 @@ InfinityRun.update = function() {
 	} else if (timePassed>10000 && timePassed < 15000 && difficulty == 3) {
 		this.accelerationTweening = 3.8;
         this.platformManager.maxDistanceBetween = 580;
-
 		
 		bgFX.stop();
 		playbgFX("Main4");
@@ -791,7 +772,6 @@ InfinityRun.update = function() {
 	} else if (timePassed>15000 && timePassed < 20000 && difficulty == 4) {
 		this.accelerationTweening = 4.4;
 		this.PlatformManager.maxDistanceBetween = 610;
-		
 		
 		playSFX("LevelUP");
 		
@@ -866,10 +846,9 @@ InfinityRun.update = function() {
     for (i = 0; i < this.particles.length; i++) {
         this.particles[i].update();
     };
-	//-----------------------------------------------
+	
 	//bg 
 	return results;
-	//-----------------------------------------------
 }
 
 };
@@ -879,7 +858,6 @@ InfinityRun.update = function() {
 
 var selectedItem = 0;
 var audioItem = 10;
-
 
 InfinityRun.keydown = function() {
     if (InfinityRun.keys.ESCAPE && GameState==State.Started) {
@@ -899,8 +877,6 @@ InfinityRun.keydown = function() {
 		//menuFX.stop();
 		bgFX.setPaused(false);
 		menuFX.setPaused(true);
-
-		
 		
 	}else if (InfinityRun.keys.ESCAPE && GameState==State.Menu && curMenuTab==MenuTab.Controlls) {
 		curMenuTab = MenuTab.Main;
@@ -967,16 +943,9 @@ InfinityRun.keydown = function() {
 Menu = function() {
 }
 
-
-//--------- Draw ---------
-
-
 InfinityRun.draw = function() {
 	
 	if(GameState == State.Started) {
-	//----------------------------------------------------------------
-	//bg draw
-	
 	var i, results;
     i = Town.length;
     results = [];
@@ -1003,7 +972,6 @@ InfinityRun.draw = function() {
     }
 	
 	}	
-	//----------------------------------------------------------------
 	
     this.player.draw();
 
@@ -1055,9 +1023,7 @@ InfinityRun.draw = function() {
 	    curMenuTab=MenuTab.Credits;
 		break;
 	  
-	}
-	
-	
+	}	
 	
 	};
 	this.height = InfinityRun.height;
@@ -1096,11 +1062,8 @@ InfinityRun.draw = function() {
 		this.fillText(items[i], InfinityRun.width/2, height);
 		this.fillStyle = "White";
 	}
-	//----------------------------------------------------------- 
-	//bg dd <-- ??
 	return results;
-	//-----------------------------------------------------------
-	
+
 	/*
 	 * Settings Tab
 	 *
@@ -1225,7 +1188,7 @@ InfinityRun.draw = function() {
 		this.fillStyle = "White";
 		
 	}
-	//------------------------------------------------------------------------------------
+
 	//Graphic Settings
 	this.fillStyle = "White";
 	if (settingsItem==1) {
@@ -1266,7 +1229,6 @@ InfinityRun.draw = function() {
 		break;
 	  
 	}
-	//-----------------------------------------------------------------------------------
 	//Filter settings
 	this.fillStyle = "White";
 	if (settingsItem==2) {
@@ -1357,7 +1319,7 @@ InfinityRun.draw = function() {
 	}
 	
 	}
-    // Credits Menu----------------------------------------------------------	
+    // Credits Menu
 	else if (GameState == State.Menu && curMenuTab == MenuTab.Credits) {
 	
 	this.title = "Credits";
@@ -1411,8 +1373,6 @@ InfinityRun.draw = function() {
 	this.fillText("InfinityRun is a nonprofit students project at \"Hochschule Furtwangen\"/\"Furtwangen University.\" Special thanks to \"Soulwire\" for his Sketch.js Minimal JavaScript Creative Coding Framework",this.width/2, this.height-2.2*distanceText);
 	this.fillText("Sounds: freesounds.org Special thanks to Jack Rugil for his Parrallax Skyline",this.width/2, this.height-distanceText-5);
 	this.fillText("2016",this.width/2, this.height-8);
-	
-	
 	}
 	
     //Debug

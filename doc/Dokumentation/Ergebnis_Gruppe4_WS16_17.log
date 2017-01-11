@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.20)  2 JAN 2017 14:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.13)  11 JAN 2017 08:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,7 +452,7 @@ Now handling font encoding U ...
 (/usr/share/texlive/texmf-dist/tex/generic/german/german.sty v2.5e 1998-07-08
 Package: german 1998/07/08 v2.5e Support for writing german texts (br)
 \grmnU@D=\dimen103
-german -- \language number for Austrian undefined, default 14 used.
+german -- \language number for Austrian undefined, default 51 used.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
@@ -616,7 +616,7 @@ LaTeX Info: Redefining \flqq on input line 281.
 LaTeX Info: Redefining \frqq on input line 289.
 LaTeX Info: Redefining \flq on input line 297.
 LaTeX Info: Redefining \frq on input line 304.
-ngerman -- \language number for naustrian undefined, default 61 used.
+ngerman -- \language number for naustrian undefined, default 77 used.
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2016/02/24 3.9q The Babel package
 
@@ -987,7 +987,8 @@ LaTeX Warning: Unused global option(s):
     [openrightfinal].
 
 (./Ergebnis_Gruppe4_WS16_17.aux (./content/title.aux) (./content/einleitung.aux
-) (./content/phasen.aux) (./content/affirmation.aux))
+) (./content/phasen.aux) (./content/ausblick.aux) (./content/fazit.aux)
+(./content/affirmation.aux))
 \openout1 = `Ergebnis_Gruppe4_WS16_17.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -1107,7 +1108,7 @@ LaTeX Info: Redefining \nameref on input line 25.
 \openout2 = `content/title.aux'.
 
 
-(./content/title.tex <../../image/logo.png, id=175, 120.45pt x 62.3931pt>
+(./content/title.tex <../../image/logo.png, id=187, 120.45pt x 62.3931pt>
 File: ../../image/logo.png Graphic file (type png)
 
 <use ../../image/logo.png>
@@ -1120,7 +1121,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 13.
 
-<content/pictures/hfu.jpg, id=177, 1015.795pt x 411.5375pt>
+<content/pictures/hfu.jpg, id=189, 1015.795pt x 411.5375pt>
 File: content/pictures/hfu.jpg Graphic file (type jpg)
 
 <use content/pictures/hfu.jpg>
@@ -1204,35 +1205,35 @@ Overfull \hbox (1.83984pt too wide) detected at line 12
 
  (./content/einleitung.tex
 chapter 1.
-<content/pictures/Florian.png, id=306, 185.94469pt x 209.28188pt>
+<content/pictures/Florian.png, id=321, 185.94469pt x 209.28188pt>
 File: content/pictures/Florian.png Graphic file (type png)
 
 <use content/pictures/Florian.png>
 Package pdftex.def Info: content/pictures/Florian.png used on input line 7.
 (pdftex.def)             Requested size: 92.9721pt x 104.64067pt.
 
-<content/pictures/Jannik.png, id=307, 160.34906pt x 212.29312pt>
+<content/pictures/Jannik.png, id=322, 160.34906pt x 212.29312pt>
 File: content/pictures/Jannik.png Graphic file (type png)
 
 <use content/pictures/Jannik.png>
 Package pdftex.def Info: content/pictures/Jannik.png used on input line 13.
 (pdftex.def)             Requested size: 89.79485pt x 118.88333pt.
 
-<content/pictures/Johannes.png, id=308, 103.88812pt x 135.50626pt>
+<content/pictures/Johannes.png, id=323, 103.88812pt x 135.50626pt>
 File: content/pictures/Johannes.png Graphic file (type png)
 
 <use content/pictures/Johannes.png>
 Package pdftex.def Info: content/pictures/Johannes.png used on input line 19.
 (pdftex.def)             Requested size: 90.38193pt x 117.88947pt.
 
-<content/pictures/Marco.png, id=309, 1505.625pt x 1927.2pt>
+<content/pictures/Marco.png, id=324, 1505.625pt x 1927.2pt>
 File: content/pictures/Marco.png Graphic file (type png)
 
 <use content/pictures/Marco.png>
 Package pdftex.def Info: content/pictures/Marco.png used on input line 25.
 (pdftex.def)             Requested size: 87.324pt x 111.77473pt.
 
-<content/pictures/Koray.png, id=310, 99.61215pt x 128.03835pt>
+<content/pictures/Koray.png, id=325, 99.61215pt x 128.03835pt>
 File: content/pictures/Koray.png Graphic file (type png)
 
 <use content/pictures/Koray.png>
@@ -1255,7 +1256,7 @@ has been already used, duplicate ignored
                    \relax 
 l.60 \newpage
               [2]
-<content/pictures/entwurfsskizze.png, id=320, 1720.4275pt x 986.68625pt>
+<content/pictures/entwurfsskizze.png, id=336, 1720.4275pt x 986.68625pt>
 File: content/pictures/entwurfsskizze.png Graphic file (type png)
 
 <use content/pictures/entwurfsskizze.png>
@@ -1287,7 +1288,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) detected at line 93
  []
 
-[7] [8] <content/pictures/start.png, id=363, 1926.19624pt x 963.6pt>
+[7] [8] <content/pictures/start.png, id=378, 1926.19624pt x 963.6pt>
 File: content/pictures/start.png Graphic file (type png)
 
 <use content/pictures/start.png>
@@ -1298,7 +1299,7 @@ Overfull \hbox (11.1995pt too wide) in paragraph at lines 120--121
  [][] 
  []
 
-<content/pictures/spiel.png, id=364, 1926.19624pt x 967.615pt>
+<content/pictures/spiel.png, id=379, 1926.19624pt x 967.615pt>
 File: content/pictures/spiel.png Graphic file (type png)
 
 <use content/pictures/spiel.png>
@@ -1324,7 +1325,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
 [15] [16]
-<content/pictures/funktionsdiagramm.png, id=558, 1292.83pt x 707.64375pt>
+<content/pictures/funktionsdiagramm.png, id=573, 1292.83pt x 707.64375pt>
 File: content/pictures/funktionsdiagramm.png Graphic file (type png)
 
 <use content/pictures/funktionsdiagramm.png>
@@ -1340,7 +1341,7 @@ Package pdftex.def Info: ../../image/logo.png used on input line 364.
 
 
 ] [19] [20] [21] [22]
-<content/pictures/startende.png, id=681, 1926.19624pt x 964.60374pt>
+<content/pictures/startende.png, id=696, 1926.19624pt x 964.60374pt>
 File: content/pictures/startende.png Graphic file (type png)
 
 <use content/pictures/startende.png>
@@ -1352,7 +1353,7 @@ Overfull \hbox (11.1995pt too wide) in paragraph at lines 480--481
  [][] 
  []
 
-<content/pictures/spielende.png, id=682, 1924.18875pt x 967.615pt>
+<content/pictures/spielende.png, id=697, 1924.18875pt x 967.615pt>
 File: content/pictures/spielende.png Graphic file (type png)
 
 <use content/pictures/spielende.png>
@@ -1375,7 +1376,7 @@ Overfull \hbox (37.0561pt too wide) in paragraph at lines 527--542
  [][] 
  []
 
-[25] <content/berichte/felix.pdf, id=715, 597.50829pt x 845.0471pt>
+[25] <content/berichte/felix.pdf, id=730, 597.50829pt x 845.0471pt>
 File: content/berichte/felix.pdf Graphic file (type pdf)
 
 <use content/berichte/felix.pdf>
@@ -1386,7 +1387,7 @@ File: content/berichte/felix.pdf Graphic file (type pdf)
 Package pdftex.def Info: content/berichte/felix.pdf used on input line 570.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<content/berichte/felix.pdf, id=718, page=1, 597.50829pt x 845.0471pt>
+<content/berichte/felix.pdf, id=733, page=1, 597.50829pt x 845.0471pt>
 File: content/berichte/felix.pdf Graphic file (type pdf)
 
 <use content/berichte/felix.pdf, page 1>
@@ -1419,7 +1420,7 @@ Package pdftex.def Info: content/berichte/felix.pdf, page1 used on input line 5
 70.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [27 <./content/berichte/felix.pdf>]
-<content/berichte/maurice.pdf, id=765, 597.50829pt x 845.0471pt>
+<content/berichte/maurice.pdf, id=780, 597.50829pt x 845.0471pt>
 File: content/berichte/maurice.pdf Graphic file (type pdf)
 
 <use content/berichte/maurice.pdf>
@@ -1430,7 +1431,7 @@ File: content/berichte/maurice.pdf Graphic file (type pdf)
 Package pdftex.def Info: content/berichte/maurice.pdf used on input line 571.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<content/berichte/maurice.pdf, id=768, page=1, 597.50829pt x 845.0471pt>
+<content/berichte/maurice.pdf, id=783, page=1, 597.50829pt x 845.0471pt>
 File: content/berichte/maurice.pdf Graphic file (type pdf)
 
 <use content/berichte/maurice.pdf, page 1>
@@ -1461,7 +1462,7 @@ File: content/berichte/maurice.pdf Graphic file (type pdf)
 Package pdftex.def Info: content/berichte/maurice.pdf, page1 used on input line
  571.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [28 <./content/berichte/maurice.pdf>] <content/berichte/tomas.pdf, id=795, 597
+ [28 <./content/berichte/maurice.pdf>] <content/berichte/tomas.pdf, id=810, 597
 .50829pt x 845.0471pt>
 File: content/berichte/tomas.pdf Graphic file (type pdf)
 
@@ -1473,7 +1474,7 @@ File: content/berichte/tomas.pdf Graphic file (type pdf)
 Package pdftex.def Info: content/berichte/tomas.pdf used on input line 572.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<content/berichte/tomas.pdf, id=798, page=1, 597.50829pt x 845.0471pt>
+<content/berichte/tomas.pdf, id=813, page=1, 597.50829pt x 845.0471pt>
 File: content/berichte/tomas.pdf Graphic file (type pdf)
 
 <use content/berichte/tomas.pdf, page 1>
@@ -1505,7 +1506,7 @@ Package pdftex.def Info: content/berichte/tomas.pdf, page1 used on input line 5
 72.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [29 <./content/berichte/tomas.pdf>]
-<content/berichte/gruppe4.pdf, id=826, 597.50829pt x 845.0471pt>
+<content/berichte/gruppe4.pdf, id=841, 597.50829pt x 845.0471pt>
 File: content/berichte/gruppe4.pdf Graphic file (type pdf)
 
 <use content/berichte/gruppe4.pdf>
@@ -1516,7 +1517,7 @@ File: content/berichte/gruppe4.pdf Graphic file (type pdf)
 Package pdftex.def Info: content/berichte/gruppe4.pdf used on input line 573.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<content/berichte/gruppe4.pdf, id=829, page=1, 597.50829pt x 845.0471pt>
+<content/berichte/gruppe4.pdf, id=844, page=1, 597.50829pt x 845.0471pt>
 File: content/berichte/gruppe4.pdf Graphic file (type pdf)
 
 <use content/berichte/gruppe4.pdf, page 1>
@@ -1547,8 +1548,27 @@ File: content/berichte/gruppe4.pdf Graphic file (type pdf)
 Package pdftex.def Info: content/berichte/gruppe4.pdf, page1 used on input line
  573.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [30 <./content/berichte/gruppe4.pdf>]) [31] (./Ergebnis_Gruppe4_WS16_17.bbl [3
-2
+ [30 <./content/berichte/gruppe4.pdf>] [31]) [32]
+\openout2 = `content/ausblick.aux'.
+
+ (./content/ausblick.tex
+chapter 3.
+) [33
+
+
+
+
+]
+\openout2 = `content/fazit.aux'.
+
+ (./content/fazit.tex [34
+
+
+
+
+]
+chapter 4.
+) [35] (./Ergebnis_Gruppe4_WS16_17.bbl [36
 
 
 
@@ -1564,10 +1584,10 @@ Underfull \hbox (badness 5667) in paragraph at lines 35--38
 /cmtt/m/n/12 https : / / github . com / Slay3r / InfinityRun /
  []
 
-) [33]
+) [37]
 \openout2 = `content/affirmation.aux'.
 
- (./content/affirmation.tex [34
+ (./content/affirmation.tex [38
 
 
 
@@ -1601,7 +1621,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-) [35] [36
+) [39] [40
 
 
 
@@ -1617,17 +1637,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--112
 
  []
 
-(../../CHANGELOG.md [37]
+(../../CHANGELOG.md [41]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [38]
+ [42]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]
+ [43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [40])
-(../../js/game.js [41]
+ [44])
+(../../js/game.js [45]
 Overfull \hbox (42.28035pt too wide) in paragraph at lines 55--56
 [][][][]\U/ark/m/n/12 C 
  []
@@ -1640,30 +1660,35 @@ Overfull \hbox (42.28035pt too wide) in paragraph at lines 67--68
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42]
-Overfull \hbox (14.08699pt too wide) in paragraph at lines 109--111
+ [46]
+Overfull \hbox (42.28035pt too wide) in paragraph at lines 85--87
 [][][][]\U/ark/m/n/12 C 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (14.08699pt too wide) in paragraph at lines 106--108
+[][][][][]\U/ark/m/n/12 C 
+ []
 
- [43]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [48]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [50]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [51]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [52]
 Overfull \hbox (14.08699pt too wide) in paragraph at lines 330--331
 [][][][][]\U/ark/m/n/12 C 
  []
@@ -1671,27 +1696,15 @@ Overfull \hbox (14.08699pt too wide) in paragraph at lines 330--331
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49]
+ [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50]
+ [54]
 Overfull \hbox (62.28035pt too wide) in paragraph at lines 427--428
 [][]\U/ark/m/n/12 C 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [53]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55]
@@ -1719,32 +1732,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [63]
-Overfull \hbox (119.81209pt too wide) in paragraph at lines 946--947
-[][][][][][]\U/ark/m/n/12 C 
- []
-
-
-Overfull \hbox (119.81209pt too wide) in paragraph at lines 955--957
-[][][][][]\U/ark/m/n/12 C 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [65]
-Overfull \hbox (84.57039pt too wide) in paragraph at lines 1045--1046
-[][][][][]\U/ark/m/n/12 C 
- []
-
-
-Overfull \hbox (84.57039pt too wide) in paragraph at lines 1048--1050
-[][][][][][]\U/ark/m/n/12 C 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [66]
@@ -1754,38 +1747,95 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [68]
+Overfull \hbox (119.81209pt too wide) in paragraph at lines 977--978
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [69]
+Overfull \hbox (119.81209pt too wide) in paragraph at lines 1006--1008
+[][][][][][]\U/ark/m/n/12 C 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [70]
-Overfull \hbox (55.23201pt too wide) in paragraph at lines 1235--1236
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [71]
+Overfull \hbox (84.57039pt too wide) in paragraph at lines 1099--1100
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Overfull \hbox (84.57039pt too wide) in paragraph at lines 1102--1104
+[][][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [72]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [73]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74]
+Overfull \hbox (260.77888pt too wide) in paragraph at lines 1228--1229
+[][][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [75]
+Overfull \hbox (253.73055pt too wide) in paragraph at lines 1269--1270
+[][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76]
+Overfull \hbox (260.77888pt too wide) in paragraph at lines 1296--1297
+[][][][][][]\U/ark/m/n/12 C 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [77]
+Overfull \hbox (55.23201pt too wide) in paragraph at lines 1360--1361
 [][]\U/ark/m/n/12 C 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71]
+ [78]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72])
-(../../css/game.css [73])
+ [79])
+(../../css/game.css [80]) (../../index.html [81]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74]
-(../../index.html)
+ [82])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
- [75]
+
+[83]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (./Ergebnis_Gruppe4_WS16_17.aux (./content/title.aux)
-(./content/einleitung.aux) (./content/phasen.aux) (./content/affirmation.aux))
+(./content/einleitung.aux) (./content/phasen.aux) (./content/ausblick.aux)
+(./content/fazit.aux) (./content/affirmation.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
 Package rerunfilecheck Info: File `Ergebnis_Gruppe4_WS16_17.out' has not change
 d.
-(rerunfilecheck)             Checksum: 938451100EF979A6C66DD96420881AC4;2926.
+(rerunfilecheck)             Checksum: F999CEEF9E54A7D70E6DA62C80918CD9;3084.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1796,10 +1846,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17705 strings out of 493029
- 266629 string characters out of 6136233
- 657853 words of memory out of 5000000
- 18964 multiletter control sequences out of 15000+600000
+ 17926 strings out of 493029
+ 270319 string characters out of 6136233
+ 665953 words of memory out of 5000000
+ 19007 multiletter control sequences out of 15000+600000
  18280 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,18n,71p,1571b,1917s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1818,10 +1868,10 @@ f/fonts/type1/public/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public
 /cm-super/sfsx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.p
 fb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2074.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on Ergebnis_Gruppe4_WS16_17.pdf (83 pages, 2903776 bytes).
+Output written on Ergebnis_Gruppe4_WS16_17.pdf (91 pages, 2918897 bytes).
 PDF statistics:
- 3056 PDF objects out of 3580 (max. 8388607)
- 2890 compressed objects within 29 object streams
- 1942 named destinations out of 2073 (max. 500000)
- 490 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3294 PDF objects out of 3580 (max. 8388607)
+ 3117 compressed objects within 32 object streams
+ 2106 named destinations out of 2487 (max. 500000)
+ 514 words of extra memory for PDF output out of 10000 (max. 10000000)
 
