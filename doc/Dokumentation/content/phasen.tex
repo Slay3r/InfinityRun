@@ -591,6 +591,15 @@ Anhand der Testberichte und aus unserem eigenen Test sind uns einige Bugs aufgef
 	\item Priorität 2: Wichtig
 	\item Priorität 3: Optional
 \end{itemize}
+\subsection{Bug Beschreibung}
+\subsubsection{Performance - Priorität 1}
+Je nach Auflösung und Leistung des Rechners, kann es zu Performance Einbrüchen kommen.
+\subsubsection{Hintergrundmusik - Priorität 2}
+Das Abspielen der Musik funktioniert in manchen fällen aber in anderen nicht, dies scheint an dem HTML-Audioelement zu liegen.
+\subsubsection{Effektlautstärke - Priorität 3}
+Die Effektlautstärke ist deutlich zu laut und sollte angepasst werden. 
+\subsubsection{Menüsound - Priorität 3}
+Beim Zurückkehren von dem Spiel ins Menü, wird die Menü Musik nicht mehr abgespielt. Auch dieser Bug kann ein Fehler der Implementation des HTML-Audioelements sein.
 \subsection{Browsertest}
 Unseren Browsertest haben wir mittels eines Online Tools gemacht. Browsershots.org \cite{browsershots} erlaubte uns verschiedene Browser und auch verschiedene Betriebssysteme zu testen. So kam das Ergebnis heraus dass unser Spiel auf den gängigsten Browsern spielbar ist, jedoch einige Ausnahmen wie z.B. Konqueror und Dillo nicht funktionieren.
 \subsection{Bug Behebung}

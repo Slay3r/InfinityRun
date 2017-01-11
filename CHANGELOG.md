@@ -1,3 +1,27 @@
+e090c8d Slay3r        2017-01-11 Doku Testphase, Code Cleanup
+
+3983a15 r4qtor        2017-01-10 Add files via upload
+
+2447123 r4qtor        2017-01-10 Add files via upload
+
+dbc5093 r4qtor        2017-01-10 Add files via upload
+
+0c43c83 r4qtor        2017-01-10 Soundsystem, bugfixes, audio tweaks
+
+6e383de butjo         2017-01-09 Filtersettings hinzugefügt noch nicht komplett implementiert
+
+4340101 butjo         2017-01-09 Graphiksettings implementiert
+
+ba0c690 butjo         2017-01-09 Graphische Oberfläche zum Settingsändern implementiert
+
+ff0c36e Florian Durli 2017-01-02 Browsertest
+
+0af9b6b Slay3r        2016-12-21 Delete Logos
+
+4376420 Slay3r        2016-12-21 Testplan
+
+14c229b Slay3r        2016-12-16 fix
+
 86c56e1 Slay3r        2016-12-16 Doku final
 
 c4876c7 Florian Durli 2016-12-16 Controlls
