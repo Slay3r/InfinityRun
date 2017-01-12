@@ -516,8 +516,14 @@ Spiel-Steuerung:
 	\caption{Spiel-Steuerung}
 \end{table}
 \subsubsection{Webserver und Smartphone}
-Zusätzlich habe wir das Spiel nun auf einem freien Webserver(Quelle:\cite{freevar}) implementiert. Dies ist vor allem für unsere Testphase wichtig, in der wir nur noch den Link zum testen schicken müssen. Der Webserver macht es möglich das Spiel auch problemlos auf dem Smartphone zu spielen. Somit unterstützen wir unterschiedliche Plattformen mit unserem Spiel um den Spiel Spaß auch unterwegs zu genießen.\\
-Spiel: \url{http://infinityrun.freevar.com/}
+Zusätzlich haben wir das Spiel nun auf einem freien Webserver(Quelle:\cite{freevar}) implementiert. Dies ist vor allem für unsere Testphase wichtig, in der wir nur noch den Link zum testen schicken müssen. Der Webserver macht es möglich das Spiel auch problemlos auf dem Smartphone zu spielen. Somit unterstützen wir unterschiedliche Plattformen mit unserem Spiel um den Spiel Spaß auch unterwegs zu genießen.\\
+Spiel: \url{http://infinityrun.square7.ch/}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[scale=0.4]{content/pictures/qrcode.jpg}
+	\caption{QR-Code zum Webspace}
+	\label{pic:qrcode}
+\end{figure}
 \newpage
 \subsection{Sounds}
 Bei den implementierten Spielsounds greifen wir auf eine freie Sounddatenbank zurück. Quelle: \cite{sounds}\\
@@ -605,7 +611,7 @@ Unseren Browsertest haben wir mittels eines Online Tools gemacht. Browsershots.o
 \subsection{Bug Behebung}
 Wir haben die Bugs nach Priorität behoben und die Nachfolgende Auflistung orientiert sich an dieser.
 \subsubsection{Performance - Priorität 1}
-Wir konnten diesen Bug beheben in dem wir in das Menü eine Grafikoption implementiert haben in der man zwischen ``Low, Mid, High'' auswählen kann. Je nach Option werden mehrere Layer im Hintergrund erzeugt und auch die Komplexität der Häuser im Hintergrund ändert sich.
+Wir konnten diesen Bug beheben in dem wir in das Menü eine Grafikoption implementiert haben, in der man zwischen ``Low, Mid, High'' auswählen kann. Je nach Option werden mehrere Layer im Hintergrund erzeugt und auch die Komplexität der Häuser im Hintergrund ändert sich. Ebenfalls wurde an gleicher Stelle eine Option zum Abstellen der Filter implementiert.
 \subsubsection{Hintergrundmusik - Priorität 2}
 Die Hintergrundmusik haben wir nun durch eine Audio-Bibliothek behoben. Diese Technologie ist ausgereifter als die Musik per HTML-Audioelemente zu implementieren.
 \subsubsection{Effektlautstärke - Priorität 3}
