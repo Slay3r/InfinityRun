@@ -1,0 +1,34 @@
+\chapter{Github - Changelog}
+Unser Github finden Sie unter \url{https://github.com/Slay3r/InfinityRun/}.\\
+Unsere Versionen die nach Release Plan erfolgt sind finden Sie unter \url{https://github.com/Slay3r/InfinityRun/releases}. Aus unserem Changelog ist auch zu entnehmen, wann welcher Fehler behoben wurde.
+Der Changelog wird aus unseren Github Commits per Befehl exportiert.\\
+Befehl:
+\lstset{language=bash}
+\begin{lstlisting}[frame=single]
+$ git log --pretty=tformat:'%h %<(13)%an %cd %s%n' --date=short > CHANGELOG.md
+\end{lstlisting}
+Quelle: \cite{changelog}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|l|}
+		\toprule
+		\textbf{Github}& \textbf{Name}\\
+		\midrule
+		Slay3r & Florian Durli 	\\ 
+		r4qtor & Marco Maier	\\
+		butjo  & Johannes But	\\ 
+		ans77  & Jannik Ivosevic\\
+		Krusher999 & Koray Emtekin\\
+		\bottomrule
+	\end{tabular}
+	\caption{Github Namen}
+\end{table}
+\\\\
+\textbf{Changelog: }
+\lstset{
+	literate={ö}{{\"o}}1
+	{ä}{{\"a}}1
+	{ü}{{\"u}}1
+	{ß}{{\ss}}1
+}
+\lstinputlisting{../../CHANGELOG.md}
