@@ -1,3 +1,11 @@
+487056f Florian Durli 2017-01-13 Changelog
+
+f5f3c09 butjo         2017-01-12 Dokumentation angepasst, QR-Code hinzugefügt
+
+8727fbd butjo         2017-01-11 Präsentation Test
+
+18d2ff9 Slay3r        2017-01-11 Bug Beschreibung
+
 e090c8d Slay3r        2017-01-11 Doku Testphase, Code Cleanup
 
 3983a15 r4qtor        2017-01-10 Add files via upload
