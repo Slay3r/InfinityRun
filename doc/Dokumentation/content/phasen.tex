@@ -91,7 +91,7 @@
 	\bottomrule
  	\caption{Releaseplan}
 \end{longtable}
-Beim Releaseplan haben wir uns auf eine Versionierung des Programms mit aufsteigenden Nummern geeinigt. Die Erste Nummer steht hierbei für die Grundlegende Programmversion. Die Zweite für wichtige Updates und die Dritte für Bugfixes zwischendurch. Zur jeweiligen Version haben wir ein Fertigstellungsdatum festgelegt und den dann erforderlichen Inhalt festgelegt.
+Beim Releaseplan haben wir uns auf eine Versionierung des Programms mit aufsteigenden Nummern geeinigt. Die erste Nummer steht hierbei für die grundlegende Programmversion, die zweite für wichtige Updates und die dritte für Bugfixes zwischendurch. Zur jeweiligen Version haben wir ein Fertigstellungsdatum festgelegt und den dann erforderlichen Inhalt festgelegt.
 \newpage
 \section{Implementation - Zwischenstand}
 \subsection{Erfüllte Anforderungen}
@@ -171,7 +171,7 @@ container: document.getElementById('container')
 });
 \end{lstlisting}
 \subsubsection{Spieler initialisieren}
-In der Player-Update-Funktion wird der Player also unsere Spielfigur aktualisiert. Damit die Schwerkraft gegeben ist, wird zuerst die Y-Geschwindigkeit um eins erhöht. Hierbei ist zu beachten, dass die Y- Koordinatenachse nach unten zeigt.Danach wird die Position des Spielers neu festgesetzt. Für den Fall, dass der Spieler verliert, welches mittels if-Entscheidung überprüft wird, werden dann anschließend sämtliche Spielwerte auf ihren Ausgangswert zurückgesetzt. Als letztes wird überprüft ob der Spieler eine Taste gedrückt um zu Springen. Falls ja und er sich nicht schon in der Luft befindet wird die Y-Geschwindigkeit in die negative Richtung erhöht und die Spielfigur springt.
+In der Player-Update-Funktion wird der Player also unsere Spielfigur aktualisiert. Damit die Schwerkraft gegeben ist, wird zuerst die Y-Geschwindigkeit um eins erhöht. Hierbei ist zu beachten, dass die Y- Koordinatenachse nach unten zeigt.Danach wird die Position des Spielers neu festgesetzt. Für den Fall, dass der Spieler verliert, welches mittels if-Entscheidung überprüft wird, werden dann anschließend sämtliche Spielwerte auf ihren Ausgangswert zurückgesetzt. Als letztes wird überprüft ob der Spieler eine Taste gedrückt um zu springen. Falls ja und er sich nicht schon in der Luft befindet wird die Y-Geschwindigkeit in die negative Richtung erhöht und die Spielfigur springt.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 Player.prototype.update = function() {
@@ -245,7 +245,7 @@ this.third = new Platform
 }
 \end{lstlisting}
 \subsubsection{Update der Plattformen}
-Die Plattform-Update-Funktion aktualisiert die 3 Plattformen. Sie hat zwei Aufgaben. Als erstes wird die Plattform immer, in Abhängigkeit zur Spielbeschleunigung, nach um drei nach links verschoben. Danach wird abgefragt, ob die Plattform schon ganz links aus dem Bild heraus gewandert ist und falls ja werden sämtliche Werte so zufällig neu gesetzt, dass sie wieder von rechts ins Bild laufen kann. Dies wird für alle 3 Plattformen gleich durchgeführt.
+Die Plattform-Update-Funktion aktualisiert die 3 Plattformen. Sie hat zwei Aufgaben. Als erstes wird die Plattform immer, in Abhängigkeit zur Spielbeschleunigung, um drei nach links verschoben. Danach wird abgefragt, ob die Plattform schon ganz links aus dem Bild heraus gewandert ist und falls ja werden sämtliche Werte so zufällig neu gesetzt, dass sie wieder von rechts ins Bild laufen kann. Dies wird für alle 3 Plattformen gleich durchgeführt.
 \lstset{language=java}
 \begin{lstlisting}[frame=single]
 PlatformManager.prototype.update = function() 
@@ -307,12 +307,12 @@ In folgender Funktion werden mithilfe einer for-Schleife zuerst alle drei Plattf
 });
 \end{lstlisting}
 \subsection{Nächste Ziele}
-Da die Grundlegenden Spielfunktionen implementiert sind wollen wir uns in der zweiten Phase der Implementation nun auf das Design und die Effektsounds konzentrieren.
+Da die grundlegenden Spielfunktionen implementiert sind, wollen wir uns in der zweiten Phase der Implementation nun auf das Design und die Effektsounds konzentrieren.
 \section{Implementation - Endstand}
 \subsection{Spielkonzept Änderungen}
-Folgende Spielkonzept Äbnderungen haben wir im laufe der Implementation vorgenommen:
+Folgende Spielkonzeptänderungen haben wir im Laufe der Implementation vorgenommen:
 \begin{itemize}
-	\item Die Spielebene hat anstatt Hindernisse Zufalls generierte variable Plattformen.
+	\item Die Spielebene hat anstatt Hindernisse zufallsgenerierte variable Plattformen.
 	\item Spiel-Menü eingefügt
 	\item Spielhintergrund
 	\item Spielfigur ändert sich nicht nach Aufprall
@@ -416,7 +416,7 @@ if (this.dragging || this.keys.SPACE || this.keys.UP || this.keys.W)
 \newpage
 \subsubsection{Hintergrund}
 Unser Hintergrund stellt in drei verschiedenen Layern Hochhäuser dar. Diese Hochhäuser werden ähnlich wie unsere Plattformen generiert und von links nach rechts auf dem Bildschirm dargestellt. Der Hintergrund reagiert zusätzlich auf Sprünge der Spielfigur. Inspiriert von ``Canvas Parallax Skyline'' \cite{background}
-Erstellt die Hochhäuser mit ihren Eigenschaften:
+erstellt die Hochhäuser mit ihren Eigenschaften:
 \begin{lstlisting}[frame=single]
 Street.prototype.populate = function() 
 {
@@ -495,7 +495,7 @@ Menü-Steuerung:
 		\toprule
 		\textbf{Taste}& \textbf{Funktion}\\
 		\midrule
-		Pfeiltaste Hoch,Runter & Hoch,Runter navigieren im Menü	\\ 
+		Pfeiltaste Hoch,Runter & Hoch,Runter Navigieren im Menü	\\ 
 		Enter & Bestätigen\\
 		ESC & Zurück ins Hauptmenü	\\ 
 		\bottomrule
@@ -516,7 +516,7 @@ Spiel-Steuerung:
 	\caption{Spiel-Steuerung}
 \end{table}
 \subsubsection{Webserver und Smartphone}
-Zusätzlich haben wir das Spiel nun auf einem freien Webserver(Quelle:\cite{freevar}) implementiert. Dies ist vor allem für unsere Testphase wichtig, in der wir nur noch den Link zum testen schicken müssen. Der Webserver macht es möglich das Spiel auch problemlos auf dem Smartphone zu spielen. Somit unterstützen wir unterschiedliche Plattformen mit unserem Spiel um den Spiel Spaß auch unterwegs zu genießen.\\
+Zusätzlich haben wir das Spiel nun auf einem freien Webserver(Quelle:\cite{freevar}) implementiert. Dies ist vor allem für unsere Testphase wichtig, in der wir nur noch den Link zum Testen schicken müssen. Der Webserver macht es möglich das Spiel auch problemlos auf dem Smartphone zu spielen. Somit unterstützen wir unterschiedliche Plattformen mit unserem Spiel, um den Spielspaß auch unterwegs zu genießen.\\
 Spiel: \url{http://infinityrun.square7.ch/}
 \begin{figure}[htb]
 	\centering
@@ -548,9 +548,9 @@ Folgende Sounds werden wir verwenden:
 	\caption{Sound Links}
 \end{table}
 \section{Test}
-In der Phase ``Test'' erstellen wir einen Testplan der auch an dritte ausgegeben wird.
+In der Phase ``Test'' erstellen wir einen Testplan, der auch an Dritte ausgegeben wird.
 \subsection{Umfang}
-Das Spiel wird ausführlich von uns getestet und zusätzlich ein Feedback von dritten eingeholt.
+Das Spiel wird ausführlich von uns getestet und zusätzlich ein Feedback von Dritten eingeholt.
 \subsection{Testplan}
 \subsubsection{Testumgebung}
 \begin{itemize}
@@ -571,8 +571,8 @@ Das Spiel wird ausführlich von uns getestet und zusätzlich ein Feedback von dr
 	\item Performance
 \end{itemize}
 \subsection{Testberichte}
-Testberichte werden an dritte ausgehändigt. Nachdem wir die Berichte zurück bekommen haben, werden wir diese digitalisieren. 
-Unser Testbericht haben wir zusätzlich noch angehängt. 
+Testberichte werden an Dritte ausgehändigt. Nachdem wir die Berichte zurück bekommen haben, werden wir diese digitalisieren. 
+Unseren Testbericht haben wir zusätzlich noch angehängt. 
 \includepdf[pages=-]{content/berichte/felix.pdf}
 \includepdf[pages=-]{content/berichte/maurice.pdf}
 \includepdf[pages=-]{content/berichte/tomas.pdf}
@@ -601,15 +601,15 @@ Anhand der Testberichte und aus unserem eigenen Test sind uns einige Bugs aufgef
 \subsubsection{Performance - Priorität 1}
 Je nach Auflösung und Leistung des Rechners, kann es zu Performance Einbrüchen kommen.
 \subsubsection{Hintergrundmusik - Priorität 2}
-Das Abspielen der Musik funktioniert in manchen fällen aber in anderen nicht, dies scheint an dem HTML-Audioelement zu liegen.
+Das Abspielen der Musik funktioniert in manchen Fällen, aber in anderen nicht, dies scheint an dem HTML-Audioelement zu liegen.
 \subsubsection{Effektlautstärke - Priorität 3}
 Die Effektlautstärke ist deutlich zu laut und sollte angepasst werden. 
 \subsubsection{Menüsound - Priorität 3}
-Beim Zurückkehren von dem Spiel ins Menü, wird die Menü Musik nicht mehr abgespielt. Auch dieser Bug kann ein Fehler der Implementation des HTML-Audioelements sein.
+Beim Zurückkehren von dem Spiel ins Menü wird die Menümusik nicht mehr abgespielt. Auch dieser Bug kann ein Fehler der Implementation des HTML-Audioelements sein.
 \subsection{Browsertest}
-Unseren Browsertest haben wir mittels eines Online Tools gemacht. Browsershots.org \cite{browsershots} erlaubte uns verschiedene Browser und auch verschiedene Betriebssysteme zu testen. So kam das Ergebnis heraus dass unser Spiel auf den gängigsten Browsern spielbar ist, jedoch einige Ausnahmen wie z.B. Konqueror und Dillo nicht funktionieren.
-\subsection{Bug Behebung}
-Wir haben die Bugs nach Priorität behoben und die Nachfolgende Auflistung orientiert sich an dieser.
+Unseren Browsertest haben wir mittels eines Online Tools gemacht. Browsershots.org \cite{browsershots} erlaubte uns verschiedene Browser und auch verschiedene Betriebssysteme zu testen. So kam das Ergebnis heraus, dass unser Spiel auf den gängigsten Browsern spielbar ist, jedoch einige Ausnahmen wie z.B. Konqueror und Dillo nicht funktionieren.
+\subsection{Bugbehebung}
+Wir haben die Bugs nach Priorität behoben und die nachfolgende Auflistung orientiert sich an dieser.
 \subsubsection{Performance - Priorität 1}
 Wir konnten diesen Bug beheben in dem wir in das Menü eine Grafikoption implementiert haben, in der man zwischen ``Low, Mid, High'' auswählen kann. Je nach Option werden mehrere Layer im Hintergrund erzeugt und auch die Komplexität der Häuser im Hintergrund ändert sich. Ebenfalls wurde an gleicher Stelle eine Option zum Abstellen der Filter implementiert.
 \subsubsection{Hintergrundmusik - Priorität 2}
