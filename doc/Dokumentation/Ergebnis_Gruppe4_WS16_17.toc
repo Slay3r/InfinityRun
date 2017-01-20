@@ -1,6 +1,6 @@
-\contentsline {chapter}{Inhaltsverzeichnis}{iii}{figure.caption.1}
-\contentsline {chapter}{Abbildungsverzeichnis}{v}{figure.caption.1}
-\contentsline {chapter}{Tabellenverzeichnis}{vii}{section*.2}
+\contentsline {chapter}{Inhaltsverzeichnis}{ii}{figure.caption.1}
+\contentsline {chapter}{Abbildungsverzeichnis}{iii}{figure.caption.1}
+\contentsline {chapter}{Tabellenverzeichnis}{v}{section*.2}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Team}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Rollenverteilung}{2}{section.1.2}
@@ -58,17 +58,16 @@
 \contentsline {subsubsection}{\numberline {2.4.5.3}Effektlautst\IeC {\"a}rke - Priorit\IeC {\"a}t 3}{31}{subsubsection.2.4.5.3}
 \contentsline {subsubsection}{\numberline {2.4.5.4}Men\IeC {\"u}sound - Priorit\IeC {\"a}t 3}{31}{subsubsection.2.4.5.4}
 \contentsline {subsection}{\numberline {2.4.6}Browsertest}{32}{subsection.2.4.6}
-\contentsline {subsection}{\numberline {2.4.7}Bug Behebung}{32}{subsection.2.4.7}
+\contentsline {subsection}{\numberline {2.4.7}Bugbehebung}{32}{subsection.2.4.7}
 \contentsline {subsubsection}{\numberline {2.4.7.1}Performance - Priorit\IeC {\"a}t 1}{32}{subsubsection.2.4.7.1}
 \contentsline {subsubsection}{\numberline {2.4.7.2}Hintergrundmusik - Priorit\IeC {\"a}t 2}{32}{subsubsection.2.4.7.2}
 \contentsline {subsubsection}{\numberline {2.4.7.3}Effektlautst\IeC {\"a}rke - Priorit\IeC {\"a}t 3}{32}{subsubsection.2.4.7.3}
 \contentsline {subsubsection}{\numberline {2.4.7.4}Men\IeC {\"u}sound - Priorit\IeC {\"a}t 3}{32}{subsubsection.2.4.7.4}
-\contentsline {chapter}{\numberline {3}Github - Changelog}{33}{chapter.3}
-\contentsline {chapter}{\numberline {4}Ausblick}{39}{chapter.4}
-\contentsline {chapter}{\numberline {5}Fazit}{41}{chapter.5}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{43}{chapter*.23}
-\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{45}{chapter*.24}
-\contentsline {chapter}{\numberline {A}Anhang}{47}{appendix.A}
-\contentsline {section}{\numberline {A.1}game.js}{47}{section.A.1}
-\contentsline {section}{\numberline {A.2}game.css}{81}{section.A.2}
-\contentsline {section}{\numberline {A.3}index.html}{82}{section.A.3}
+\contentsline {chapter}{\numberline {3}Ausblick}{33}{chapter.3}
+\contentsline {chapter}{\numberline {4}Fazit}{35}{chapter.4}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{37}{chapter*.22}
+\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{39}{chapter*.23}
+\contentsline {chapter}{\numberline {A}Anhang}{41}{appendix.A}
+\contentsline {section}{\numberline {A.1}game.js}{41}{section.A.1}
+\contentsline {section}{\numberline {A.2}game.css}{75}{section.A.2}
+\contentsline {section}{\numberline {A.3}index.html}{76}{section.A.3}
